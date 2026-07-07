@@ -91,10 +91,10 @@ export default function ZiyaratToursPage() {
               {" "}<strong style={{ color: "#fff" }}>Madinah</strong> — with experienced local drivers who know every sacred location.
             </p>
             <div style={{ display: "flex", gap: "12px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "4px", textDecoration: "none" }}>
+              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "42px", textDecoration: "none" }}>
                 <MessageCircle size={17} /> Book on WhatsApp
               </a>
-              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "4px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
+              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
                 Book Online <ArrowRight size={17} />
               </Link>
             </div>
@@ -104,7 +104,7 @@ export default function ZiyaratToursPage() {
         {/* Sites */}
         <section className="section-padding">
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px" }}>
+            <div className="rg-2" style={{ display: "grid", gap: "60px" }}>
               <div>
                 <h2 style={{ marginBottom: "28px", fontSize: "26px" }}>Ziyarat Sites in Makkah</h2>
                 {makkahSites.map(({ name, desc }) => (
@@ -150,7 +150,7 @@ export default function ZiyaratToursPage() {
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Book Your Ziyarat Tour</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>WhatsApp us to customize your tour and confirm your booking.</p>
-            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "4px", textDecoration: "none" }}>
+            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
               <MessageCircle size={18} /> +966 59 894 7503
             </a>
           </div>

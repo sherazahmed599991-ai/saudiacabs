@@ -39,7 +39,7 @@ export default function AboutPage() {
 
         {/* Story */}
         <section className="section-padding">
-          <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
+          <div className="container rg-2" style={{ display: "grid", gap: "80px", alignItems: "center" }}>
             <div>
               <h2 style={{ marginBottom: "20px" }}>Our Story</h2>
               <p style={{ fontSize: "17px", marginBottom: "20px" }}>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 Here is what makes Saudia Cabs the preferred choice for thousands of pilgrims.
               </p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
+            <div className="rg-4" style={{ display: "grid", gap: "24px" }}>
               {whyPoints.map(({ Icon, title, desc }) => (
                 <div
                   key={title}
@@ -147,7 +147,7 @@ export default function AboutPage() {
         <section className="section-padding">
           <div className="container" style={{ maxWidth: "720px", margin: "0 auto" }}>
             <h2 style={{ textAlign: "center", marginBottom: "40px" }}>Our Commitment to You</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <div className="rg-2" style={{ display: "grid", gap: "16px" }}>
               {[
                 "Licensed and insured drivers",
                 "Clean, sanitized vehicles",
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 fontSize: "16px",
                 fontWeight: "600",
                 padding: "14px 36px",
-                borderRadius: "4px",
+                borderRadius: "42px",
                 textDecoration: "none",
               }}
             >

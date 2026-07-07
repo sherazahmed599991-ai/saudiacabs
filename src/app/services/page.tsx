@@ -99,7 +99,7 @@ export default function ServicesPage() {
 
         <section className="section-padding">
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "28px" }}>
+            <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
               {services.map(({ Icon, title, href, description, features }) => (
                 <div key={title} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", padding: "32px 28px" }}>
                   <div style={{ width: "52px", height: "52px", backgroundColor: "#e8f0fe", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "20px" }}>
@@ -129,10 +129,10 @@ export default function ServicesPage() {
             <h2 style={{ marginBottom: "16px" }}>Ready to Book?</h2>
             <p style={{ fontSize: "17px", color: "#69727d", marginBottom: "32px" }}>Contact us now and we will arrange everything for you.</p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#15CD8E", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "4px", textDecoration: "none" }}>
+              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#15CD8E", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 Book Now <ArrowRight size={18} />
               </Link>
-              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "transparent", color: "#15CD8E", fontSize: "16px", fontWeight: "500", padding: "13px 35px", borderRadius: "4px", textDecoration: "none", border: "1px solid #15CD8E" }}>
+              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "transparent", color: "#15CD8E", fontSize: "16px", fontWeight: "500", padding: "13px 35px", borderRadius: "42px", textDecoration: "none", border: "2px solid #15CD8E" }}>
                 View Our Fleet <ArrowRight size={18} />
               </Link>
             </div>

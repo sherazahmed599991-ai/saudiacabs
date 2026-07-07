@@ -77,7 +77,7 @@ export default function AirportTransferPage() {
               <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "4px", textDecoration: "none" }}>
                 <MessageCircle size={17} /> Book on WhatsApp
               </a>
-              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "4px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
+              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
                 Book Online <ArrowRight size={17} />
               </Link>
             </div>
@@ -88,7 +88,7 @@ export default function AirportTransferPage() {
         <section className="section-padding">
           <div className="container">
             <h2 style={{ textAlign: "center", marginBottom: "48px" }}>Airport Transfer Routes</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "28px" }}>
+            <div className="rg-2" style={{ display: "grid", gap: "28px" }}>
               {[
                 {
                   from: "Jeddah Airport (KAIA)",
@@ -139,7 +139,7 @@ export default function AirportTransferPage() {
         <section style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", padding: "64px 0" }}>
           <div className="container">
             <h2 style={{ textAlign: "center", marginBottom: "48px" }}>What is Included</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
+            <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
               {[
                 { title: "Flight Tracking", desc: "We monitor your flight in real time. If it is delayed, your driver waits — no extra charge." },
                 { title: "Meet & Greet", desc: "Your driver will be at arrivals with a name sign and assist with your luggage." },
@@ -178,7 +178,7 @@ export default function AirportTransferPage() {
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Book Your Airport Transfer Now</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>WhatsApp us your flight details and we will confirm your booking in minutes.</p>
-            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "4px", textDecoration: "none" }}>
+            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
               <MessageCircle size={18} /> +966 59 894 7503
             </a>
           </div>

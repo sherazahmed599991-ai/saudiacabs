@@ -12,12 +12,12 @@ const contactInfo = [
 export default function ContactForm() {
   return (
     <section className="section-padding">
-      <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
+      <div className="container rg-2" style={{ display: "grid", gap: "60px", alignItems: "start" }}>
         {/* Form */}
         <div>
           <h2 style={{ marginBottom: "28px", fontSize: "28px" }}>Send a Booking Request</h2>
           <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+            <div className="rg-2" style={{ display: "grid", gap: "20px" }}>
               <div>
                 <label style={{ display: "block", fontSize: "14px", fontWeight: "500", color: "#202124", marginBottom: "8px" }}>Full Name</label>
                 <input type="text" placeholder="Your full name" style={{ width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #e0dfde", borderRadius: "4px", outline: "none", color: "#202124" }} />
@@ -59,7 +59,7 @@ export default function ContactForm() {
               <label style={{ display: "block", fontSize: "14px", fontWeight: "500", color: "#202124", marginBottom: "8px" }}>Message (optional)</label>
               <textarea rows={4} placeholder="Pickup location, flight number, special requests..." style={{ width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #e0dfde", borderRadius: "4px", outline: "none", color: "#202124", resize: "vertical", fontFamily: "inherit" }} />
             </div>
-            <button type="submit" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", backgroundColor: "#15CD8E", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px", borderRadius: "4px", border: "none", cursor: "pointer", width: "100%" }}>
+            <button type="submit" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", backgroundColor: "#15CD8E", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px", borderRadius: "42px", border: "none", cursor: "pointer", width: "100%" }}>
               <Send size={17} /> Send Booking Request
             </button>
           </form>

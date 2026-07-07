@@ -77,10 +77,10 @@ export default function GroupPackagesPage() {
               Special transport packages for <strong style={{ color: "#fff" }}>families and large groups</strong> — airport pickup, Ziyarat tours, intercity transfers, all in one.
             </p>
             <div style={{ display: "flex", gap: "12px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "4px", textDecoration: "none" }}>
+              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "42px", textDecoration: "none" }}>
                 <MessageCircle size={17} /> Get Group Quote
               </a>
-              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "4px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
+              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
                 View Fleet <ArrowRight size={17} />
               </Link>
             </div>
@@ -91,7 +91,7 @@ export default function GroupPackagesPage() {
         <section className="section-padding">
           <div className="container">
             <h2 style={{ textAlign: "center", marginBottom: "48px" }}>Group Vehicles</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px", marginBottom: "56px" }}>
+            <div className="rg-3" style={{ display: "grid", gap: "24px", marginBottom: "56px" }}>
               {vehicles.map((v) => (
                 <div key={v.name} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", padding: "32px 28px", textAlign: "center" }}>
                   <div style={{ fontSize: "40px", marginBottom: "16px" }}>{v.icon}</div>
@@ -103,7 +103,7 @@ export default function GroupPackagesPage() {
             </div>
 
             <h2 style={{ marginBottom: "32px", textAlign: "center" }}>What is Included in Group Packages</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
+            <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
               {[
                 { title: "Airport Pickup", desc: "Group pickup from Jeddah KAIA or Madinah AMAA on arrival." },
                 { title: "Ziyarat Tours", desc: "Group Ziyarat in Makkah and Madinah at your preferred schedule." },
@@ -141,7 +141,7 @@ export default function GroupPackagesPage() {
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Get a Group Quote</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>Tell us your group size, travel dates and services needed — we will send you a custom quote.</p>
-            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "4px", textDecoration: "none" }}>
+            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
               <MessageCircle size={18} /> +966 59 894 7503
             </a>
           </div>
