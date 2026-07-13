@@ -38,66 +38,72 @@
   --color-border:        var(--border);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* Wrapped in Tailwind's `base` layer so these element defaults sit below
+   utility classes in the cascade — otherwise, being unlayered, they'd win
+   over any Tailwind utility regardless of specificity (e.g. admin pages'
+   `text-2xl`/`text-foreground` would lose to the bare `h1`/`a` rules below). */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Roboto', Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* ── Typography ──────────────────────────────── */
-h1 {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--heading);
-}
+  /* ── Typography ──────────────────────────────── */
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--heading);
+  }
 
-h2 {
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--heading);
-}
+  h2 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--heading);
+  }
 
-h3 {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--heading);
-}
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--heading);
+  }
 
-h4 {
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--heading);
-}
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--heading);
+  }
 
-p {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.75;
-}
+  p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
 
-a {
-  color: var(--link);
-  text-decoration: none;
-}
+  a {
+    color: var(--link);
+    text-decoration: none;
+  }
 
-a:hover {
-  color: var(--link-hover);
+  a:hover {
+    color: var(--link-hover);
+  }
 }
 
 /* ── Buttons ─────────────────────────────────── */
