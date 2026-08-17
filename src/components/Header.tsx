@@ -20,12 +20,12 @@ export default function Header() {
   return (
     <header
       style={{
-        backgroundColor: "#ffffff",
-        borderBottom: "1px solid #e0dfde",
+        backgroundColor: "#184A27",
+        borderBottom: "1px solid #0F2A18",
         position: "sticky",
         top: 0,
         zIndex: 100,
-        boxShadow: "0 2px 4px rgba(0,0,0,0.06)",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.15)",
       }}
     >
       <div
@@ -43,20 +43,20 @@ export default function Header() {
             style={{
               width: "36px",
               height: "36px",
-              backgroundColor: "#15CD8E",
+              backgroundColor: "#B5913D",
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: "#fff",
+              color: "#184A27",
               fontWeight: "700",
               fontSize: "14px",
             }}
           >
             SC
           </div>
-          <span style={{ fontSize: "20px", fontWeight: "700", color: "#1a1a1a" }}>
-            Saudia <span style={{ color: "#15CD8E" }}>Cabs</span>
+          <span style={{ fontSize: "20px", fontWeight: "700", color: "#FCFBEA" }}>
+            Saudia <span style={{ color: "#D1B969" }}>Cabs</span>
           </span>
         </Link>
 
@@ -71,12 +71,12 @@ export default function Header() {
                 style={{
                   fontSize: "15px",
                   fontWeight: "500",
-                  color: isActive ? "#15CD8E" : "#5E5E5E",
+                  color: isActive ? "#D1B969" : "#EDEAD3",
                   padding: "8px 14px",
                   borderRadius: "4px",
                   textDecoration: "none",
-                  backgroundColor: isActive ? "rgba(21,205,142,0.08)" : "transparent",
-                  borderBottom: isActive ? "2px solid #15CD8E" : "2px solid transparent",
+                  backgroundColor: isActive ? "rgba(255,255,255,0.08)" : "transparent",
+                  borderBottom: isActive ? "2px solid #B5913D" : "2px solid transparent",
                 }}
               >
                 {item.label}
@@ -111,7 +111,7 @@ export default function Header() {
               display: "flex",
               alignItems: "center",
               gap: "6px",
-              backgroundColor: "#15CD8E",
+              backgroundColor: "#B5913D",
               color: "#fff",
               fontSize: "14px",
               fontWeight: "500",
@@ -135,7 +135,7 @@ export default function Header() {
             border: "none",
             cursor: "pointer",
             padding: "8px",
-            color: "#202124",
+            color: "#FCFBEA",
             display: "none",
           }}
         >
@@ -145,7 +145,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div style={{ backgroundColor: "#fff", borderTop: "1px solid #e0dfde", padding: "16px 24px" }}>
+        <div style={{ backgroundColor: "#184A27", borderTop: "1px solid #0F2A18", padding: "16px 24px" }}>
           {navLinks.map((item) => {
             const isActive = pathname === item.href || pathname === item.href.replace(/\/$/, "");
             return (
@@ -157,9 +157,9 @@ export default function Header() {
                   display: "block",
                   fontSize: "16px",
                   fontWeight: "500",
-                  color: isActive ? "#15CD8E" : "#1a1a1a",
+                  color: isActive ? "#D1B969" : "#FCFBEA",
                   padding: "12px 0",
-                  borderBottom: "1px solid #e0dfde",
+                  borderBottom: "1px solid #2D663A",
                   textDecoration: "none",
                 }}
               >
@@ -197,7 +197,7 @@ export default function Header() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "6px",
-                backgroundColor: "#15CD8E",
+                backgroundColor: "#B5913D",
                 color: "#fff",
                 fontSize: "14px",
                 fontWeight: "500",

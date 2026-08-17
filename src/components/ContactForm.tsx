@@ -10,13 +10,13 @@ const initialBookingState: BookingFormState = { status: "idle", message: "" };
 
 const contactInfo = [
   { Icon: MessageCircle, label: "WhatsApp", value: "+966 59 894 7503", href: "https://wa.me/966598947503", color: "#25D366" },
-  { Icon: Phone, label: "Phone", value: "+966 59 894 7503", href: "tel:+966598947503", color: "#15CD8E" },
+  { Icon: Phone, label: "Phone", value: "+966 59 894 7503", href: "tel:+966598947503", color: "#B5913D" },
   { Icon: MapPin, label: "Service Area", value: "Makkah, Madinah & Jeddah", href: null, color: "#fa7b17" },
   { Icon: Clock, label: "Availability", value: "24 hours / 7 days a week", href: null, color: "#34a853" },
 ];
 
-const inputStyle = { width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #e0dfde", borderRadius: "4px", outline: "none", color: "#202124" };
-const labelStyle = { display: "block", fontSize: "14px", fontWeight: "500", color: "#202124", marginBottom: "8px" };
+const inputStyle = { width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #E4DEC6", borderRadius: "4px", outline: "none", color: "#17351F" };
+const labelStyle = { display: "block", fontSize: "14px", fontWeight: "500", color: "#17351F", marginBottom: "8px" };
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -29,7 +29,7 @@ function SubmitButton() {
         alignItems: "center",
         justifyContent: "center",
         gap: "8px",
-        backgroundColor: pending ? "#8fe3c6" : "#15CD8E",
+        backgroundColor: pending ? "#D9C695" : "#B5913D",
         color: "#fff",
         fontSize: "16px",
         fontWeight: "600",
@@ -114,8 +114,8 @@ export default function ContactForm() {
                   fontWeight: 500,
                   padding: "12px 16px",
                   borderRadius: "6px",
-                  backgroundColor: state.status === "success" ? "#d6f7ee" : "#fde8e8",
-                  color: state.status === "success" ? "#0fb87d" : "#c0392b",
+                  backgroundColor: state.status === "success" ? "#E3EEE5" : "#fde8e8",
+                  color: state.status === "success" ? "#184A27" : "#c0392b",
                 }}
               >
                 {state.message}
@@ -131,16 +131,16 @@ export default function ContactForm() {
           <h2 style={{ marginBottom: "28px", fontSize: "28px" }}>Contact Us Directly</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "36px" }}>
             {contactInfo.map(({ Icon, label, value, href, color }) => (
-              <div key={label} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", padding: "20px 24px", display: "flex", alignItems: "center", gap: "16px" }}>
+              <div key={label} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "20px 24px", display: "flex", alignItems: "center", gap: "16px" }}>
                 <div style={{ width: "44px", height: "44px", backgroundColor: `${color}15`, borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   <Icon size={22} color={color} />
                 </div>
                 <div>
-                  <div style={{ fontSize: "13px", color: "#69727d", marginBottom: "4px" }}>{label}</div>
+                  <div style={{ fontSize: "13px", color: "#5C6B5A", marginBottom: "4px" }}>{label}</div>
                   {href ? (
-                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ fontSize: "16px", fontWeight: "600", color: "#202124", textDecoration: "none" }}>{value}</a>
+                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ fontSize: "16px", fontWeight: "600", color: "#17351F", textDecoration: "none" }}>{value}</a>
                   ) : (
-                    <span style={{ fontSize: "16px", fontWeight: "600", color: "#202124" }}>{value}</span>
+                    <span style={{ fontSize: "16px", fontWeight: "600", color: "#17351F" }}>{value}</span>
                   )}
                 </div>
               </div>
@@ -149,10 +149,10 @@ export default function ContactForm() {
           <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "#25D366", color: "#fff", fontSize: "17px", fontWeight: "600", padding: "16px", borderRadius: "8px", textDecoration: "none", marginBottom: "12px" }}>
             <MessageCircle size={22} /> Chat on WhatsApp
           </a>
-          <a href="tel:+966598947503" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "#15CD8E", color: "#fff", fontSize: "17px", fontWeight: "600", padding: "16px", borderRadius: "8px", textDecoration: "none" }}>
+          <a href="tel:+966598947503" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "#B5913D", color: "#fff", fontSize: "17px", fontWeight: "600", padding: "16px", borderRadius: "8px", textDecoration: "none" }}>
             <Phone size={22} /> Call +966 59 894 7503
           </a>
-          <p style={{ fontSize: "13px", color: "#69727d", marginTop: "16px", textAlign: "center" }}>We typically respond within 5 minutes on WhatsApp.</p>
+          <p style={{ fontSize: "13px", color: "#5C6B5A", marginTop: "16px", textAlign: "center" }}>We typically respond within 5 minutes on WhatsApp.</p>
         </div>
       </div>
     </section>

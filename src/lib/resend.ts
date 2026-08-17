@@ -44,7 +44,7 @@ export async function sendBookingNotificationEmail(booking: BookingNotification)
       ${rows
         .map(
           ([label, value]) =>
-            `<tr><td style="font-weight:600;border:1px solid #e0dfde">${label}</td><td style="border:1px solid #e0dfde">${value}</td></tr>`
+            `<tr><td style="font-weight:600;border:1px solid #E4DEC6">${label}</td><td style="border:1px solid #E4DEC6">${value}</td></tr>`
         )
         .join("")}
     </table>

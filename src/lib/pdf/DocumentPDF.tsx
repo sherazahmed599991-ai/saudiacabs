@@ -1,18 +1,18 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
-  page: { padding: 40, fontSize: 10, fontFamily: "Helvetica", color: "#1a1a1a" },
+  page: { padding: 40, fontSize: 10, fontFamily: "Helvetica", color: "#17351F" },
   header: { flexDirection: "row", justifyContent: "space-between", marginBottom: 24, alignItems: "flex-start" },
-  brand: { fontSize: 18, fontWeight: 700, color: "#15CD8E" },
-  brandSub: { fontSize: 9, color: "#69727d", marginTop: 2 },
+  brand: { fontSize: 18, fontWeight: 700, color: "#B5913D" },
+  brandSub: { fontSize: 9, color: "#5C6B5A", marginTop: 2 },
   docTitle: { fontSize: 16, fontWeight: 700, textAlign: "right" },
-  docNumber: { fontSize: 10, color: "#69727d", textAlign: "right", marginTop: 2 },
+  docNumber: { fontSize: 10, color: "#5C6B5A", textAlign: "right", marginTop: 2 },
   section: { marginBottom: 20 },
-  label: { fontSize: 8, color: "#69727d", textTransform: "uppercase", marginBottom: 2 },
+  label: { fontSize: 8, color: "#5C6B5A", textTransform: "uppercase", marginBottom: 2 },
   value: { fontSize: 10, marginBottom: 8 },
-  table: { borderTopWidth: 1, borderTopColor: "#e0dfde", borderBottomWidth: 1, borderBottomColor: "#e0dfde" },
-  tableRow: { flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#e0dfde", paddingVertical: 8 },
-  tableHeaderRow: { flexDirection: "row", backgroundColor: "#F2F1F0", paddingVertical: 8 },
+  table: { borderTopWidth: 1, borderTopColor: "#E4DEC6", borderBottomWidth: 1, borderBottomColor: "#E4DEC6" },
+  tableRow: { flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#E4DEC6", paddingVertical: 8 },
+  tableHeaderRow: { flexDirection: "row", backgroundColor: "#F4F1C6", paddingVertical: 8 },
   headerCell: { fontWeight: 700 },
   colDesc: { flex: 3 },
   colQty: { flex: 1, textAlign: "right" },
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   totalsValue: { fontSize: 11, fontWeight: 700 },
   extraFieldsRow: { flexDirection: "row", flexWrap: "wrap", marginBottom: 20 },
   extraField: { marginRight: 32, marginBottom: 8 },
-  footer: { position: "absolute", bottom: 30, left: 40, right: 40, fontSize: 8, color: "#9aa0a6", textAlign: "center" },
+  footer: { position: "absolute", bottom: 30, left: 40, right: 40, fontSize: 8, color: "#5C6B5A", textAlign: "center" },
 });
 
 export type PDFLineItem = { description: string; quantity: number; unitPrice: number };

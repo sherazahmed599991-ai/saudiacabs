@@ -53,7 +53,7 @@ export default function AirportTransferPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section style={{ backgroundColor: "#15CD8E", padding: "64px 0 56px" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
               <Link href="/" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", textDecoration: "none" }}>Home</Link>
@@ -115,20 +115,20 @@ export default function AirportTransferPage() {
                   note: "Departure transfer with luggage assistance",
                 },
               ].map((r) => (
-                <div key={r.from} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", padding: "28px 24px" }}>
+                <div key={r.from} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px 24px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-                    <MapPin size={20} color="#15CD8E" />
-                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#202124" }}>{r.from}</div>
+                    <MapPin size={20} color="#B5913D" />
+                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#17351F" }}>{r.from}</div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-                    <ArrowRight size={20} color="#69727d" />
-                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#202124" }}>{r.to}</div>
+                    <ArrowRight size={20} color="#5C6B5A" />
+                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#17351F" }}>{r.to}</div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
-                    <Clock size={15} color="#69727d" />
-                    <span style={{ fontSize: "14px", color: "#69727d" }}>Travel time: {r.time}</span>
+                    <Clock size={15} color="#5C6B5A" />
+                    <span style={{ fontSize: "14px", color: "#5C6B5A" }}>Travel time: {r.time}</span>
                   </div>
-                  <p style={{ fontSize: "13px", color: "#9aa0a6" }}>{r.note}</p>
+                  <p style={{ fontSize: "13px", color: "#5C6B5A" }}>{r.note}</p>
                 </div>
               ))}
             </div>
@@ -136,7 +136,7 @@ export default function AirportTransferPage() {
         </section>
 
         {/* Features */}
-        <section style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", padding: "64px 0" }}>
+        <section style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", padding: "64px 0" }}>
           <div className="container">
             <h2 style={{ textAlign: "center", marginBottom: "48px" }}>What is Included</h2>
             <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
@@ -149,10 +149,10 @@ export default function AirportTransferPage() {
                 { title: "Fixed Price", desc: "Price agreed upfront before booking. No meters, no surprises at the end." },
               ].map(({ title, desc }) => (
                 <div key={title} style={{ display: "flex", gap: "14px" }}>
-                  <CheckCircle size={20} color="#15CD8E" style={{ flexShrink: 0, marginTop: "2px" }} />
+                  <CheckCircle size={20} color="#B5913D" style={{ flexShrink: 0, marginTop: "2px" }} />
                   <div>
-                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#202124", marginBottom: "6px" }}>{title}</div>
-                    <p style={{ fontSize: "14px", color: "#69727d", lineHeight: "1.65" }}>{desc}</p>
+                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#17351F", marginBottom: "6px" }}>{title}</div>
+                    <p style={{ fontSize: "14px", color: "#5C6B5A", lineHeight: "1.65" }}>{desc}</p>
                   </div>
                 </div>
               ))}
@@ -165,20 +165,20 @@ export default function AirportTransferPage() {
           <div className="container" style={{ maxWidth: "760px", margin: "0 auto" }}>
             <h2 style={{ textAlign: "center", marginBottom: "48px" }}>Frequently Asked Questions</h2>
             {faqs.map(({ q, a }) => (
-              <div key={q} style={{ marginBottom: "28px", paddingBottom: "28px", borderBottom: "1px solid #e0dfde" }}>
-                <h3 style={{ fontSize: "17px", color: "#202124", marginBottom: "10px" }}>{q}</h3>
-                <p style={{ fontSize: "15px", color: "#69727d", lineHeight: "1.7" }}>{a}</p>
+              <div key={q} style={{ marginBottom: "28px", paddingBottom: "28px", borderBottom: "1px solid #E4DEC6" }}>
+                <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "10px" }}>{q}</h3>
+                <p style={{ fontSize: "15px", color: "#5C6B5A", lineHeight: "1.7" }}>{a}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* CTA */}
-        <section style={{ backgroundColor: "#15CD8E", padding: "56px 0" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "56px 0" }}>
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Book Your Airport Transfer Now</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>WhatsApp us your flight details and we will confirm your booking in minutes.</p>
-            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
+            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
               <MessageCircle size={18} /> +966 59 894 7503
             </a>
           </div>

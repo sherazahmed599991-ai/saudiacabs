@@ -51,7 +51,7 @@ export default function MakkahMadinahTransferPage() {
       <FAQSchema faqs={faqs} />
       <Header />
       <main>
-        <section style={{ backgroundColor: "#15CD8E", padding: "64px 0 56px" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
               <Link href="/" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", textDecoration: "none" }}>Home</Link>
@@ -89,13 +89,13 @@ export default function MakkahMadinahTransferPage() {
                 { route: "Makkah → Madinah", time: "4–5 hours", from: "Your hotel in Makkah", to: "Your hotel in Madinah" },
                 { route: "Madinah → Makkah", time: "4–5 hours", from: "Your hotel in Madinah", to: "Your hotel in Makkah" },
               ].map((r) => (
-                <div key={r.route} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", padding: "32px 28px", textAlign: "center" }}>
-                  <div style={{ fontSize: "22px", fontWeight: "700", color: "#15CD8E", marginBottom: "16px" }}>{r.route}</div>
+                <div key={r.route} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "32px 28px", textAlign: "center" }}>
+                  <div style={{ fontSize: "22px", fontWeight: "700", color: "#B5913D", marginBottom: "16px" }}>{r.route}</div>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginBottom: "12px" }}>
-                    <Clock size={16} color="#69727d" />
-                    <span style={{ fontSize: "15px", color: "#69727d" }}>Travel time: {r.time}</span>
+                    <Clock size={16} color="#5C6B5A" />
+                    <span style={{ fontSize: "15px", color: "#5C6B5A" }}>Travel time: {r.time}</span>
                   </div>
-                  <div style={{ fontSize: "14px", color: "#9aa0a6" }}>{r.from} → {r.to}</div>
+                  <div style={{ fontSize: "14px", color: "#5C6B5A" }}>{r.from} → {r.to}</div>
                 </div>
               ))}
             </div>
@@ -111,10 +111,10 @@ export default function MakkahMadinahTransferPage() {
                 { title: "24/7 Available", desc: "We operate day and night — book a transfer at any time that suits your itinerary." },
               ].map(({ title, desc }) => (
                 <div key={title} style={{ display: "flex", gap: "14px" }}>
-                  <CheckCircle size={20} color="#15CD8E" style={{ flexShrink: 0, marginTop: "2px" }} />
+                  <CheckCircle size={20} color="#B5913D" style={{ flexShrink: 0, marginTop: "2px" }} />
                   <div>
-                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#202124", marginBottom: "6px" }}>{title}</div>
-                    <p style={{ fontSize: "14px", color: "#69727d", lineHeight: "1.65" }}>{desc}</p>
+                    <div style={{ fontSize: "16px", fontWeight: "600", color: "#17351F", marginBottom: "6px" }}>{title}</div>
+                    <p style={{ fontSize: "14px", color: "#5C6B5A", lineHeight: "1.65" }}>{desc}</p>
                   </div>
                 </div>
               ))}
@@ -123,23 +123,23 @@ export default function MakkahMadinahTransferPage() {
         </section>
 
         {/* FAQ */}
-        <section style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", padding: "64px 0" }}>
+        <section style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", padding: "64px 0" }}>
           <div className="container" style={{ maxWidth: "760px", margin: "0 auto" }}>
             <h2 style={{ textAlign: "center", marginBottom: "48px" }}>Frequently Asked Questions</h2>
             {faqs.map(({ q, a }) => (
-              <div key={q} style={{ marginBottom: "28px", paddingBottom: "28px", borderBottom: "1px solid #e0dfde" }}>
-                <h3 style={{ fontSize: "17px", color: "#202124", marginBottom: "10px" }}>{q}</h3>
-                <p style={{ fontSize: "15px", color: "#69727d", lineHeight: "1.7" }}>{a}</p>
+              <div key={q} style={{ marginBottom: "28px", paddingBottom: "28px", borderBottom: "1px solid #E4DEC6" }}>
+                <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "10px" }}>{q}</h3>
+                <p style={{ fontSize: "15px", color: "#5C6B5A", lineHeight: "1.7" }}>{a}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section style={{ backgroundColor: "#15CD8E", padding: "56px 0" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "56px 0" }}>
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Book Your Transfer Now</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>Tell us your travel date, group size and pickup location.</p>
-            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
+            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
               <MessageCircle size={18} /> +966 59 894 7503
             </a>
           </div>

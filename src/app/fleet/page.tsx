@@ -39,7 +39,7 @@ const fleet = [
 
 const tagColors: Record<string, string> = {
   Economy: "#34a853",
-  Premium: "#15CD8E",
+  Premium: "#B5913D",
   Luxury: "#9334e6",
   Group: "#fa7b17",
   "Large Group": "#e8453c",
@@ -56,7 +56,7 @@ export default function FleetPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Fleet", url: "/fleet/" }]} />
       <Header />
       <main>
-        <section style={{ backgroundColor: "#15CD8E", padding: "64px 0 56px" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
               <Link href="/" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", textDecoration: "none" }}>Home</Link>
@@ -74,21 +74,21 @@ export default function FleetPage() {
           <div className="container">
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
               {fleet.slice(0, 3).map((car) => (
-                <article key={car.name} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", overflow: "hidden" }}>
-                  <div style={{ position: "relative", height: "220px", backgroundColor: "#f1f3f4" }}>
+                <article key={car.name} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden" }}>
+                  <div style={{ position: "relative", height: "220px", backgroundColor: "#F4F1C6" }}>
                     <Image src={car.src} alt={`${car.name} — ${car.seats} Umrah Vehicle`} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
-                    <div style={{ position: "absolute", top: "12px", left: "12px", backgroundColor: tagColors[car.tag] ?? "#15CD8E", color: "#fff", fontSize: "12px", fontWeight: "600", padding: "4px 12px", borderRadius: "20px" }}>
+                    <div style={{ position: "absolute", top: "12px", left: "12px", backgroundColor: tagColors[car.tag] ?? "#B5913D", color: "#fff", fontSize: "12px", fontWeight: "600", padding: "4px 12px", borderRadius: "20px" }}>
                       {car.tag}
                     </div>
                   </div>
                   <div style={{ padding: "24px" }}>
-                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#15CD8E", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
-                    <h2 style={{ fontSize: "14px", color: "#1a1a1a", marginBottom: "10px", fontWeight: "700", lineHeight: "1.45" }}>{car.h2}</h2>
-                    <p style={{ fontSize: "13.5px", color: "#69727d", marginBottom: "16px", lineHeight: "1.65" }}>{car.desc}</p>
+                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#B5913D", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
+                    <h2 style={{ fontSize: "14px", color: "#17351F", marginBottom: "10px", fontWeight: "700", lineHeight: "1.45" }}>{car.h2}</h2>
+                    <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "16px", lineHeight: "1.65" }}>{car.desc}</p>
                     <div style={{ display: "flex", gap: "16px", marginBottom: "20px" }}>
-                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#69727d" }}><Users size={14} color="#15CD8E" /> {car.seats}</span>
-                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#69727d" }}><Wind size={14} color="#15CD8E" /> AC</span>
-                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#69727d" }}><Sparkles size={14} color="#15CD8E" /> Clean</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Users size={14} color="#B5913D" /> {car.seats}</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Wind size={14} color="#B5913D" /> AC</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Sparkles size={14} color="#B5913D" /> Clean</span>
                     </div>
                     <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20the%20${encodeURIComponent(car.name)}%20(${encodeURIComponent(car.seats)})%20for%20Umrah%20transport`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#25D366", color: "#fff", fontSize: "14px", fontWeight: "600", padding: "10px 22px", borderRadius: "42px", textDecoration: "none" }}>
                       <MessageCircle size={15} /> Book This Car
@@ -99,21 +99,21 @@ export default function FleetPage() {
             </div>
             <div className="rg-2" style={{ display: "grid", gap: "28px", maxWidth: "760px", margin: "28px auto 0" }}>
               {fleet.slice(3).map((car) => (
-                <article key={car.name} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", overflow: "hidden" }}>
-                  <div style={{ position: "relative", height: "220px", backgroundColor: "#f1f3f4" }}>
+                <article key={car.name} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden" }}>
+                  <div style={{ position: "relative", height: "220px", backgroundColor: "#F4F1C6" }}>
                     <Image src={car.src} alt={`${car.name} — ${car.seats} Umrah Vehicle`} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 50vw" />
-                    <div style={{ position: "absolute", top: "12px", left: "12px", backgroundColor: tagColors[car.tag] ?? "#15CD8E", color: "#fff", fontSize: "12px", fontWeight: "600", padding: "4px 12px", borderRadius: "20px" }}>
+                    <div style={{ position: "absolute", top: "12px", left: "12px", backgroundColor: tagColors[car.tag] ?? "#B5913D", color: "#fff", fontSize: "12px", fontWeight: "600", padding: "4px 12px", borderRadius: "20px" }}>
                       {car.tag}
                     </div>
                   </div>
                   <div style={{ padding: "24px" }}>
-                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#15CD8E", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
-                    <h2 style={{ fontSize: "14px", color: "#1a1a1a", marginBottom: "10px", fontWeight: "700", lineHeight: "1.45" }}>{car.h2}</h2>
-                    <p style={{ fontSize: "13.5px", color: "#69727d", marginBottom: "16px", lineHeight: "1.65" }}>{car.desc}</p>
+                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#B5913D", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
+                    <h2 style={{ fontSize: "14px", color: "#17351F", marginBottom: "10px", fontWeight: "700", lineHeight: "1.45" }}>{car.h2}</h2>
+                    <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "16px", lineHeight: "1.65" }}>{car.desc}</p>
                     <div style={{ display: "flex", gap: "16px", marginBottom: "20px" }}>
-                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#69727d" }}><Users size={14} color="#15CD8E" /> {car.seats}</span>
-                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#69727d" }}><Wind size={14} color="#15CD8E" /> AC</span>
-                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#69727d" }}><Sparkles size={14} color="#15CD8E" /> Clean</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Users size={14} color="#B5913D" /> {car.seats}</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Wind size={14} color="#B5913D" /> AC</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Sparkles size={14} color="#B5913D" /> Clean</span>
                     </div>
                     <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20the%20${encodeURIComponent(car.name)}%20(${encodeURIComponent(car.seats)})%20for%20Umrah%20transport`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#25D366", color: "#fff", fontSize: "14px", fontWeight: "600", padding: "10px 22px", borderRadius: "42px", textDecoration: "none" }}>
                       <MessageCircle size={15} /> Book This Car
@@ -125,15 +125,15 @@ export default function FleetPage() {
           </div>
         </section>
 
-        <section style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", padding: "64px 0" }}>
+        <section style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", padding: "64px 0" }}>
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ marginBottom: "16px" }}>Not Sure Which Vehicle to Pick?</h2>
-            <p style={{ fontSize: "17px", color: "#69727d", marginBottom: "32px" }}>WhatsApp us and we will recommend the best vehicle for your group size.</p>
+            <p style={{ fontSize: "17px", color: "#5C6B5A", marginBottom: "32px" }}>WhatsApp us and we will recommend the best vehicle for your group size.</p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
               <a href="https://wa.me/966598947503?text=Salam,%20I%20need%20help%20choosing%20the%20right%20vehicle%20for%20my%20group" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 <MessageCircle size={18} /> Ask on WhatsApp
               </a>
-              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#15CD8E", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 Book Now <ArrowRight size={18} />
               </Link>
             </div>

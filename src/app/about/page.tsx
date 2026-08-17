@@ -23,7 +23,7 @@ export default function AboutPage() {
       <main>
 
         {/* Page Header */}
-        <section style={{ backgroundColor: "#15CD8E", padding: "64px 0 56px" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
               <Link href="/" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", textDecoration: "none" }}>Home</Link>
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </div>
             <div
               style={{
-                backgroundColor: "#15CD8E",
+                backgroundColor: "#184A27",
                 borderRadius: "12px",
                 padding: "48px 40px",
                 color: "#fff",
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 </div>
               ))}
               <div style={{ display: "flex", justifyContent: "center", gap: "4px", marginTop: "8px" }}>
-                {[1,2,3,4,5].map((i) => <Star key={i} size={16} color="#ffd700" fill="#ffd700" />)}
+                {[1,2,3,4,5].map((i) => <Star key={i} size={16} color="#D1B969" fill="#D1B969" />)}
               </div>
               <div style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", marginTop: "6px" }}>Rated 4.9 / 5</div>
             </div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
         </section>
 
         {/* Why Choose Us */}
-        <section className="section-padding" style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde" }}>
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "56px" }}>
               <h2 style={{ marginBottom: "16px" }}>Why Choose Us?</h2>
@@ -115,7 +115,7 @@ export default function AboutPage() {
                   key={title}
                   style={{
                     backgroundColor: "#fff",
-                    border: "1px solid #e0dfde",
+                    border: "1px solid #E4DEC6",
                     borderRadius: "8px",
                     padding: "28px 24px",
                     textAlign: "center",
@@ -125,7 +125,7 @@ export default function AboutPage() {
                     style={{
                       width: "52px",
                       height: "52px",
-                      backgroundColor: "#e8f0fe",
+                      backgroundColor: "#F3E9D2",
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
@@ -133,10 +133,10 @@ export default function AboutPage() {
                       margin: "0 auto 16px",
                     }}
                   >
-                    <Icon size={24} color="#15CD8E" />
+                    <Icon size={24} color="#B5913D" />
                   </div>
-                  <h3 style={{ fontSize: "17px", marginBottom: "10px", color: "#202124" }}>{title}</h3>
-                  <p style={{ fontSize: "14px", color: "#69727d", lineHeight: "1.65" }}>{desc}</p>
+                  <h3 style={{ fontSize: "17px", marginBottom: "10px", color: "#17351F" }}>{title}</h3>
+                  <p style={{ fontSize: "14px", color: "#5C6B5A", lineHeight: "1.65" }}>{desc}</p>
                 </div>
               ))}
             </div>
@@ -159,8 +159,8 @@ export default function AboutPage() {
                 "Child seats available on request",
               ].map((point) => (
                 <div key={point} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <CheckCircle size={18} color="#15CD8E" style={{ flexShrink: 0 }} />
-                  <span style={{ fontSize: "15px", color: "#202124" }}>{point}</span>
+                  <CheckCircle size={18} color="#B5913D" style={{ flexShrink: 0 }} />
+                  <span style={{ fontSize: "15px", color: "#17351F" }}>{point}</span>
                 </div>
               ))}
             </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section style={{ backgroundColor: "#15CD8E", padding: "64px 0" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "64px 0" }}>
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Ready to Travel with Us?</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>
@@ -181,7 +181,7 @@ export default function AboutPage() {
                 alignItems: "center",
                 gap: "8px",
                 backgroundColor: "#fff",
-                color: "#15CD8E",
+                color: "#B5913D",
                 fontSize: "16px",
                 fontWeight: "600",
                 padding: "14px 36px",

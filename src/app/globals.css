@@ -2,30 +2,37 @@
 
 /* ============================================
    SAUDIA CABS — Design Tokens
-   Extracted from skumrahride.com live site
+   Saudi green + premium gold + warm cream, extracted from the logo
    ============================================ */
 :root {
   /* Core palette */
-  --background:      #ffffff;
-  --surface:         #F2F1F0;   /* hero / section bg — warm light gray */
-  --foreground:      #1a1a1a;   /* near-black body text */
-  --heading:         #5E5E5E;   /* section headings */
-  --muted:           #69727d;   /* secondary / muted text */
-  --border:          #e0dfde;
+  --background:      #FCFBEA;   /* off-white cream — page background */
+  --surface:         #F4F1C6;   /* warm cream — alternating section bg */
+  --foreground:      #17351F;   /* deep green-black body text */
+  --heading:         #184A27;   /* deep Saudi green — headings */
+  --muted:           #5C6B5A;   /* muted sage — secondary text */
+  --border:          #E4DEC6;   /* warm gold-tinted border */
 
-  /* Brand accent — green CTA from live site */
-  --primary:         #15CD8E;
-  --primary-dark:    #0fb87d;
-  --primary-hover:   #12b87e;
-  --primary-light:   #d6f7ee;
+  /* Brand green — header, hero bands, CTA blocks */
+  --brand:           #184A27;   /* deep Saudi green */
+  --brand-mid:       #2D663A;   /* medium green */
+  --brand-dark:      #0F2A18;   /* darkest green (footer) */
+  --brand-border:    #1F4A2C;   /* border on dark green surfaces */
 
-  /* WhatsApp green (same family, slightly darker) */
+  /* Brand gold — CTAs, links, icon accents */
+  --primary:         #B5913D;   /* logo gold */
+  --primary-dark:    #8F6F25;   /* gold hover / pressed */
+  --primary-hover:   #8F6F25;
+  --primary-light:   #D1B969;   /* soft gold */
+  --primary-tint:    #F3E9D2;   /* pale gold — icon circle backgrounds */
+
+  /* WhatsApp green (distinct brand, unchanged) */
   --whatsapp:        #25D366;
   --whatsapp-dark:   #1eba57;
 
-  /* Link color from live site */
-  --link:            #c36;
-  --link-hover:      #336;
+  /* Link color */
+  --link:            #184A27;
+  --link-hover:      #B5913D;
 }
 
 @theme inline {
@@ -123,7 +130,7 @@
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
-  box-shadow: 0 4px 16px rgba(21, 205, 142, 0.35);
+  box-shadow: 0 4px 16px rgba(181, 145, 61, 0.35);
   color: #ffffff;
 }
 
@@ -142,7 +149,7 @@
 }
 
 .btn-outline:hover {
-  background-color: var(--primary-light);
+  background-color: var(--primary-tint);
   color: var(--primary-dark);
 }
 

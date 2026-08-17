@@ -83,7 +83,7 @@ export default function ServicesPage() {
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services/" }]} />
       <Header />
       <main>
-        <section style={{ backgroundColor: "#15CD8E", padding: "64px 0 56px" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
               <Link href="/" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", textDecoration: "none" }}>Home</Link>
@@ -101,21 +101,21 @@ export default function ServicesPage() {
           <div className="container">
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
               {services.map(({ Icon, title, href, description, features }) => (
-                <div key={title} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", padding: "32px 28px" }}>
-                  <div style={{ width: "52px", height: "52px", backgroundColor: "#e8f0fe", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "20px" }}>
-                    <Icon size={26} color="#15CD8E" />
+                <div key={title} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "32px 28px" }}>
+                  <div style={{ width: "52px", height: "52px", backgroundColor: "#F3E9D2", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "20px" }}>
+                    <Icon size={26} color="#B5913D" />
                   </div>
-                  <h2 style={{ fontSize: "20px", marginBottom: "12px", color: "#202124" }}>{title}</h2>
-                  <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#69727d", marginBottom: "20px" }}>{description}</p>
+                  <h2 style={{ fontSize: "20px", marginBottom: "12px", color: "#17351F" }}>{title}</h2>
+                  <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#5C6B5A", marginBottom: "20px" }}>{description}</p>
                   <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0" }}>
                     {features.map((f) => (
-                      <li key={f} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#202124", marginBottom: "8px" }}>
-                        <span style={{ width: "6px", height: "6px", backgroundColor: "#15CD8E", borderRadius: "50%", flexShrink: 0 }} />
+                      <li key={f} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#17351F", marginBottom: "8px" }}>
+                        <span style={{ width: "6px", height: "6px", backgroundColor: "#B5913D", borderRadius: "50%", flexShrink: 0 }} />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Link href={href} style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#15CD8E", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>
+                  <Link href={href} style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#B5913D", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>
                     Learn more <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -124,15 +124,15 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", padding: "64px 0" }}>
+        <section style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", padding: "64px 0" }}>
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ marginBottom: "16px" }}>Ready to Book?</h2>
-            <p style={{ fontSize: "17px", color: "#69727d", marginBottom: "32px" }}>Contact us now and we will arrange everything for you.</p>
+            <p style={{ fontSize: "17px", color: "#5C6B5A", marginBottom: "32px" }}>Contact us now and we will arrange everything for you.</p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#15CD8E", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 Book Now <ArrowRight size={18} />
               </Link>
-              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "transparent", color: "#15CD8E", fontSize: "16px", fontWeight: "500", padding: "13px 35px", borderRadius: "42px", textDecoration: "none", border: "2px solid #15CD8E" }}>
+              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "transparent", color: "#B5913D", fontSize: "16px", fontWeight: "500", padding: "13px 35px", borderRadius: "42px", textDecoration: "none", border: "2px solid #B5913D" }}>
                 View Our Fleet <ArrowRight size={18} />
               </Link>
             </div>

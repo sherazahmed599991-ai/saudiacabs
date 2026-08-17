@@ -13,7 +13,7 @@ const services = ["Airport Transfer", "Ziyarat Tours", "Makkah ↔ Madinah", "Gr
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#202124", color: "#e8eaed", padding: "48px 0 24px" }}>
+    <footer style={{ backgroundColor: "#0F2A18", color: "#FCFBEA", padding: "48px 0 24px" }}>
       <div className="container">
         <div
           style={{
@@ -30,12 +30,12 @@ export default function Footer() {
                 style={{
                   width: "36px",
                   height: "36px",
-                  backgroundColor: "#15CD8E",
+                  backgroundColor: "#B5913D",
                   borderRadius: "50%",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#fff",
+                  color: "#184A27",
                   fontWeight: "700",
                   fontSize: "14px",
                   flexShrink: 0,
@@ -43,14 +43,14 @@ export default function Footer() {
               >
                 SC
               </div>
-              <span style={{ fontSize: "18px", fontWeight: "700", color: "#e8eaed" }}>
+              <span style={{ fontSize: "18px", fontWeight: "700", color: "#FCFBEA" }}>
                 Saudia Cabs
               </span>
             </div>
 
             <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "12px" }}>
-              <MapPin size={16} color="#9aa0a6" style={{ marginTop: "3px", flexShrink: 0 }} />
-              <p style={{ fontSize: "14px", color: "#9aa0a6", lineHeight: "1.6" }}>
+              <MapPin size={16} color="#A9B7A5" style={{ marginTop: "3px", flexShrink: 0 }} />
+              <p style={{ fontSize: "14px", color: "#A9B7A5", lineHeight: "1.6" }}>
                 Serving Makkah, Madinah & Jeddah — Kingdom of Saudi Arabia
               </p>
             </div>
@@ -82,7 +82,7 @@ export default function Footer() {
                   display: "flex",
                   alignItems: "center",
                   gap: "6px",
-                  backgroundColor: "#15CD8E",
+                  backgroundColor: "#B5913D",
                   color: "#fff",
                   fontSize: "13px",
                   fontWeight: "500",
@@ -99,7 +99,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 style={{ color: "#e8eaed", fontSize: "15px", fontWeight: "600", marginBottom: "16px" }}>
+            <h4 style={{ color: "#FCFBEA", fontSize: "15px", fontWeight: "600", marginBottom: "16px" }}>
               Quick Links
             </h4>
             {quickLinks.map((link) => (
@@ -111,13 +111,13 @@ export default function Footer() {
                   alignItems: "center",
                   gap: "4px",
                   fontSize: "14px",
-                  color: "#9aa0a6",
+                  color: "#A9B7A5",
                   marginBottom: "10px",
                   textDecoration: "none",
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#15CD8E")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#9aa0a6")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#D1B969")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#A9B7A5")}
               >
                 <ChevronRight size={14} />
                 {link.label}
@@ -127,7 +127,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 style={{ color: "#e8eaed", fontSize: "15px", fontWeight: "600", marginBottom: "16px" }}>
+            <h4 style={{ color: "#FCFBEA", fontSize: "15px", fontWeight: "600", marginBottom: "16px" }}>
               Services
             </h4>
             {services.map((service) => (
@@ -139,13 +139,13 @@ export default function Footer() {
                   alignItems: "center",
                   gap: "4px",
                   fontSize: "14px",
-                  color: "#9aa0a6",
+                  color: "#A9B7A5",
                   marginBottom: "10px",
                   textDecoration: "none",
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#15CD8E")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#9aa0a6")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#D1B969")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#A9B7A5")}
               >
                 <ChevronRight size={14} />
                 {service}
@@ -157,7 +157,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           style={{
-            borderTop: "1px solid #3c4043",
+            borderTop: "1px solid #1F4A2C",
             paddingTop: "24px",
             display: "flex",
             justifyContent: "space-between",
@@ -166,10 +166,10 @@ export default function Footer() {
             gap: "12px",
           }}
         >
-          <p style={{ fontSize: "13px", color: "#9aa0a6" }}>
+          <p style={{ fontSize: "13px", color: "#A9B7A5" }}>
             © {new Date().getFullYear()} Saudia Cabs. All rights reserved.
           </p>
-          <p style={{ fontSize: "13px", color: "#9aa0a6", display: "flex", alignItems: "center", gap: "4px" }}>
+          <p style={{ fontSize: "13px", color: "#A9B7A5", display: "flex", alignItems: "center", gap: "4px" }}>
             Made with <Heart size={13} color="#e8453c" fill="#e8453c" /> for Umrah pilgrims
           </p>
         </div>

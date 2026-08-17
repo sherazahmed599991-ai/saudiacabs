@@ -166,7 +166,7 @@ export default function Home() {
         <section
           className="hero-section"
           style={{
-            background: "linear-gradient(135deg, #15CD8E 0%, #0fb87d 100%)",
+            background: "linear-gradient(135deg, #184A27 0%, #2D663A 100%)",
             color: "#fff",
             padding: "100px 0 80px",
             position: "relative",
@@ -189,7 +189,7 @@ export default function Home() {
               airport transfers, Ziyarat tours, Makkah–Madinah transfers & group packages. Available 24/7.
             </p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="#book" className="btn-primary" style={{ backgroundColor: "#ffffff", color: "#15CD8E", boxShadow: "0 4px 16px rgba(0,0,0,0.15)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              <Link href="#book" className="btn-primary" style={{ backgroundColor: "#ffffff", color: "#B5913D", boxShadow: "0 4px 16px rgba(0,0,0,0.15)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
                 <Car size={18} /> Book a Ride
               </Link>
               <Link href="/services/" className="btn-outline" style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.7)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
@@ -200,12 +200,12 @@ export default function Home() {
         </section>
 
         {/* Stats */}
-        <section style={{ backgroundColor: "#F2F1F0", padding: "48px 0", borderBottom: "1px solid #e0dfde" }}>
+        <section style={{ backgroundColor: "#F4F1C6", padding: "48px 0", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container rg-4" style={{ display: "grid", gap: "32px", textAlign: "center" }}>
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div style={{ fontSize: "36px", fontWeight: "700", color: "#15CD8E", lineHeight: "1", marginBottom: "8px" }}>{stat.number}</div>
-                <div style={{ fontSize: "15px", color: "#69727d", fontWeight: "500" }}>{stat.label}</div>
+                <div style={{ fontSize: "36px", fontWeight: "700", color: "#B5913D", lineHeight: "1", marginBottom: "8px" }}>{stat.number}</div>
+                <div style={{ fontSize: "15px", color: "#5C6B5A", fontWeight: "500" }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -216,18 +216,18 @@ export default function Home() {
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Why Choose Saudia Cabs Taxi Service</h2>
-              <p style={{ fontSize: "17px", color: "#69727d", maxWidth: "550px", margin: "0 auto" }}>
+              <p style={{ fontSize: "17px", color: "#5C6B5A", maxWidth: "550px", margin: "0 auto" }}>
                 We combine years of local experience with a modern fleet to provide the ultimate Umrah travel convenience.
               </p>
             </div>
             <div className="rg-4" style={{ display: "grid", gap: "24px" }}>
               {benefits.map(({ Icon, title, desc }) => (
-                <div key={title} style={{ padding: "24px", border: "1px solid #e0dfde", borderRadius: "8px", backgroundColor: "#F2F1F0" }}>
-                  <div style={{ width: "40px", height: "40px", backgroundColor: "#d6f7ee", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
-                    <Icon size={20} color="#15CD8E" />
+                <div key={title} style={{ padding: "24px", border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#F4F1C6" }}>
+                  <div style={{ width: "40px", height: "40px", backgroundColor: "#F3E9D2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
+                    <Icon size={20} color="#B5913D" />
                   </div>
-                  <h3 style={{ fontSize: "16px", color: "#1a1a1a", marginBottom: "8px", fontWeight: "600" }}>{title}</h3>
-                  <p style={{ fontSize: "13.5px", color: "#69727d", lineHeight: "1.6" }}>{desc}</p>
+                  <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px", fontWeight: "600" }}>{title}</h3>
+                  <p style={{ fontSize: "13.5px", color: "#5C6B5A", lineHeight: "1.6" }}>{desc}</p>
                 </div>
               ))}
             </div>
@@ -235,7 +235,7 @@ export default function Home() {
         </section>
 
         {/* Services quick links */}
-        <section className="section-padding" style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", borderBottom: "1px solid #e0dfde" }}>
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>#1 Umrah Taxi Services in Saudi Arabia</h2>
@@ -245,13 +245,13 @@ export default function Home() {
             </div>
             <div className="rg-4" style={{ display: "grid", gap: "20px" }}>
               {quickLinks.map(({ Icon, title, desc, href }) => (
-                <Link key={title} href={href} style={{ backgroundColor: "#fff", border: "1px solid #e0dfde", borderRadius: "8px", padding: "28px 24px", textDecoration: "none", display: "block", transition: "transform 0.2s" }}>
-                  <div style={{ width: "48px", height: "48px", backgroundColor: "#d6f7ee", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
-                    <Icon size={24} color="#15CD8E" />
+                <Link key={title} href={href} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px 24px", textDecoration: "none", display: "block", transition: "transform 0.2s" }}>
+                  <div style={{ width: "48px", height: "48px", backgroundColor: "#F3E9D2", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
+                    <Icon size={24} color="#B5913D" />
                   </div>
-                  <h3 style={{ fontSize: "17px", color: "#1a1a1a", marginBottom: "6px" }}>{title}</h3>
-                  <p style={{ fontSize: "14px", color: "#69727d", marginBottom: "12px" }}>{desc}</p>
-                  <span style={{ fontSize: "14px", color: "#15CD8E", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
+                  <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "6px" }}>{title}</h3>
+                  <p style={{ fontSize: "14px", color: "#5C6B5A", marginBottom: "12px" }}>{desc}</p>
+                  <span style={{ fontSize: "14px", color: "#B5913D", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
                     Learn more <ArrowRight size={14} />
                   </span>
                 </Link>
@@ -265,14 +265,14 @@ export default function Home() {
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "50px" }}>
               <h2 style={{ marginBottom: "14px" }}>How To Book Your Ride</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>3 simple steps to secure comfortable transport for your pilgrimage.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>3 simple steps to secure comfortable transport for your pilgrimage.</p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "30px" }}>
               {steps.map(({ step, title, desc }) => (
-                <div key={step} style={{ backgroundColor: "#ffffff", padding: "32px", borderRadius: "8px", border: "1px solid #e0dfde", position: "relative" }}>
-                  <span style={{ position: "absolute", top: "24px", right: "24px", fontSize: "36px", fontWeight: "800", color: "rgba(21, 205, 142, 0.15)" }}>{step}</span>
-                  <h3 style={{ fontSize: "18px", color: "#1a1a1a", marginBottom: "12px" }}>{title}</h3>
-                  <p style={{ fontSize: "14.5px", color: "#69727d", lineHeight: "1.6" }}>{desc}</p>
+                <div key={step} style={{ backgroundColor: "#ffffff", padding: "32px", borderRadius: "8px", border: "1px solid #E4DEC6", position: "relative" }}>
+                  <span style={{ position: "absolute", top: "24px", right: "24px", fontSize: "36px", fontWeight: "800", color: "rgba(181, 145, 61, 0.15)" }}>{step}</span>
+                  <h3 style={{ fontSize: "18px", color: "#17351F", marginBottom: "12px" }}>{title}</h3>
+                  <p style={{ fontSize: "14.5px", color: "#5C6B5A", lineHeight: "1.6" }}>{desc}</p>
                 </div>
               ))}
             </div>
@@ -280,28 +280,28 @@ export default function Home() {
         </section>
 
         {/* Featured Fleet Showroom */}
-        <section className="section-padding" style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", borderBottom: "1px solid #e0dfde" }}>
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Vehicles Available for Umrah Taxi in Saudi Arabia</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>Select the perfect clean, fully air-conditioned ride matching your budget.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Select the perfect clean, fully air-conditioned ride matching your budget.</p>
             </div>
             <div className="rg-4" style={{ display: "grid", gap: "24px" }}>
               {fleet.map((car) => (
-                <div key={car.name} style={{ border: "1px solid #e0dfde", borderRadius: "8px", overflow: "hidden", display: "flex", flexDirection: "column", backgroundColor: "#ffffff" }}>
-                  <div style={{ position: "relative", height: "180px", backgroundColor: "#F2F1F0" }}>
+                <div key={car.name} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden", display: "flex", flexDirection: "column", backgroundColor: "#ffffff" }}>
+                  <div style={{ position: "relative", height: "180px", backgroundColor: "#F4F1C6" }}>
                     <Image src={car.src} alt={car.name} fill style={{ objectFit: "cover" }} />
                   </div>
                   <div style={{ padding: "20px", display: "flex", flexDirection: "column", flex: 1 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                      <h3 style={{ fontSize: "18px", color: "#1a1a1a" }}>{car.name}</h3>
-                      <span style={{ fontSize: "12px", backgroundColor: "#d6f7ee", color: "#0fb87d", padding: "2px 8px", borderRadius: "10px", fontWeight: "600" }}>{car.type}</span>
+                      <h3 style={{ fontSize: "18px", color: "#17351F" }}>{car.name}</h3>
+                      <span style={{ fontSize: "12px", backgroundColor: "#F3E9D2", color: "#8F6F25", padding: "2px 8px", borderRadius: "10px", fontWeight: "600" }}>{car.type}</span>
                     </div>
-                    <p style={{ fontSize: "13.5px", color: "#69727d", marginBottom: "16px", flex: 1 }}>{car.desc}</p>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #e0dfde", paddingTop: "12px" }}>
+                    <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "16px", flex: 1 }}>{car.desc}</p>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #E4DEC6", paddingTop: "12px" }}>
                       <div>
-                        <span style={{ fontSize: "12px", color: "#69727d", display: "block" }}>Starting From</span>
-                        <strong style={{ fontSize: "15px", color: "#15CD8E" }}>Get Quote</strong>
+                        <span style={{ fontSize: "12px", color: "#5C6B5A", display: "block" }}>Starting From</span>
+                        <strong style={{ fontSize: "15px", color: "#B5913D" }}>Get Quote</strong>
                       </div>
                       <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20get%20a%20quote%20for%20${encodeURIComponent(car.name)}`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", gap: "4px", alignItems: "center", backgroundColor: "#25D366", color: "#ffffff", padding: "8px 12px", borderRadius: "42px", fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>
                         <MessageCircle size={14} /> Book Now
@@ -324,9 +324,9 @@ export default function Home() {
           <div className="container routes-container" style={{ maxWidth: "700px" }}>
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Affordable Umrah Taxi Pricing</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>Inquire about private transfers for these popular pilgrim routes.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Inquire about private transfers for these popular pilgrim routes.</p>
             </div>
-            <div style={{ border: "1px solid #e0dfde", borderRadius: "8px", overflow: "hidden" }}>
+            <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden" }}>
               {routesPricing.map((r, i) => (
                 <div
                   key={i}
@@ -337,12 +337,12 @@ export default function Home() {
                     justifyContent: "space-between",
                     gap: "12px",
                     padding: "16px 20px",
-                    borderBottom: i === routesPricing.length - 1 ? "none" : "1px solid #e0dfde",
+                    borderBottom: i === routesPricing.length - 1 ? "none" : "1px solid #E4DEC6",
                     backgroundColor: i % 2 === 0 ? "#ffffff" : "#fafaf9",
                   }}
                 >
-                  <span style={{ fontSize: "14.5px", fontWeight: "600", color: "#1a1a1a", flex: 1 }}>
-                    {r.from} <span style={{ color: "#15CD8E" }}>↔</span> {r.to}
+                  <span style={{ fontSize: "14.5px", fontWeight: "600", color: "#17351F", flex: 1 }}>
+                    {r.from} <span style={{ color: "#B5913D" }}>↔</span> {r.to}
                   </span>
                   <a
                     href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20get%20a%20quote%20for%20transfer%20from%20${encodeURIComponent(r.from)}%20to%20${encodeURIComponent(r.to)}`}
@@ -359,29 +359,29 @@ export default function Home() {
         </section>
 
         {/* ADDED SECTION 3: Travel Distance & Duration Guide */}
-        <section className="section-padding" style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", borderBottom: "1px solid #e0dfde" }}>
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Route Distance & Duration Guide</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>Estimate travel durations and plan your Umrah itinerary accurately.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Estimate travel durations and plan your Umrah itinerary accurately.</p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
               {travelInfo.map(({ route, dist, time, desc }) => (
-                <div key={route} style={{ backgroundColor: "#ffffff", padding: "28px", borderRadius: "8px", border: "1px solid #e0dfde" }}>
-                  <div style={{ fontSize: "18px", fontWeight: "700", color: "#15CD8E", marginBottom: "12px", display: "flex", gap: "8px", alignItems: "center" }}>
+                <div key={route} style={{ backgroundColor: "#ffffff", padding: "28px", borderRadius: "8px", border: "1px solid #E4DEC6" }}>
+                  <div style={{ fontSize: "18px", fontWeight: "700", color: "#B5913D", marginBottom: "12px", display: "flex", gap: "8px", alignItems: "center" }}>
                     <Compass size={18} /> {route}
                   </div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "12px", borderBottom: "1px solid #e0dfde", paddingBottom: "12px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "12px", borderBottom: "1px solid #E4DEC6", paddingBottom: "12px" }}>
                     <div>
-                      <span style={{ fontSize: "11px", color: "#69727d", textTransform: "uppercase" }}>Distance</span>
-                      <strong style={{ display: "block", fontSize: "16px", color: "#1a1a1a" }}>{dist}</strong>
+                      <span style={{ fontSize: "11px", color: "#5C6B5A", textTransform: "uppercase" }}>Distance</span>
+                      <strong style={{ display: "block", fontSize: "16px", color: "#17351F" }}>{dist}</strong>
                     </div>
                     <div>
-                      <span style={{ fontSize: "11px", color: "#69727d", textTransform: "uppercase" }}>Avg. Time</span>
-                      <strong style={{ display: "block", fontSize: "16px", color: "#1a1a1a" }}>{time}</strong>
+                      <span style={{ fontSize: "11px", color: "#5C6B5A", textTransform: "uppercase" }}>Avg. Time</span>
+                      <strong style={{ display: "block", fontSize: "16px", color: "#17351F" }}>{time}</strong>
                     </div>
                   </div>
-                  <p style={{ fontSize: "13.5px", color: "#69727d" }}>{desc}</p>
+                  <p style={{ fontSize: "13.5px", color: "#5C6B5A" }}>{desc}</p>
                 </div>
               ))}
             </div>
@@ -389,7 +389,7 @@ export default function Home() {
         </section>
 
         {/* Trust bar */}
-        <section style={{ backgroundColor: "#15CD8E", padding: "56px 0" }}>
+        <section style={{ backgroundColor: "#184A27", padding: "56px 0" }}>
           <div className="container rg-trust" style={{ display: "grid", gap: "60px", alignItems: "center" }}>
             <div>
               <h2 style={{ color: "#fff", marginBottom: "16px" }}>Serving Umrah Pilgrims Since 2016</h2>
@@ -403,14 +403,14 @@ export default function Home() {
                   <span style={{ fontSize: "16px", color: "rgba(255,255,255,0.9)" }}>{p}</span>
                 </div>
               ))}
-              <Link href="/about/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#15CD8E", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", marginTop: "24px" }}>
+              <Link href="/about/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", marginTop: "24px" }}>
                 About Us <ArrowRight size={16} />
               </Link>
             </div>
             <div style={{ textAlign: "center" }}>
               <div style={{ backgroundColor: "rgba(255,255,255,0.12)", borderRadius: "12px", padding: "40px", display: "inline-block" }}>
                 <div style={{ display: "flex", justifyContent: "center", gap: "4px", marginBottom: "12px" }}>
-                  {[1,2,3,4,5].map((i) => <Star key={i} size={28} color="#ffd700" fill="#ffd700" />)}
+                  {[1,2,3,4,5].map((i) => <Star key={i} size={28} color="#D1B969" fill="#D1B969" />)}
                 </div>
                 <div style={{ fontSize: "48px", fontWeight: "700", color: "#fff", marginBottom: "8px" }}>4.9 / 5</div>
                 <div style={{ fontSize: "16px", color: "rgba(255,255,255,0.8)" }}>Rated by 5000+ pilgrims</div>
@@ -424,18 +424,18 @@ export default function Home() {
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Our Service Guarantees</h2>
-              <p style={{ fontSize: "17px", color: "#69727d", maxWidth: "500px", margin: "0 auto" }}>
+              <p style={{ fontSize: "17px", color: "#5C6B5A", maxWidth: "500px", margin: "0 auto" }}>
                 We believe in complete transparency and maximum satisfaction for our guests of Allah.
               </p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
               {commitments.map(({ Icon, title, desc }) => (
-                <div key={title} style={{ padding: "30px", border: "1px solid #e0dfde", borderRadius: "8px", backgroundColor: "#F2F1F0", textAlign: "center" }}>
-                  <div style={{ width: "48px", height: "48px", backgroundColor: "#d6f7ee", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                    <Icon size={24} color="#15CD8E" />
+                <div key={title} style={{ padding: "30px", border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#F4F1C6", textAlign: "center" }}>
+                  <div style={{ width: "48px", height: "48px", backgroundColor: "#F3E9D2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+                    <Icon size={24} color="#B5913D" />
                   </div>
-                  <h3 style={{ fontSize: "17px", color: "#1a1a1a", marginBottom: "10px", fontWeight: "600" }}>{title}</h3>
-                  <p style={{ fontSize: "14px", color: "#69727d", lineHeight: "1.6" }}>{desc}</p>
+                  <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "10px", fontWeight: "600" }}>{title}</h3>
+                  <p style={{ fontSize: "14px", color: "#5C6B5A", lineHeight: "1.6" }}>{desc}</p>
                 </div>
               ))}
             </div>
@@ -443,22 +443,22 @@ export default function Home() {
         </section>
 
         {/* Customer Testimonials */}
-        <section className="section-padding" style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", borderBottom: "1px solid #e0dfde" }}>
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>What Our Customers Say About Our Taxi Services</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>Read testimonials from pilgrims who traveled with Saudia Cabs.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Read testimonials from pilgrims who traveled with Saudia Cabs.</p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
               {testimonials.map(({ name, country, text, stars }) => (
-                <div key={name} style={{ backgroundColor: "#ffffff", padding: "32px", borderRadius: "8px", border: "1px solid #e0dfde" }}>
+                <div key={name} style={{ backgroundColor: "#ffffff", padding: "32px", borderRadius: "8px", border: "1px solid #E4DEC6" }}>
                   <div style={{ display: "flex", gap: "2px", marginBottom: "16px" }}>
-                    {Array.from({ length: stars }).map((_, i) => <Star key={i} size={16} color="#ffd700" fill="#ffd700" />)}
+                    {Array.from({ length: stars }).map((_, i) => <Star key={i} size={16} color="#D1B969" fill="#D1B969" />)}
                   </div>
-                  <p style={{ fontSize: "14.5px", color: "#1a1a1a", lineHeight: "1.6", fontStyle: "italic", marginBottom: "20px" }}>&ldquo;{text}&rdquo;</p>
+                  <p style={{ fontSize: "14.5px", color: "#17351F", lineHeight: "1.6", fontStyle: "italic", marginBottom: "20px" }}>&ldquo;{text}&rdquo;</p>
                   <div>
-                    <strong style={{ display: "block", fontSize: "15px", color: "#1a1a1a" }}>{name}</strong>
-                    <span style={{ fontSize: "12.5px", color: "#69727d" }}>{country}</span>
+                    <strong style={{ display: "block", fontSize: "15px", color: "#17351F" }}>{name}</strong>
+                    <span style={{ fontSize: "12.5px", color: "#5C6B5A" }}>{country}</span>
                   </div>
                 </div>
               ))}
@@ -467,45 +467,45 @@ export default function Home() {
         </section>
 
         {/* Coverage Areas — Working in Multiple Taxi Services */}
-        <section className="section-padding" style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", borderBottom: "1px solid #e0dfde" }}>
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Working in Multiple Taxi Services</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>Serving pilgrims, tourists, and locals across major Saudi cities — available 24/7.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Serving pilgrims, tourists, and locals across major Saudi cities — available 24/7.</p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
-              <div style={{ border: "1px solid #e0dfde", borderRadius: "8px", padding: "28px", backgroundColor: "#F2F1F0" }}>
-                <h3 style={{ fontSize: "17px", color: "#1a1a1a", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
-                  <MapPin size={18} color="#15CD8E" /> Online Taxi Service in Saudi Arabia Cities
+              <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px", backgroundColor: "#F4F1C6" }}>
+                <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
+                  <MapPin size={18} color="#B5913D" /> Online Taxi Service in Saudi Arabia Cities
                 </h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                   {["Makkah Taxi Service", "Madinah Taxi Service", "Jeddah Taxi Service"].map((city) => (
-                    <li key={city} style={{ fontSize: "14px", color: "#5E5E5E", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CheckCircle size={13} color="#15CD8E" /> {city}
+                    <li key={city} style={{ fontSize: "14px", color: "#184A27", display: "flex", alignItems: "center", gap: "8px" }}>
+                      <CheckCircle size={13} color="#B5913D" /> {city}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div style={{ border: "1px solid #e0dfde", borderRadius: "8px", padding: "28px", backgroundColor: "#F2F1F0" }}>
-                <h3 style={{ fontSize: "17px", color: "#1a1a1a", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
-                  <Compass size={18} color="#15CD8E" /> Ziyarat Taxi Service in Saudi Arabia
+              <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px", backgroundColor: "#F4F1C6" }}>
+                <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
+                  <Compass size={18} color="#B5913D" /> Ziyarat Taxi Service in Saudi Arabia
                 </h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                   {["Makkah Ziyarat Taxi", "Madinah Ziyarat Taxi", "Hajj & Umrah Tours"].map((z) => (
-                    <li key={z} style={{ fontSize: "14px", color: "#5E5E5E", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CheckCircle size={13} color="#15CD8E" /> {z}
+                    <li key={z} style={{ fontSize: "14px", color: "#184A27", display: "flex", alignItems: "center", gap: "8px" }}>
+                      <CheckCircle size={13} color="#B5913D" /> {z}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div style={{ border: "1px solid #e0dfde", borderRadius: "8px", padding: "28px", backgroundColor: "#F2F1F0" }}>
-                <h3 style={{ fontSize: "17px", color: "#1a1a1a", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
-                  <ArrowRight size={18} color="#15CD8E" /> Popular Taxi Routes in Saudi Arabia
+              <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px", backgroundColor: "#F4F1C6" }}>
+                <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
+                  <ArrowRight size={18} color="#B5913D" /> Popular Taxi Routes in Saudi Arabia
                 </h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                   {["Jeddah to Makkah Taxi", "Makkah to Jeddah Taxi", "Makkah to Madinah Taxi", "Madinah to Makkah Taxi", "Jeddah to Madinah Taxi"].map((route) => (
-                    <li key={route} style={{ fontSize: "14px", color: "#5E5E5E", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CheckCircle size={13} color="#15CD8E" /> {route}
+                    <li key={route} style={{ fontSize: "14px", color: "#184A27", display: "flex", alignItems: "center", gap: "8px" }}>
+                      <CheckCircle size={13} color="#B5913D" /> {route}
                     </li>
                   ))}
                 </ul>
@@ -519,18 +519,18 @@ export default function Home() {
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Umrah Travel Guides & Tips</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>Helpful recommendations and guidelines for preparing your journey.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Helpful recommendations and guidelines for preparing your journey.</p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
               {tips.map(({ title, category, readTime, desc }) => (
-                <div key={title} style={{ border: "1px solid #e0dfde", borderRadius: "8px", overflow: "hidden", display: "flex", flexDirection: "column", backgroundColor: "#ffffff" }}>
+                <div key={title} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden", display: "flex", flexDirection: "column", backgroundColor: "#ffffff" }}>
                   <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", fontWeight: "600", color: "#15CD8E", marginBottom: "10px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", fontWeight: "600", color: "#B5913D", marginBottom: "10px" }}>
                       <span>{category}</span>
-                      <span style={{ color: "#69727d" }}>{readTime}</span>
+                      <span style={{ color: "#5C6B5A" }}>{readTime}</span>
                     </div>
-                    <h3 style={{ fontSize: "18px", color: "#1a1a1a", marginBottom: "10px", fontWeight: "600", lineHeight: "1.4" }}>{title}</h3>
-                    <p style={{ fontSize: "13.5px", color: "#69727d", lineHeight: "1.65", marginBottom: "20px", flex: 1 }}>{desc}</p>
+                    <h3 style={{ fontSize: "18px", color: "#17351F", marginBottom: "10px", fontWeight: "600", lineHeight: "1.4" }}>{title}</h3>
+                    <p style={{ fontSize: "13.5px", color: "#5C6B5A", lineHeight: "1.65", marginBottom: "20px", flex: 1 }}>{desc}</p>
                     <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20know%20more%20about:%20${encodeURIComponent(title)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: "13.5px", color: "#25D366", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "4px", textDecoration: "none" }}>
                       <MessageCircle size={14} /> Book & Ask on WhatsApp <ArrowRight size={14} />
                     </a>
@@ -542,20 +542,20 @@ export default function Home() {
         </section>
 
         {/* FAQs (Interactive Accordion using HTML Details) */}
-        <section className="section-padding" style={{ backgroundColor: "#F2F1F0", borderTop: "1px solid #e0dfde", borderBottom: "1px solid #e0dfde" }}>
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container faq-container" style={{ maxWidth: "800px" }}>
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Frequently Asked Questions</h2>
-              <p style={{ fontSize: "17px", color: "#69727d" }}>Find answers to quick questions about our Umrah ride services.</p>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Find answers to quick questions about our Umrah ride services.</p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {faqs.map(({ q, a }) => (
-                <details key={q} style={{ border: "1px solid #e0dfde", borderRadius: "8px", backgroundColor: "#ffffff" }}>
-                  <summary style={{ padding: "20px 24px", fontSize: "16px", fontWeight: "600", color: "#1a1a1a", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", listStyle: "none" }}>
+                <details key={q} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#ffffff" }}>
+                  <summary style={{ padding: "20px 24px", fontSize: "16px", fontWeight: "600", color: "#17351F", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", listStyle: "none" }}>
                     <span>{q}</span>
-                    <span style={{ fontSize: "20px", color: "#15CD8E" }}>+</span>
+                    <span style={{ fontSize: "20px", color: "#B5913D" }}>+</span>
                   </summary>
-                  <p style={{ padding: "0 24px 24px", fontSize: "14.5px", color: "#69727d", lineHeight: "1.6" }}>{a}</p>
+                  <p style={{ padding: "0 24px 24px", fontSize: "14.5px", color: "#5C6B5A", lineHeight: "1.6" }}>{a}</p>
                 </details>
               ))}
             </div>
