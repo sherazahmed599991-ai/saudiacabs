@@ -42,29 +42,24 @@ export function LocalBusinessSchema() {
       contactType: "customer service",
       availableLanguage: ["English", "Arabic", "Urdu"],
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "184",
-      bestRating: "5",
-      worstRating: "1"
-    },
-    review: [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Mohammad Ali" },
-        "datePublished": "2026-05-15",
-        "reviewBody": "Excellent service. The driver was waiting at Jeddah Airport on time. Clean Camry and very smooth ride to Makkah.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Fatima Ahmed" },
-        "datePublished": "2026-06-02",
-        "reviewBody": "Booked a Hyundai Staria for our family Ziyarat in Madinah. Very professional driver and guide. Highly recommended!",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-      }
-    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function WebsiteSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${BASE_URL}/#website`,
+    name: "Saudia Cabs",
+    url: BASE_URL,
+    publisher: { "@id": `${BASE_URL}/#business` },
   };
 
   return (
