@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 
@@ -41,19 +42,16 @@ export default function Header() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <div
             style={{
-              width: "36px",
-              height: "36px",
-              backgroundColor: "#B5913D",
+              position: "relative",
+              width: "40px",
+              height: "40px",
               borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#184A27",
-              fontWeight: "700",
-              fontSize: "14px",
+              overflow: "hidden",
+              flexShrink: 0,
+              border: "1px solid rgba(255,255,255,0.25)",
             }}
           >
-            SC
+            <Image src="/logo.jpeg" alt="Saudia Cabs logo" fill style={{ objectFit: "cover" }} sizes="40px" priority />
           </div>
           <span style={{ fontSize: "20px", fontWeight: "700", color: "#FCFBEA" }}>
             Saudia <span style={{ color: "#D1B969" }}>Cabs</span>

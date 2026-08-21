@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Plane, MapPin, ArrowLeftRight, Clock, Users, BadgeDollarSign, ArrowRight } from "lucide-react";
+import { Plane, MapPin, ArrowLeftRight, Clock, Users, BadgeDollarSign, ArrowRight, Compass } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ const services = [
     Icon: Plane,
     title: "Airport Transfer",
     href: "/services/airport-transfer/",
-    description: "Comfortable and on-time airport pickup and drop-off at Jeddah (KAIA) and Madinah (AMAA) airports. We track your flight and adjust for delays.",
+    description: "Comfortable and on-time airport pickup and drop-off at Jeddah (KAIA), Madinah (AMAA), Riyadh, AlUla and Taif airports. We track your flight and adjust for delays.",
     features: ["Flight tracking", "Meet & greet service", "All hours available", "Luggage assistance"],
   },
   {
@@ -48,6 +48,13 @@ const services = [
     href: "/services/makkah-madinah-transfer/",
     description: "Safe and reliable intercity travel between Makkah and Madinah. Direct routes, no unnecessary stops, at affordable prices.",
     features: ["Direct route", "AC vehicles", "Flexible timings", "Door to door"],
+  },
+  {
+    Icon: Compass,
+    title: "Miqat Transfer",
+    href: "/services/miqat-transfer/",
+    description: "A private stop at your Miqat boundary point to enter Ihram, then a direct transfer on to Makkah — no rushing, no extra charge for the wait.",
+    features: ["Correct Miqat for your route", "No time pressure", "Direct to Makkah after", "Experienced drivers"],
   },
   {
     Icon: Clock,

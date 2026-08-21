@@ -27,6 +27,9 @@ export function LocalBusinessSchema() {
       { "@type": "City", name: "Makkah" },
       { "@type": "City", name: "Madinah" },
       { "@type": "City", name: "Jeddah" },
+      { "@type": "City", name: "Riyadh" },
+      { "@type": "City", name: "AlUla" },
+      { "@type": "City", name: "Taif" },
     ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -94,6 +97,9 @@ export function ServiceSchema({
       { "@type": "City", name: "Makkah" },
       { "@type": "City", name: "Madinah" },
       { "@type": "City", name: "Jeddah" },
+      { "@type": "City", name: "Riyadh" },
+      { "@type": "City", name: "AlUla" },
+      { "@type": "City", name: "Taif" },
     ],
     serviceType: "Transportation",
   };

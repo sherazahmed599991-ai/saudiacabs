@@ -1,48 +1,43 @@
-
-
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { Car, MapPin, Plane, Users, ArrowRight, ArrowLeftRight, Sparkles, Star, CheckCircle, Wind, Shield, HelpCircle, Calendar, MessageCircle, Clock, ShieldCheck, Info, BookOpen, Compass, BadgeCheck, Award } from "lucide-react";
+import { Car, MapPin, Plane, Users, ArrowRight, Sparkles, Star, Wind, MessageCircle, Clock, ShieldCheck, DollarSign, Landmark, Mountain } from "lucide-react";
 import { LocalBusinessSchema, WebsiteSchema, FAQSchema } from "@/components/JsonLd";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Saudia Cabs — Umrah Taxi Service in Makkah, Madinah & Jeddah",
+  title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
   description:
-    "Private Umrah taxi service in Makkah, Madinah and Jeddah. Airport transfers, Ziyarat tours, Makkah–Madinah transfers and group packages. Fixed rates, book on WhatsApp, available 24/7.",
+    "Private Umrah taxi and airport transfers across Saudi Arabia — Makkah, Madinah, Jeddah, Riyadh, AlUla & Taif. Fixed quotes on WhatsApp, available 24/7.",
   keywords: [
-    "umrah transportation makkah",
-    "umrah transportation madinah",
+    "umrah taxi saudi arabia",
+    "private taxi makkah madinah jeddah",
     "airport transfer jeddah to makkah",
     "madinah airport to hotel transfer",
-    "jeddah KAIA airport transfer",
+    "riyadh airport taxi",
+    "alula airport taxi",
+    "taif airport taxi",
+    "miqat transfer taxi",
     "ziyarat tour makkah",
     "ziyarat tour madinah",
     "makkah madinah private transfer",
-    "umrah taxi service saudi arabia",
     "umrah car rental makkah",
     "group umrah transport",
-    "umrah cab service",
     "saudia cabs",
     "umrah ride booking",
-    "airport pickup jeddah umrah",
     "toyota coaster umrah",
     "toyota hiace makkah",
-    "holy sites tour saudi arabia",
-    "hajj transport saudi arabia",
-    "umrah transport whatsapp",
   ],
   alternates: { canonical: "https://saudiacabs.com/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Saudia Cabs",
-    title: "Saudia Cabs — Umrah Taxi Service in Makkah, Madinah & Jeddah",
+    title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
     description:
-      "Safe, affordable & reliable Umrah taxi service. Airport transfers, Ziyarat tours, Makkah–Madinah transfers & group packages. Available 24/7. Book on WhatsApp.",
+      "Private taxi and chauffeur transfers across Makkah, Madinah, Jeddah, Riyadh, AlUla and Taif — airport transfers, Ziyarat, Miqat and intercity journeys. Book on WhatsApp, 24/7.",
     url: "https://saudiacabs.com/",
     images: [
       {
@@ -55,9 +50,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saudia Cabs — Umrah Taxi Service in Makkah, Madinah & Jeddah",
+    title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
     description:
-      "Airport transfers, Ziyarat tours & Makkah–Madinah transfers. Available 24/7. Book on WhatsApp +966 59 894 7503.",
+      "Airport transfers, Ziyarat, Miqat and intercity transfers across Saudi Arabia. Book on WhatsApp +966 59 894 7503.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -80,56 +75,62 @@ const stats = [
   { number: "24/7", label: "Support" },
 ];
 
-const quickLinks = [
-  { Icon: Plane, title: "Airport Transfer", desc: "Jeddah KAIA & Madinah AMAA pickups", href: "/services/airport-transfer/", anchor: "Saudi airport taxi transfers" },
-  { Icon: MapPin, title: "Ziyarat Tours", desc: "Holy sites in Makkah & Madinah", href: "/services/ziyarat-tours/", anchor: "private Umrah Ziyarat taxi" },
-  { Icon: ArrowLeftRight, title: "Makkah ↔ Madinah Transfer", desc: "Direct intercity transfer, 4–5 hrs", href: "/services/makkah-madinah-transfer/", anchor: "Makkah to Madinah taxi transfer" },
-  { Icon: Car, title: "Our Fleet", desc: "4 to 17 seater vehicles", href: "/fleet/", anchor: "view our vehicle fleet" },
-  { Icon: Users, title: "Group Packages", desc: "Families & large groups", href: "/services/group-packages/", anchor: "group Umrah taxi packages" },
+const trustPoints = [
+  { Icon: Clock, title: "24/7 Support", desc: "Booking support and driver availability around the clock, whenever your flight lands." },
+  { Icon: Car, title: "Private Door-to-Door Transfers", desc: "No shared shuttle stops — your private vehicle takes your group directly to its destination." },
+  { Icon: ShieldCheck, title: "Experienced Drivers", desc: "Drivers familiar with Saudi routes and pilgrim travel, speaking English, Urdu and Arabic." },
+  { Icon: Wind, title: "Clean, Comfortable Vehicles", desc: "All vehicles are regularly cleaned and serviced for a comfortable, safe ride." },
+  { Icon: DollarSign, title: "Fixed Quotes", desc: "You know the agreed fare before confirming — no meters, no hidden charges." },
+  { Icon: MessageCircle, title: "WhatsApp Booking", desc: "Send your trip details and get a fixed quote back in minutes, no app download needed." },
 ];
 
-const benefits = [
-  { Icon: Clock, title: "Reliable Taxi Service Across Saudi Arabia", desc: "We provide dependable taxi services across major Saudi cities. Our drivers arrive on time and ensure a smooth travel experience." },
-  { Icon: ShieldCheck, title: "Professional and Experienced Drivers", desc: "Our drivers are trained, polite, and familiar with local roads. English, Urdu, and Arabic speaking for your comfort." },
-  { Icon: Wind, title: "Clean and Well-Maintained Vehicles", desc: "All vehicles are regularly cleaned and serviced for comfort and safety. A pleasant ride guaranteed every time." },
-  { Icon: Star, title: "Fixed and Transparent Pricing", desc: "Clear pricing with no hidden charges or surprises. You know the full cost of your ride before confirming your booking." },
+const popularRoutes = [
+  { route: "Jeddah Airport → Makkah", desc: "Private transfer from KAIA directly to your Makkah hotel.", href: "/services/airport-transfer/jeddah/" },
+  { route: "Jeddah Airport → Madinah", desc: "Private transfer from KAIA directly to your Madinah hotel.", href: "/services/airport-transfer/jeddah/" },
+  { route: "Makkah → Madinah", desc: "Direct intercity transfer, around 4–5 hours by road.", href: "/services/makkah-madinah-transfer/" },
+  { route: "Madinah → Makkah", desc: "Direct intercity transfer, around 4–5 hours by road.", href: "/services/makkah-madinah-transfer/" },
+  { route: "Makkah → Jeddah Airport", desc: "Departure transfer timed to get you there on time.", href: "/services/airport-transfer/jeddah/" },
+  { route: "Madinah → Jeddah Airport", desc: "Departure transfer timed to get you there on time.", href: "/services/airport-transfer/jeddah/" },
+];
+
+const airports = [
+  { Icon: Plane, name: "Jeddah Airport (KAIA)", href: "/services/airport-transfer/jeddah/" },
+  { Icon: Plane, name: "Madinah Airport (AMAA)", href: "/services/airport-transfer/madinah/" },
+  { Icon: Landmark, name: "Riyadh Airport", href: "/services/airport-transfer/riyadh/" },
+  { Icon: Mountain, name: "AlUla Airport", href: "/services/airport-transfer/alula/" },
+  { Icon: MapPin, name: "Taif Airport", href: "/services/airport-transfer/taif/" },
+];
+
+const umrahServices = [
+  { title: "Jeddah Airport to Makkah", desc: "Arrival transfer straight to your Makkah hotel.", href: "/services/airport-transfer/jeddah/" },
+  { title: "Makkah to Madinah", desc: "Direct intercity transfer between the two holy cities.", href: "/services/makkah-madinah-transfer/" },
+  { title: "Madinah to Makkah", desc: "Direct intercity transfer, either direction.", href: "/services/makkah-madinah-transfer/" },
+  { title: "Makkah Ziyarat", desc: "Guided visits to Jabal Noor, Jabal Thawr and more.", href: "/services/ziyarat-tours/" },
+  { title: "Madinah Ziyarat", desc: "Guided visits to Jabal Uhud, Quba Mosque and more.", href: "/services/ziyarat-tours/" },
+  { title: "Miqat Transfers", desc: "A stop at your Miqat to enter Ihram, then on to Makkah.", href: "/services/miqat-transfer/" },
 ];
 
 const fleet = [
-  { src: "/camry.webp", name: "Toyota Camry", seats: "4 Seats", type: "Economy", desc: "Comfortable and efficient ride for small families or individuals." },
-  { src: "/staria.webp", name: "Hyundai Staria", seats: "7 Seats", type: "Premium MPV", desc: "Futuristic multi-purpose vehicle with premium cabin spacing." },
-  { src: "/Gmc.webp", name: "GMC Yukon", seats: "7 Seats", type: "Luxury SUV", desc: "Ultimate styling and luxurious ride for prestigious travel." },
-  { src: "/hiace 11 seator.webp", name: "Toyota Hiace", seats: "11 Seats", type: "Group Van", desc: "Spacious passenger van ideal for medium family groups." },
-  { src: "/coaster 17 seator.webp", name: "Toyota Coaster", seats: "17 Seats", type: "Large Group", desc: "Best for large families or group packages. Comfortable bus-style seating with AC throughout." },
+  { src: "/camry.webp", name: "Toyota Camry", seats: 4, bestFor: "Couples / small families" },
+  { src: "/staria.webp", name: "Hyundai Staria", seats: 7, bestFor: "Families" },
+  { src: "/Gmc.webp", name: "GMC Yukon", seats: 7, bestFor: "Premium / luxury" },
+  { src: "/hiace 11 seator.webp", name: "Toyota Hiace", seats: 11, bestFor: "Groups" },
+  { src: "/coaster 17 seator.webp", name: "Toyota Coaster", seats: 17, bestFor: "Larger groups" },
 ];
 
-const routesPricing = [
-  { from: "Jeddah Airport (KAIA)", to: "Makkah Hotel", href: "/services/airport-transfer/" },
-  { from: "Makkah", to: "Madinah", href: "/services/makkah-madinah-transfer/" },
-  { from: "Madinah", to: "Makkah", href: "/services/makkah-madinah-transfer/" },
-  { from: "Jeddah", to: "Makkah", href: "/services/airport-transfer/" },
-  { from: "Makkah", to: "Jeddah", href: "/services/airport-transfer/" },
-  { from: "Jeddah", to: "Madinah", href: null },
-  { from: "Madinah Airport (AMAA)", to: "Madinah Hotel", href: "/services/airport-transfer/" },
-  { from: "Jeddah Airport (KAIA)", to: "Madinah", href: null },
+const whyUs = [
+  { title: "Private Vehicle", desc: "Your group travels together without shared shuttle stops." },
+  { title: "Door-to-Door Service", desc: "Pickup from airport, hotel or another agreed location." },
+  { title: "Professional Drivers", desc: "Experienced drivers familiar with Saudi routes and pilgrim travel." },
+  { title: "Clear Pricing", desc: "Know your agreed fare before confirming." },
+  { title: "WhatsApp Support", desc: "Easy communication before and during your journey." },
+  { title: "24/7 Availability", desc: "Booking support whenever you need it." },
 ];
 
-const travelInfo = [
-  { route: "Jeddah to Makkah", dist: "85 km", time: "1 hr 15 mins", desc: "Direct route via Makkah First Ring Rd/Route 40.", href: "/services/airport-transfer/" },
-  { route: "Makkah to Madinah", dist: "450 km", time: "4 hr 30 mins", desc: "Direct path via Route 15 (Haramain Expressway).", href: "/services/makkah-madinah-transfer/" },
-  { route: "Jeddah to Madinah", dist: "410 km", time: "4 hr 10 mins", desc: "Mainly via Haramain Expressway Route 15.", href: null },
-];
-
-const commitments = [
-  { Icon: BadgeCheck, title: "Fixed Price Guarantee", desc: "We guarantee that the price we confirm is the final price you pay. No exceptions." },
-  { Icon: Award, title: "100% Punctuality", desc: "Our drivers arrive 15 minutes before the pickup time to ensure zero delays." },
-  { Icon: Shield, title: "Safe & Sanitized Vehicles", desc: "Vehicles are deep cleaned, sanitized, and safety-checked before every single booking." },
-];
-
-const steps = [
-  { step: "01", title: "Select Journey Details", desc: "Choose your pickup point, destination, dates, and preferred vehicle from our fleet catalog." },
-  { step: "02", title: "Confirm on WhatsApp", desc: "Click our booking buttons to initiate direct chat. We confirm details instantly without credit cards." },
-  { step: "03", title: "Meet Driver & Travel", desc: "Your driver tracks your flight and awaits you on-time. Pay directly to driver upon arrival." },
+const bookingSteps = [
+  { step: "01", title: "Send Your Trip Details", desc: "Pickup, destination, date, time, passengers and vehicle preference." },
+  { step: "02", title: "Get Your Quote", desc: "We'll confirm the vehicle and agreed fare on WhatsApp." },
+  { step: "03", title: "Meet Your Driver", desc: "Your driver arrives at the agreed pickup point and takes you directly to your destination." },
 ];
 
 const testimonials = [
@@ -138,23 +139,29 @@ const testimonials = [
   { name: "Mustafa Kamal", country: "Turkey", text: "Fixed price, clean vehicle, and on-time arrival. Saudia Cabs made our journey between Makkah and Madinah stress-free.", stars: 5 },
 ];
 
+const cityServices = [
+  { name: "Makkah", desc: "Private taxis, airport transfers, Ziyarat and Miqat transfers." },
+  { name: "Madinah", desc: "Airport transfers, hotel transfers and Ziyarat tours." },
+  { name: "Jeddah", desc: "Airport transfers and private intercity taxis." },
+];
+
 const tips = [
-  { title: "Jeddah Airport Ihram Guide", category: "Pilgrim Guide", readTime: "3 min read", desc: "Learn where to wear your Ihram, perform Niyyah, and handle immigration efficiently at KAIA terminal." },
-  { title: "Choosing the Right Vehicle", category: "Fleet Tips", readTime: "2 min read", desc: "A comparison guide between Hyundai Staria and Toyota Hiace depending on baggage size and seating." },
-  { title: "Top Ziyarat Sites in Makkah", category: "Holy Cities", readTime: "4 min read", desc: "A checklist of historic places to visit in Makkah, including Jabal al-Noor, Mount Arafat, and Mina." },
+  { title: "Jeddah Airport to Makkah: What Pilgrims Should Know", category: "Pilgrim Guide", readTime: "3 min read", desc: "Where to wear Ihram, perform Niyyah, and handle immigration efficiently at KAIA terminal." },
+  { title: "Makkah to Madinah Taxi Guide", category: "Route Guide", readTime: "3 min read", desc: "What to expect on the intercity journey, travel time, and how to book a direct transfer." },
+  { title: "Choosing the Right Taxi for Your Umrah Group", category: "Fleet Tips", readTime: "2 min read", desc: "A comparison guide between our vehicles depending on group size and baggage." },
 ];
 
 const faqs: { q: string; a: string; related?: { label: string; href: string } }[] = [
-  { q: "How do I meet my driver at Jeddah Airport (KAIA)?", a: "Your driver will track your flight arrival time. They will wait for you outside the arrival gate with a nameplate, and will coordinate with you via WhatsApp call/message as soon as you land.", related: { label: "See our Jeddah Airport to Makkah transfer details", href: "/services/airport-transfer/" } },
-  { q: "Are the rates fixed or will they change?", a: "All our rates are fully fixed and agreed upon during booking. There are no hidden charges, surge pricing, or extra fees for airport parking or waiting times." },
-  { q: "Do you provide baby car seats?", a: "Yes, we can arrange baby seats upon request. Please mention this during your WhatsApp booking confirmation so we can prepare the vehicle accordingly." },
-  { q: "How far in advance should I book my ride?", a: "We recommend booking at least 24 hours in advance to guarantee your preferred vehicle size. However, we also cater to last-minute booking requests depending on fleet availability." },
-  { q: "What is the average taxi fare from Makkah to Madinah?", a: "The taxi fare from Makkah to Madinah depends on the vehicle type and group size. For a private sedan, fares start from around SAR 450. For accurate pricing, WhatsApp us and we will provide an instant fixed quote for your group.", related: { label: "View our Makkah to Madinah transfer service", href: "/services/makkah-madinah-transfer/" } },
-  { q: "How to book a taxi in Saudi Arabia?", a: "Booking a taxi with Saudia Cabs is quick and easy. Click any 'Get Quote' or 'Book Now' button on our site to open a direct WhatsApp chat. Share your pickup location, destination, travel date, and preferred vehicle — we confirm within minutes. No credit card required.", related: { label: "Visit our booking page", href: "/contact/" } },
-  { q: "What is the taxi fare from Jeddah airport to Makkah?", a: "The fare from Jeddah King Abdulaziz International Airport (KAIA) to Makkah hotels depends on your vehicle choice. We offer fixed, all-inclusive rates with no hidden charges. WhatsApp us for an instant quote based on your group size.", related: { label: "More on our airport pickup service", href: "/services/airport-transfer/" } },
-  { q: "Who is the best Umrah taxi service provider in Saudi Arabia?", a: "Saudia Cabs is a top-rated Umrah taxi service operating since 2016. We specialize in airport transfers, Makkah–Madinah intercity routes, and Ziyarat tours with professional, multilingual drivers and a modern fleet of 50+ vehicles.", related: { label: "Read more about Saudia Cabs", href: "/about/" } },
-  { q: "What is the fare of Madinah Ziyarat Taxi?", a: "Madinah Ziyarat taxi fares depend on the number of holy sites visited and your group size. We offer custom Ziyarat tour packages covering all major religious and historic sites in Madinah. Request a quote on WhatsApp for a tailored price.", related: { label: "Explore our Madinah Ziyarat taxi service", href: "/services/ziyarat-tours/" } },
-  { q: "How much does a taxi in KSA charge per hour?", a: "Hourly taxi rates in Saudi Arabia vary by vehicle type. For an accurate per-hour rate for your preferred vehicle (Camry, Staria, GMC, Hiace, or Coaster), please contact us on WhatsApp and we will send you a fixed, all-inclusive quote." },
+  { q: "How much is a private taxi from Jeddah Airport to Makkah?", a: "The fare depends on your vehicle choice and group size. We offer fixed, all-inclusive rates with no hidden charges — WhatsApp us for an instant quote.", related: { label: "View our Jeddah Airport transfer service", href: "/services/airport-transfer/jeddah/" } },
+  { q: "Do you offer private Makkah to Madinah transfers?", a: "Yes. Direct, private intercity transfers between Makkah and Madinah, around 4–5 hours by road. Fares for a private sedan start from around SAR 450 — WhatsApp us for an exact quote.", related: { label: "See our Makkah–Madinah transfer service", href: "/services/makkah-madinah-transfer/" } },
+  { q: "Can I book a taxi from Madinah Airport?", a: "Yes. We provide transfers from Prince Mohammad Bin Abdulaziz Airport (AMAA) directly to your Madinah hotel, and onward to Makkah if needed.", related: { label: "Explore our Madinah Airport transfer", href: "/services/airport-transfer/madinah/" } },
+  { q: "How do I book a taxi on WhatsApp?", a: "Click any 'Get Quote' or 'Book Now' button on our site to open a direct WhatsApp chat. Share your pickup location, destination, travel date and preferred vehicle — we confirm within minutes. No credit card required.", related: { label: "Visit our booking page", href: "/contact/" } },
+  { q: "Can I choose my vehicle?", a: "Yes. Tell us your group size and preference and we'll confirm availability — from a 4-seater Camry to a 17-seater Coaster.", related: { label: "See our full fleet", href: "/fleet/" } },
+  { q: "Do you provide Ziyarat taxi services?", a: "Yes. Private guided Ziyarat tours to the major holy sites in both Makkah and Madinah, with drivers who know every location.", related: { label: "Explore our Ziyarat tours", href: "/services/ziyarat-tours/" } },
+  { q: "Do you provide Miqat transfers?", a: "Yes. We stop at the correct Miqat boundary point for your route so you can enter Ihram, then continue directly to Makkah — no extra charge for the wait.", related: { label: "Learn more about Miqat transfers", href: "/services/miqat-transfer/" } },
+  { q: "How do I meet my driver at the airport?", a: "Your driver tracks your flight arrival time and waits at the arrivals area with a nameplate, coordinating with you by WhatsApp as soon as you land." },
+  { q: "Are your prices fixed?", a: "Yes. All our rates are agreed and fixed during booking — no hidden charges, surge pricing, or extra fees for waiting time." },
+  { q: "Which cities and airports do you serve?", a: "We operate across Makkah, Madinah, Jeddah, Riyadh, AlUla and Taif, including transfers from Jeddah (KAIA), Madinah (AMAA), Riyadh, AlUla and Taif airports.", related: { label: "See all airport transfer options", href: "/services/airport-transfer/" } },
 ];
 
 export default function Home() {
@@ -166,7 +173,7 @@ export default function Home() {
       <Header />
       <main style={{ flex: 1 }}>
 
-        {/* Hero */}
+        {/* 1. Hero */}
         <section
           className="hero-section"
           style={{
@@ -185,22 +192,30 @@ export default function Home() {
               Trusted Umrah Transportation Since 2016
             </div>
             <h1 className="hero-h1" style={{ color: "#ffffff", fontSize: "52px", fontWeight: "700", marginBottom: "20px", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
-              Private Umrah Taxi & Transportation in <br />
-              <span style={{ color: "#ffffff" }}>Makkah, Madinah & Jeddah</span>
+              Private Umrah Taxi &amp; Transportation <br />
+              <span style={{ color: "#ffffff" }}>in Saudi Arabia</span>
             </h1>
-            <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "18px", maxWidth: "620px", margin: "0 auto 40px", lineHeight: "1.75" }}>
-              Saudia Cabs provides safe, reliable and affordable private taxi transport for Umrah pilgrims
-              across Makkah, Madinah and Jeddah — airport transfers, Ziyarat tours, intercity transfers and
-              group packages. Book instantly on WhatsApp, available 24/7.
+            <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "18px", maxWidth: "660px", margin: "0 auto 32px", lineHeight: "1.75" }}>
+              Reliable private taxi and chauffeur transfers across Makkah, Madinah, Jeddah, Riyadh, AlUla and Taif —
+              including airport transfers, intercity journeys, Ziyarat and Miqat stops. Book your private car 24/7 through WhatsApp.
             </p>
-            <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="#book" className="btn-primary" style={{ backgroundColor: "#ffffff", color: "#B5913D", boxShadow: "0 4px 16px rgba(0,0,0,0.15)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
-                <Car size={18} /> Book a Private Taxi
-              </Link>
+            <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap", marginBottom: "28px" }}>
+              <a
+                href="https://wa.me/966598947503?text=Salam,%20I%20want%20to%20get%20a%20fixed%20quote%20for%20a%20private%20taxi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ backgroundColor: "#ffffff", color: "#B5913D", boxShadow: "0 4px 16px rgba(0,0,0,0.15)", display: "inline-flex", alignItems: "center", gap: "8px" }}
+              >
+                <MessageCircle size={18} /> Get a Fixed Quote on WhatsApp
+              </a>
               <Link href="/services/" className="btn-outline" style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.7)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
-                <MapPin size={18} /> Our Services
+                <MapPin size={18} /> View Taxi Services
               </Link>
             </div>
+            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "14px", letterSpacing: "0.02em" }}>
+              24/7 Booking &nbsp;·&nbsp; Private Cars &nbsp;·&nbsp; Fixed Quotes &nbsp;·&nbsp; Professional Drivers
+            </p>
           </div>
         </section>
 
@@ -216,17 +231,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ADDED SECTION 1: Why Choose Us (Key Benefits Grid) */}
+        {/* 2. Trust / Service Benefits */}
         <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Why Choose Saudia Cabs Taxi Service</h2>
+              <h2 style={{ marginBottom: "14px" }}>Why Travelers Choose Saudia Cabs</h2>
               <p style={{ fontSize: "17px", color: "#5C6B5A", maxWidth: "550px", margin: "0 auto" }}>
                 We combine years of local experience with a modern fleet to provide the ultimate Umrah travel convenience.
               </p>
             </div>
-            <div className="rg-4" style={{ display: "grid", gap: "24px" }}>
-              {benefits.map(({ Icon, title, desc }) => (
+            <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
+              {trustPoints.map(({ Icon, title, desc }) => (
                 <div key={title} style={{ padding: "24px", border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#F4F1C6" }}>
                   <div style={{ width: "40px", height: "40px", backgroundColor: "#F3E9D2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
                     <Icon size={20} color="#B5913D" />
@@ -239,25 +254,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services quick links */}
+        {/* 3. Popular Routes */}
         <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Umrah Taxi Services in Saudi Arabia</h2>
-              <p style={{ fontSize: "17px", maxWidth: "520px", margin: "0 auto" }}>
-                Complete private transport solutions for your sacred journey in Saudi Arabia.
+              <h2 style={{ marginBottom: "14px" }}>Popular Saudi Taxi Routes</h2>
+              <p style={{ fontSize: "17px", color: "#5C6B5A", maxWidth: "520px", margin: "0 auto" }}>
+                Our most requested private transfers — each route page has full details and a fixed-quote WhatsApp link.
               </p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "20px" }}>
-              {quickLinks.map(({ Icon, title, desc, href, anchor }) => (
-                <Link key={title} href={href} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px 24px", textDecoration: "none", display: "block", transition: "transform 0.2s" }}>
-                  <div style={{ width: "48px", height: "48px", backgroundColor: "#F3E9D2", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
-                    <Icon size={24} color="#B5913D" />
-                  </div>
-                  <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "6px" }}>{title}</h3>
-                  <p style={{ fontSize: "14px", color: "#5C6B5A", marginBottom: "12px" }}>{desc}</p>
+              {popularRoutes.map(({ route, desc, href }, i) => (
+                <Link key={i} href={href} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "24px", textDecoration: "none", display: "block" }}>
+                  <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px" }}>{route}</h3>
+                  <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "14px" }}>{desc}</p>
                   <span style={{ fontSize: "14px", color: "#B5913D", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
-                    {anchor} <ArrowRight size={14} />
+                    Get Quote <ArrowRight size={14} />
                   </span>
                 </Link>
               ))}
@@ -265,15 +277,119 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works */}
+        {/* 4. Airport Transfers */}
+        <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
+          <div className="container">
+            <div style={{ textAlign: "center", marginBottom: "48px" }}>
+              <h2 style={{ marginBottom: "14px" }}>Private Airport Transfers in Saudi Arabia</h2>
+              <p style={{ fontSize: "17px", color: "#5C6B5A", maxWidth: "640px", margin: "0 auto" }}>
+                Arriving in Saudi Arabia? Book a private airport transfer with a dedicated vehicle and driver.
+                We provide door-to-door transfers from Jeddah, Madinah and other major airports to hotels and
+                destinations across the Kingdom.
+              </p>
+            </div>
+            <div className="rg-4" style={{ display: "grid", gap: "20px" }}>
+              {airports.map(({ Icon, name, href }) => (
+                <Link key={name} href={href} style={{ backgroundColor: "#F4F1C6", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "24px 20px", textDecoration: "none", display: "block", textAlign: "center" }}>
+                  <div style={{ width: "44px", height: "44px", backgroundColor: "#F3E9D2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 14px" }}>
+                    <Icon size={22} color="#B5913D" />
+                  </div>
+                  <h3 style={{ fontSize: "15px", color: "#17351F", marginBottom: "10px" }}>{name}</h3>
+                  <span style={{ fontSize: "13px", color: "#B5913D", fontWeight: "500" }}>View details →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Umrah & Ziyarat Services */}
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
+          <div className="container">
+            <div style={{ textAlign: "center", marginBottom: "48px" }}>
+              <h2 style={{ marginBottom: "14px" }}>Umrah Taxi Services</h2>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Everything your Umrah journey needs, in one place.</p>
+            </div>
+            <div className="rg-3" style={{ display: "grid", gap: "20px" }}>
+              {umrahServices.map(({ title, desc, href }) => (
+                <Link key={title} href={href} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "24px", textDecoration: "none", display: "block" }}>
+                  <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px" }}>{title}</h3>
+                  <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "14px" }}>{desc}</p>
+                  <span style={{ fontSize: "14px", color: "#B5913D", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
+                    Learn more <ArrowRight size={14} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 6. Fleet */}
+        <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
+          <div className="container">
+            <div style={{ textAlign: "center", marginBottom: "48px" }}>
+              <h2 style={{ marginBottom: "14px" }}>Choose the Right Vehicle for Your Journey</h2>
+              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Select the perfect clean, fully air-conditioned ride matching your group size.</p>
+            </div>
+            <div className="table-scroll" style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden" }}>
+                <thead>
+                  <tr style={{ backgroundColor: "#F4F1C6" }}>
+                    <th style={{ textAlign: "left", padding: "14px 16px", fontSize: "13px", color: "#5C6B5A", textTransform: "uppercase", letterSpacing: "0.05em" }}>Vehicle</th>
+                    <th style={{ textAlign: "left", padding: "14px 16px", fontSize: "13px", color: "#5C6B5A", textTransform: "uppercase", letterSpacing: "0.05em" }}>Passengers</th>
+                    <th style={{ textAlign: "left", padding: "14px 16px", fontSize: "13px", color: "#5C6B5A", textTransform: "uppercase", letterSpacing: "0.05em" }}>Best For</th>
+                    <th style={{ padding: "14px 16px" }} />
+                  </tr>
+                </thead>
+                <tbody>
+                  {fleet.map((car, i) => (
+                    <tr key={car.name} style={{ borderTop: "1px solid #E4DEC6", backgroundColor: i % 2 === 0 ? "#fff" : "#fafaf9" }}>
+                      <td style={{ padding: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
+                        <div style={{ position: "relative", width: "56px", height: "40px", borderRadius: "4px", overflow: "hidden", flexShrink: 0 }}>
+                          <Image src={car.src} alt={`${car.name} — Umrah taxi in Saudi Arabia`} fill style={{ objectFit: "cover" }} />
+                        </div>
+                        <span style={{ fontSize: "15px", fontWeight: "600", color: "#17351F" }}>{car.name}</span>
+                      </td>
+                      <td style={{ padding: "16px", fontSize: "14px", color: "#5C6B5A" }}>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}><Users size={14} color="#B5913D" /> {car.seats}</span>
+                      </td>
+                      <td style={{ padding: "16px", fontSize: "14px", color: "#5C6B5A" }}>{car.bestFor}</td>
+                      <td style={{ padding: "16px", whiteSpace: "nowrap" }}>
+                        <Link href="/fleet/" style={{ fontSize: "13.5px", color: "#B5913D", fontWeight: "600", textDecoration: "none", marginRight: "16px" }}>View Vehicle →</Link>
+                        <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20get%20a%20quote%20for%20${encodeURIComponent(car.name)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: "13.5px", color: "#25D366", fontWeight: "600", textDecoration: "none" }}>Get Quote →</a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. Why Saudia Cabs */}
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
+          <div className="container">
+            <div style={{ textAlign: "center", marginBottom: "48px" }}>
+              <h2 style={{ marginBottom: "14px" }}>Why Book With Saudia Cabs?</h2>
+            </div>
+            <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
+              {whyUs.map(({ title, desc }) => (
+                <div key={title} style={{ padding: "24px", border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#fff" }}>
+                  <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px", fontWeight: "600" }}>{title}</h3>
+                  <p style={{ fontSize: "13.5px", color: "#5C6B5A", lineHeight: "1.6" }}>{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 8. How Booking Works */}
         <section style={{ backgroundColor: "#ffffff", padding: "80px 0" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <h2 style={{ marginBottom: "14px" }}>How To Book Your Ride</h2>
-              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>3 simple steps to secure comfortable transport for your pilgrimage.</p>
+              <h2 style={{ marginBottom: "14px" }}>Book Your Private Taxi in 3 Steps</h2>
             </div>
-            <div className="rg-3" style={{ display: "grid", gap: "30px" }}>
-              {steps.map(({ step, title, desc }) => (
+            <div className="rg-3" style={{ display: "grid", gap: "30px", marginBottom: "40px" }}>
+              {bookingSteps.map(({ step, title, desc }) => (
                 <div key={step} style={{ backgroundColor: "#ffffff", padding: "32px", borderRadius: "8px", border: "1px solid #E4DEC6", position: "relative" }}>
                   <span style={{ position: "absolute", top: "24px", right: "24px", fontSize: "36px", fontWeight: "800", color: "rgba(181, 145, 61, 0.15)" }}>{step}</span>
                   <h3 style={{ fontSize: "18px", color: "#17351F", marginBottom: "12px" }}>{title}</h3>
@@ -281,182 +397,21 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Featured Fleet Showroom */}
-        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
-          <div className="container">
-            <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Vehicles Available for Umrah Taxi in Saudi Arabia</h2>
-              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Select the perfect clean, fully air-conditioned ride matching your budget.</p>
-            </div>
-            <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
-              {fleet.map((car) => (
-                <div key={car.name} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden", display: "flex", flexDirection: "column", backgroundColor: "#ffffff" }}>
-                  <div style={{ position: "relative", height: "180px", backgroundColor: "#F4F1C6" }}>
-                    <Image src={car.src} alt={`${car.name} — Umrah taxi in Saudi Arabia`} fill style={{ objectFit: "cover" }} />
-                  </div>
-                  <div style={{ padding: "20px", display: "flex", flexDirection: "column", flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                      <h3 style={{ fontSize: "18px" }}>
-                        <Link href="/fleet/" style={{ color: "#17351F" }}>{car.name}</Link>
-                      </h3>
-                      <span style={{ fontSize: "12px", backgroundColor: "#F3E9D2", color: "#8F6F25", padding: "2px 8px", borderRadius: "10px", fontWeight: "600" }}>{car.type}</span>
-                    </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A", marginBottom: "10px" }}>
-                      <Users size={14} color="#B5913D" /> {car.seats}
-                    </div>
-                    <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "16px", flex: 1 }}>{car.desc}</p>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #E4DEC6", paddingTop: "12px" }}>
-                      <div>
-                        <span style={{ fontSize: "12px", color: "#5C6B5A", display: "block" }}>Starting From</span>
-                        <strong style={{ fontSize: "15px", color: "#B5913D" }}>Get Quote</strong>
-                      </div>
-                      <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20get%20a%20quote%20for%20${encodeURIComponent(car.name)}`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", gap: "4px", alignItems: "center", backgroundColor: "#25D366", color: "#ffffff", padding: "8px 12px", borderRadius: "42px", fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>
-                        <MessageCircle size={14} /> Book Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div style={{ textAlign: "center", marginTop: "32px" }}>
-              <Link href="/fleet/" className="btn-outline" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
-                View full fleet details and pricing <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ADDED SECTION 2: Popular Routes & Pricing Table */}
-        <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
-          <div className="container routes-container" style={{ maxWidth: "700px" }}>
-            <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Affordable Umrah Taxi Pricing</h2>
-              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Inquire about private transfers for these popular pilgrim routes.</p>
-            </div>
-            <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden" }}>
-              {routesPricing.map((r, i) => (
-                <div
-                  key={i}
-                  className="routes-row"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: "12px",
-                    padding: "16px 20px",
-                    borderBottom: i === routesPricing.length - 1 ? "none" : "1px solid #E4DEC6",
-                    backgroundColor: i % 2 === 0 ? "#ffffff" : "#fafaf9",
-                  }}
-                >
-                  <span style={{ fontSize: "14.5px", fontWeight: "600", color: "#17351F", flex: 1 }}>
-                    {r.href ? (
-                      <Link href={r.href} style={{ color: "#17351F" }}>{r.from} <span style={{ color: "#B5913D" }}>↔</span> {r.to}</Link>
-                    ) : (
-                      <>{r.from} <span style={{ color: "#B5913D" }}>↔</span> {r.to}</>
-                    )}
-                  </span>
-                  <a
-                    href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20get%20a%20quote%20for%20transfer%20from%20${encodeURIComponent(r.from)}%20to%20${encodeURIComponent(r.to)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ display: "inline-flex", gap: "4px", alignItems: "center", backgroundColor: "#25D366", color: "#ffffff", padding: "8px 16px", borderRadius: "42px", fontSize: "13px", fontWeight: "600", textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }}
-                  >
-                    <MessageCircle size={14} /> Get Quote
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ADDED SECTION 3: Travel Distance & Duration Guide */}
-        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
-          <div className="container">
-            <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Route Distance & Duration Guide</h2>
-              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Estimate travel durations and plan your Umrah itinerary accurately.</p>
-            </div>
-            <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
-              {travelInfo.map(({ route, dist, time, desc, href }) => (
-                <div key={route} style={{ backgroundColor: "#ffffff", padding: "28px", borderRadius: "8px", border: "1px solid #E4DEC6" }}>
-                  <div style={{ fontSize: "18px", fontWeight: "700", color: "#B5913D", marginBottom: "12px", display: "flex", gap: "8px", alignItems: "center" }}>
-                    <Compass size={18} /> {href ? <Link href={href} style={{ color: "#B5913D" }}>{route}</Link> : route}
-                  </div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "12px", borderBottom: "1px solid #E4DEC6", paddingBottom: "12px" }}>
-                    <div>
-                      <span style={{ fontSize: "11px", color: "#5C6B5A", textTransform: "uppercase" }}>Distance</span>
-                      <strong style={{ display: "block", fontSize: "16px", color: "#17351F" }}>{dist}</strong>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: "11px", color: "#5C6B5A", textTransform: "uppercase" }}>Avg. Time</span>
-                      <strong style={{ display: "block", fontSize: "16px", color: "#17351F" }}>{time}</strong>
-                    </div>
-                  </div>
-                  <p style={{ fontSize: "13.5px", color: "#5C6B5A" }}>{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Trust bar */}
-        <section style={{ backgroundColor: "#184A27", padding: "56px 0" }}>
-          <div className="container rg-trust" style={{ display: "grid", gap: "60px", alignItems: "center" }}>
-            <div>
-              <h2 style={{ color: "#fff", marginBottom: "16px" }}>Serving Umrah Pilgrims Since 2016</h2>
-              <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", lineHeight: "1.75", marginBottom: "28px" }}>
-                With over 8 years of experience in Umrah transportation, we have helped thousands of pilgrims
-                travel safely and comfortably through Makkah, Madinah and Jeddah.
-              </p>
-              {["Licensed & experienced drivers", "Fixed rates — no hidden charges", "On-time pickup, every time"].map((p) => (
-                <div key={p} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-                  <CheckCircle size={18} color="#ffffff" />
-                  <span style={{ fontSize: "16px", color: "rgba(255,255,255,0.9)" }}>{p}</span>
-                </div>
-              ))}
-              <Link href="/about/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", marginTop: "24px" }}>
-                About Us <ArrowRight size={16} />
-              </Link>
-            </div>
             <div style={{ textAlign: "center" }}>
-              <div style={{ backgroundColor: "rgba(255,255,255,0.12)", borderRadius: "12px", padding: "40px", display: "inline-block" }}>
-                <div style={{ display: "flex", justifyContent: "center", gap: "4px", marginBottom: "12px" }}>
-                  {[1,2,3,4,5].map((i) => <Star key={i} size={28} color="#D1B969" fill="#D1B969" />)}
-                </div>
-                <div style={{ fontSize: "48px", fontWeight: "700", color: "#fff", marginBottom: "8px" }}>4.9 / 5</div>
-                <div style={{ fontSize: "16px", color: "rgba(255,255,255,0.8)" }}>Rated by 5000+ pilgrims</div>
-              </div>
+              <a
+                href="https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20a%20private%20taxi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+              >
+                <MessageCircle size={18} /> Get a Quote on WhatsApp
+              </a>
             </div>
           </div>
         </section>
 
-        {/* ADDED SECTION 4: Our Commitments (Safety & Service Guarantees) */}
-        <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
-          <div className="container">
-            <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Our Service Guarantees</h2>
-              <p style={{ fontSize: "17px", color: "#5C6B5A", maxWidth: "500px", margin: "0 auto" }}>
-                We believe in complete transparency and maximum satisfaction for our guests of Allah.
-              </p>
-            </div>
-            <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
-              {commitments.map(({ Icon, title, desc }) => (
-                <div key={title} style={{ padding: "30px", border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#F4F1C6", textAlign: "center" }}>
-                  <div style={{ width: "48px", height: "48px", backgroundColor: "#F3E9D2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                    <Icon size={24} color="#B5913D" />
-                  </div>
-                  <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "10px", fontWeight: "600" }}>{title}</h3>
-                  <p style={{ fontSize: "14px", color: "#5C6B5A", lineHeight: "1.6" }}>{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Customer Testimonials */}
+        {/* 9. Customer Reviews */}
         <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
@@ -480,76 +435,34 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Coverage Areas — Cities, Ziyarat & Routes */}
-        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
+        {/* 10. Makkah / Madinah / Jeddah services */}
+        <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Taxi Services Across Saudi Arabia</h2>
               <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Serving pilgrims, tourists, and locals across major Saudi cities — available 24/7.</p>
             </div>
-            <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
-              <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px", backgroundColor: "#F4F1C6" }}>
-                <h3 style={{ fontSize: "17px", marginBottom: "10px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
-                  <MapPin size={18} color="#B5913D" />
-                  <Link href="/services/" style={{ color: "#17351F" }}>Taxi Services in Saudi Arabia Cities</Link>
-                </h3>
-                <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "16px" }}>
-                  Private rides for pilgrims and travellers in each of the cities we serve.
-                </p>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {["Private taxi in Makkah", "Taxi service in Madinah", "Jeddah taxi for pilgrims"].map((city) => (
-                    <li key={city} style={{ fontSize: "14px", color: "#184A27", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CheckCircle size={13} color="#B5913D" /> {city}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px", backgroundColor: "#F4F1C6" }}>
-                <h3 style={{ fontSize: "17px", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
-                  <Compass size={18} color="#B5913D" />
-                  <Link href="/services/ziyarat-tours/" style={{ color: "#17351F" }}>Ziyarat Taxi Service in Saudi Arabia</Link>
-                </h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    { label: "Makkah Ziyarat taxi", href: "/services/ziyarat-tours/" },
-                    { label: "private Madinah Ziyarat taxi", href: "/services/ziyarat-tours/" },
-                    { label: "Hajj & Umrah tours", href: null },
-                  ].map((z) => (
-                    <li key={z.label} style={{ fontSize: "14px", color: "#184A27", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CheckCircle size={13} color="#B5913D" />
-                      {z.href ? <Link href={z.href} style={{ color: "#184A27" }}>{z.label}</Link> : z.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div style={{ border: "1px solid #E4DEC6", borderRadius: "8px", padding: "28px", backgroundColor: "#F4F1C6" }}>
-                <h3 style={{ fontSize: "17px", color: "#17351F", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px", fontWeight: "700" }}>
-                  <ArrowRight size={18} color="#B5913D" /> Popular Taxi Routes in Saudi Arabia
-                </h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    { label: "Jeddah Airport to Makkah taxi", href: "/services/airport-transfer/" },
-                    { label: "Makkah to Jeddah Airport taxi", href: "/services/airport-transfer/" },
-                    { label: "Makkah to Madinah taxi transfer", href: "/services/makkah-madinah-transfer/" },
-                    { label: "Madinah to Makkah private transfer", href: "/services/makkah-madinah-transfer/" },
-                    { label: "Jeddah to Madinah taxi", href: null },
-                  ].map((route) => (
-                    <li key={route.label} style={{ fontSize: "14px", color: "#184A27", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CheckCircle size={13} color="#B5913D" />
-                      {route.href ? <Link href={route.href} style={{ color: "#184A27" }}>{route.label}</Link> : route.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="rg-3" style={{ display: "grid", gap: "24px", marginBottom: "36px" }}>
+              {cityServices.map(({ name, desc }) => (
+                <div key={name} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", padding: "24px", backgroundColor: "#F4F1C6" }}>
+                  <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px", fontWeight: "700" }}>{name}</h3>
+                  <p style={{ fontSize: "13.5px", color: "#5C6B5A", lineHeight: "1.6" }}>{desc}</p>
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <Link href="/services/" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#B5913D", fontSize: "15px", fontWeight: "600", textDecoration: "none" }}>
+                View All Saudi Taxi Services <ArrowRight size={16} />
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* ADDED SECTION 5: Travel Tips & Guides (Blog Sneak Peek) */}
-        <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
+        {/* 11. Umrah Travel Guides */}
+        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Umrah Travel Guides & Tips</h2>
+              <h2 style={{ marginBottom: "14px" }}>Umrah Travel Guides</h2>
               <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Helpful recommendations and guidelines for preparing your journey.</p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "28px" }}>
@@ -563,7 +476,7 @@ export default function Home() {
                     <h3 style={{ fontSize: "18px", color: "#17351F", marginBottom: "10px", fontWeight: "600", lineHeight: "1.4" }}>{title}</h3>
                     <p style={{ fontSize: "13.5px", color: "#5C6B5A", lineHeight: "1.65", marginBottom: "20px", flex: 1 }}>{desc}</p>
                     <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20know%20more%20about:%20${encodeURIComponent(title)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: "13.5px", color: "#25D366", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "4px", textDecoration: "none" }}>
-                      <MessageCircle size={14} /> Book & Ask on WhatsApp <ArrowRight size={14} />
+                      <MessageCircle size={14} /> Ask on WhatsApp <ArrowRight size={14} />
                     </a>
                   </div>
                 </div>
@@ -572,8 +485,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FAQs (Interactive Accordion using HTML Details) */}
-        <section className="section-padding" style={{ backgroundColor: "#F4F1C6", borderTop: "1px solid #E4DEC6", borderBottom: "1px solid #E4DEC6" }}>
+        {/* 12. FAQ */}
+        <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
           <div className="container faq-container" style={{ maxWidth: "800px" }}>
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <h2 style={{ marginBottom: "14px" }}>Frequently Asked Questions</h2>
@@ -581,7 +494,7 @@ export default function Home() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {faqs.map(({ q, a, related }) => (
-                <details key={q} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#ffffff" }}>
+                <details key={q} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#F4F1C6" }}>
                   <summary style={{ padding: "20px 24px", fontSize: "16px", fontWeight: "600", color: "#17351F", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", listStyle: "none" }}>
                     <span>{q}</span>
                     <span style={{ fontSize: "20px", color: "#B5913D" }}>+</span>
@@ -603,7 +516,31 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Quick Booking Request Form */}
+        {/* 13. Final CTA */}
+        <section style={{ backgroundColor: "#184A27", padding: "64px 0" }}>
+          <div className="container" style={{ textAlign: "center" }}>
+            <h2 style={{ color: "#fff", marginBottom: "16px" }}>Ready to Book Your Private Saudi Taxi?</h2>
+            <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", maxWidth: "560px", margin: "0 auto 32px", lineHeight: "1.7" }}>
+              Tell us your pickup location, destination, travel date and number of passengers.
+              We&apos;ll help you choose the right vehicle and provide a clear quote.
+            </p>
+            <a
+              href="https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20a%20private%20taxi"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}
+            >
+              <MessageCircle size={18} /> Get Your Taxi Quote on WhatsApp
+            </a>
+            <p style={{ marginTop: "20px" }}>
+              <a href="#book" style={{ color: "rgba(255,255,255,0.75)", fontSize: "14px", textDecoration: "underline" }}>
+                or fill in a quick booking form below
+              </a>
+            </p>
+          </div>
+        </section>
+
+        {/* Booking Request Form */}
         <div id="book" style={{ backgroundColor: "#ffffff" }}>
           <ContactForm />
         </div>
@@ -618,5 +555,3 @@ export default function Home() {
     </>
   );
 }
-
-

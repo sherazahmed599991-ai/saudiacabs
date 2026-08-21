@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { MessageCircle, Phone, MapPin, Heart, ChevronRight } from "lucide-react";
 
 const quickLinks = [
@@ -9,7 +10,13 @@ const quickLinks = [
   { label: "About Us", href: "/about/" },
   { label: "Contact", href: "/contact/" },
 ];
-const services = ["Airport Transfer", "Ziyarat Tours", "Makkah ↔ Madinah", "Group Packages"];
+const services = [
+  { label: "Airport Transfer", href: "/services/airport-transfer/" },
+  { label: "Ziyarat Tours", href: "/services/ziyarat-tours/" },
+  { label: "Makkah ↔ Madinah", href: "/services/makkah-madinah-transfer/" },
+  { label: "Miqat Transfer", href: "/services/miqat-transfer/" },
+  { label: "Group Packages", href: "/services/group-packages/" },
+];
 
 export default function Footer() {
   return (
@@ -28,20 +35,16 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
               <div
                 style={{
-                  width: "36px",
-                  height: "36px",
-                  backgroundColor: "#B5913D",
+                  position: "relative",
+                  width: "40px",
+                  height: "40px",
                   borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#184A27",
-                  fontWeight: "700",
-                  fontSize: "14px",
+                  overflow: "hidden",
                   flexShrink: 0,
+                  border: "1px solid rgba(255,255,255,0.2)",
                 }}
               >
-                SC
+                <Image src="/logo.jpeg" alt="Saudia Cabs logo" fill style={{ objectFit: "cover" }} sizes="40px" />
               </div>
               <span style={{ fontSize: "18px", fontWeight: "700", color: "#FCFBEA" }}>
                 Saudia Cabs
@@ -132,8 +135,8 @@ export default function Footer() {
             </h4>
             {services.map((service) => (
               <a
-                key={service}
-                href="/services/"
+                key={service.label}
+                href={service.href}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -148,7 +151,7 @@ export default function Footer() {
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#A9B7A5")}
               >
                 <ChevronRight size={14} />
-                {service}
+                {service.label}
               </a>
             ))}
           </div>
