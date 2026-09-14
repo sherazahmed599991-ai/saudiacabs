@@ -2,24 +2,23 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import GeneralInquiryForm from "@/components/GeneralInquiryForm";
 import { LocalBusinessSchema, BreadcrumbSchema } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Book Umrah Ride — Contact Saudia Cabs",
+  title: "Contact Saudia Cabs — Questions & Support",
   description:
-    "Book your Umrah transportation now. WhatsApp +966 59 894 7503 for airport transfers, Ziyarat tours and Makkah–Madinah transfers. We respond in minutes.",
+    "Have a question about our Umrah transportation? Reach Saudia Cabs on WhatsApp, phone, or send us a message. Looking to book a ride? Visit our Book Online page.",
   keywords: [
-    "book umrah ride",
-    "umrah transport booking",
-    "whatsapp umrah taxi",
-    "contact umrah ride service",
-    "makkah transport booking",
+    "contact saudia cabs",
+    "umrah transport support",
+    "whatsapp umrah taxi contact",
+    "saudia cabs phone number",
   ],
   alternates: { canonical: "https://saudiacabs.com/contact/" },
   openGraph: {
-    title: "Book Your Umrah Ride — Saudia Cabs",
-    description: "WhatsApp us at +966 59 894 7503 to book airport transfers, Ziyarat tours, and intercity transport.",
+    title: "Contact Saudia Cabs",
+    description: "Questions about our Umrah transportation services? Reach us on WhatsApp, phone, or by message.",
     url: "https://saudiacabs.com/contact/",
   },
 };
@@ -38,13 +37,13 @@ export default function ContactPage() {
               <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px" }}>/</span>
               <span style={{ color: "#fff", fontSize: "14px" }}>Contact</span>
             </div>
-            <h1 style={{ color: "#fff", fontSize: "42px", fontWeight: "700", marginBottom: "16px" }}>Book Your Ride</h1>
+            <h1 style={{ color: "#fff", fontSize: "42px", fontWeight: "700", marginBottom: "16px" }}>Contact Us</h1>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "18px", maxWidth: "560px", lineHeight: "1.7" }}>
-              Fill in the form below or contact us directly on WhatsApp — we respond within minutes.
+              Questions about our service, fleet, or coverage? Send us a message or reach out directly — we respond within minutes.
             </p>
           </div>
         </section>
-        <ContactForm />
+        <GeneralInquiryForm />
       </main>
       <Footer />
     </>

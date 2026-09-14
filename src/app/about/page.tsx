@@ -175,7 +175,7 @@ export default function AboutPage() {
               Book your ride today and experience the difference.
             </p>
             <Link
-              href="/contact/"
+              href="/book-online/"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -189,7 +189,7 @@ export default function AboutPage() {
                 textDecoration: "none",
               }}
             >
-              Contact Us <ArrowRight size={18} />
+              Book Now <ArrowRight size={18} />
             </Link>
           </div>
         </section>

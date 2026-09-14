@@ -59,7 +59,7 @@ const services = [
   {
     Icon: Clock,
     title: "24/7 Availability",
-    href: "/contact/",
+    href: "/book-online/",
     description: "Our drivers are available around the clock so you never have to worry about your schedule — no matter what time you arrive.",
     features: ["Night pickups", "Early morning", "Instant confirmation", "WhatsApp response"],
   },
@@ -73,7 +73,7 @@ const services = [
   {
     Icon: BadgeDollarSign,
     title: "Affordable Rates",
-    href: "/contact/",
+    href: "/book-online/",
     description: "Transparent pricing with no hidden charges. Get the best value for your Umrah journey with upfront quotes.",
     features: ["Fixed pricing", "No hidden fees", "Upfront quotes", "Multiple payment options"],
   },
@@ -136,7 +136,7 @@ export default function ServicesPage() {
             <h2 style={{ marginBottom: "16px" }}>Ready to Book?</h2>
             <p style={{ fontSize: "17px", color: "#5C6B5A", marginBottom: "32px" }}>Contact us now and we will arrange everything for you.</p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+              <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 Book Now <ArrowRight size={18} />
               </Link>
               <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "transparent", color: "#B5913D", fontSize: "16px", fontWeight: "500", padding: "13px 35px", borderRadius: "42px", textDecoration: "none", border: "2px solid #B5913D" }}>

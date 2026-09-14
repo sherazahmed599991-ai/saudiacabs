@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Services", href: "/services/" },
   { label: "Fleet", href: "/fleet/" },
   { label: "About", href: "/about/" },
+  { label: "Book Online", href: "/book-online/" },
   { label: "Contact", href: "/contact/" },
 ];
 
@@ -120,7 +121,7 @@ export default function Header() {
             }}
           >
             <Phone size={16} />
-            Book Now
+            Call Us
           </a>
         </nav>
 

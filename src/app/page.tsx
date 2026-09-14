@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Car, MapPin, Plane, Users, ArrowRight, Sparkles, Star, Wind, MessageCircle, Clock, ShieldCheck, DollarSign, Landmark, Mountain } from "lucide-react";
 import { LocalBusinessSchema, WebsiteSchema, FAQSchema } from "@/components/JsonLd";
-import ContactForm from "@/components/ContactForm";
+import BookingForm from "@/components/BookingForm";
 
 export const metadata: Metadata = {
   title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
@@ -155,7 +155,7 @@ const faqs: { q: string; a: string; related?: { label: string; href: string } }[
   { q: "How much is a private taxi from Jeddah Airport to Makkah?", a: "The fare depends on your vehicle choice and group size. We offer fixed, all-inclusive rates with no hidden charges — WhatsApp us for an instant quote.", related: { label: "View our Jeddah Airport transfer service", href: "/services/airport-transfer/jeddah/" } },
   { q: "Do you offer private Makkah to Madinah transfers?", a: "Yes. Direct, private intercity transfers between Makkah and Madinah, around 4–5 hours by road. Fares for a private sedan start from around SAR 450 — WhatsApp us for an exact quote.", related: { label: "See our Makkah–Madinah transfer service", href: "/services/makkah-madinah-transfer/" } },
   { q: "Can I book a taxi from Madinah Airport?", a: "Yes. We provide transfers from Prince Mohammad Bin Abdulaziz Airport (AMAA) directly to your Madinah hotel, and onward to Makkah if needed.", related: { label: "Explore our Madinah Airport transfer", href: "/services/airport-transfer/madinah/" } },
-  { q: "How do I book a taxi on WhatsApp?", a: "Click any 'Get Quote' or 'Book Now' button on our site to open a direct WhatsApp chat. Share your pickup location, destination, travel date and preferred vehicle — we confirm within minutes. No credit card required.", related: { label: "Visit our booking page", href: "/contact/" } },
+  { q: "How do I book a taxi on WhatsApp?", a: "Click any 'Get Quote' or 'Book Now' button on our site to open a direct WhatsApp chat. Share your pickup location, destination, travel date and preferred vehicle — we confirm within minutes. No credit card required.", related: { label: "Visit our booking page", href: "/book-online/" } },
   { q: "Can I choose my vehicle?", a: "Yes. Tell us your group size and preference and we'll confirm availability — from a 4-seater Camry to a 17-seater Coaster.", related: { label: "See our full fleet", href: "/fleet/" } },
   { q: "Do you provide Ziyarat taxi services?", a: "Yes. Private guided Ziyarat tours to the major holy sites in both Makkah and Madinah, with drivers who know every location.", related: { label: "Explore our Ziyarat tours", href: "/services/ziyarat-tours/" } },
   { q: "Do you provide Miqat transfers?", a: "Yes. We stop at the correct Miqat boundary point for your route so you can enter Ihram, then continue directly to Makkah — no extra charge for the wait.", related: { label: "Learn more about Miqat transfers", href: "/services/miqat-transfer/" } },
@@ -542,7 +542,7 @@ export default function Home() {
 
         {/* Booking Request Form */}
         <div id="book" style={{ backgroundColor: "#ffffff" }}>
-          <ContactForm />
+          <BookingForm />
         </div>
 
       </main>

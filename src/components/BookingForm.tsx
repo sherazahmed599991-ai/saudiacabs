@@ -45,7 +45,7 @@ function SubmitButton() {
   );
 }
 
-export default function ContactForm() {
+export default function BookingForm() {
   const [state, formAction] = useActionState(submitBookingRequest, initialBookingState);
   const formRef = useRef<HTMLFormElement>(null);
 

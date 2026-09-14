@@ -70,6 +70,6 @@ export async function submitBookingRequest(
 
   return {
     status: "success",
-    message: "Thanks! Your booking request has been received — we'll contact you on WhatsApp shortly.",
+    message: "Thanks! We've received your request — we'll get back to you on WhatsApp shortly.",
   };
 }
