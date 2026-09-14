@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { renderDocumentPDF } from "@/lib/pdf/render";
-import { sendReceiptEmail } from "@/lib/resend";
+import { sendReceiptEmail } from "@/lib/mail";
 import type { ReceiptWithInvoice } from "@/lib/types";
 
 export type ReceiptEditState = { status: "idle" | "success" | "error"; message: string };

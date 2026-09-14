@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { renderDocumentPDF } from "@/lib/pdf/render";
-import { sendInvoiceEmail } from "@/lib/resend";
+import { sendInvoiceEmail } from "@/lib/mail";
 import type { Invoice, LineItem } from "@/lib/types";
 
 export type InvoiceFormState = { status: "idle" | "success" | "error"; message: string };

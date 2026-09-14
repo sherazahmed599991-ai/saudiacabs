@@ -1,7 +1,7 @@
 "use server";
 
 import { getSupabaseClient } from "@/lib/supabase";
-import { sendBookingNotificationEmail } from "@/lib/resend";
+import { sendBookingNotificationEmail } from "@/lib/mail";
 
 export type BookingFormState = {
   status: "idle" | "success" | "error";

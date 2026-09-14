@@ -1,14 +1,27 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-export function getResendClient() {
-  const apiKey = process.env.RESEND_API_KEY;
+/**
+ * Sends via ImprovMX SMTP instead of Resend. ImprovMX ties SMTP
+ * credentials to a specific alias, so there are two separate transports:
+ * the "booking" alias for internal new-booking notifications, and the
+ * "info" alias as the outgoing identity for customer-facing documents.
+ */
 
-  if (!apiKey) {
-    throw new Error("Missing RESEND_API_KEY environment variable");
-  }
+const SMTP_HOST = process.env.SMTP_HOST || "smtp.improvmx.com";
+const SMTP_PORT = Number(process.env.SMTP_PORT || 587);
 
-  return new Resend(apiKey);
+function createTransport(user: string | undefined, pass: string | undefined) {
+  if (!user || !pass) return null;
+  return nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_PORT === 465,
+    auth: { user, pass },
+  });
 }
+
+const bookingTransport = createTransport(process.env.BOOKING_SMTP_USER, process.env.BOOKING_SMTP_PASS);
+const infoTransport = createTransport(process.env.INFO_SMTP_USER, process.env.INFO_SMTP_PASS);
 
 type BookingNotification = {
   fullName: string;
@@ -20,14 +33,12 @@ type BookingNotification = {
 };
 
 export async function sendBookingNotificationEmail(booking: BookingNotification) {
-  const from = process.env.RESEND_FROM_EMAIL;
-  const to = process.env.RESEND_TO_EMAIL;
+  const user = process.env.BOOKING_SMTP_USER;
+  const to = process.env.BOOKING_NOTIFY_TO || user;
 
-  if (!from || !to) {
-    throw new Error("Missing RESEND_FROM_EMAIL or RESEND_TO_EMAIL environment variable");
+  if (!bookingTransport || !user || !to) {
+    throw new Error("Missing BOOKING_SMTP_USER/BOOKING_SMTP_PASS environment variables");
   }
-
-  const resend = getResendClient();
 
   const rows = [
     ["Name", booking.fullName],
@@ -50,8 +61,8 @@ export async function sendBookingNotificationEmail(booking: BookingNotification)
     </table>
   `;
 
-  await resend.emails.send({
-    from,
+  await bookingTransport.sendMail({
+    from: `Saudia Cabs <${user}>`,
     to,
     subject: `New Booking Request from ${booking.fullName}`,
     html,
@@ -67,14 +78,12 @@ type CustomerDocumentEmail = {
   intro: string;
 };
 
-export async function sendCustomerDocumentEmail({ to, customerName, kind, number, pdf, intro }: CustomerDocumentEmail) {
-  const from = process.env.RESEND_FROM_EMAIL;
+async function sendCustomerDocumentEmail({ to, customerName, kind, number, pdf, intro }: CustomerDocumentEmail) {
+  const user = process.env.INFO_SMTP_USER;
 
-  if (!from) {
-    throw new Error("Missing RESEND_FROM_EMAIL environment variable");
+  if (!infoTransport || !user) {
+    throw new Error("Missing INFO_SMTP_USER/INFO_SMTP_PASS environment variables");
   }
-
-  const resend = getResendClient();
 
   const html = `
     <p>Assalamu Alaikum ${customerName},</p>
@@ -84,8 +93,8 @@ export async function sendCustomerDocumentEmail({ to, customerName, kind, number
     <p>— Saudia Cabs</p>
   `;
 
-  await resend.emails.send({
-    from,
+  await infoTransport.sendMail({
+    from: `Saudia Cabs <${user}>`,
     to,
     subject: `${kind} ${number} — Saudia Cabs`,
     html,

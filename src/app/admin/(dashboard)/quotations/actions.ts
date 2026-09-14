@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { renderDocumentPDF } from "@/lib/pdf/render";
-import { sendQuotationEmail } from "@/lib/resend";
+import { sendQuotationEmail } from "@/lib/mail";
 import type { Quotation, QuotationStatus } from "@/lib/types";
 
 export type QuotationFormState = { status: "idle" | "success" | "error"; message: string };
