@@ -136,6 +136,39 @@ export function BreadcrumbSchema({
   );
 }
 
+export function ArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url: `${BASE_URL}${url}`,
+    datePublished,
+    dateModified: datePublished,
+    image: `${BASE_URL}/og-image.jpg`,
+    author: { "@type": "Organization", name: "Saudia Cabs", "@id": `${BASE_URL}/#business` },
+    publisher: { "@type": "Organization", name: "Saudia Cabs", "@id": `${BASE_URL}/#business` },
+    mainEntityOfPage: `${BASE_URL}${url}`,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function FAQSchema({ faqs }: { faqs: { q: string; a: string }[] }) {
   const schema = {
     "@context": "https://schema.org",

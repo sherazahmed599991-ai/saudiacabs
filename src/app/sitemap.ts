@@ -1,11 +1,28 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blog-data";
 
 const BASE_URL = "https://saudiacabs.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
+  const blogEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/blog/`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    ...blogPosts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}/`,
+      lastModified: new Date(post.publishDate),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
+    ...blogEntries,
     {
       url: `${BASE_URL}/`,
       lastModified: now,
