@@ -18,6 +18,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     kind: "Receipt",
     number: r.number,
     date: new Date(r.paid_at).toLocaleDateString(),
+    status: "paid",
     customer: { name: r.invoice.customer_name, phone: r.invoice.customer_phone, email: r.invoice.customer_email },
     lineItems: [{ description: `Payment for Invoice ${r.invoice.number}`, quantity: 1, unitPrice: r.amount_paid }],
     total: r.amount_paid,

@@ -18,6 +18,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     kind: "Quotation",
     number: q.number,
     date: new Date(q.created_at).toLocaleDateString(),
+    status: q.status,
     customer: { name: q.customer_name, phone: q.customer_phone, email: q.customer_email },
     lineItems: [{ description: q.service_description, quantity: 1, unitPrice: q.amount }],
     total: q.amount,

@@ -18,6 +18,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     kind: "Invoice",
     number: inv.number,
     date: new Date(inv.created_at).toLocaleDateString(),
+    status: inv.status,
     customer: { name: inv.customer_name, phone: inv.customer_phone, email: inv.customer_email },
     lineItems: inv.line_items.map((i) => ({ description: i.description, quantity: i.quantity, unitPrice: i.unit_price })),
     total: inv.total,

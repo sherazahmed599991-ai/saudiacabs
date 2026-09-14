@@ -69,6 +69,7 @@ export async function sendQuotation(id: string) {
     kind: "Quotation",
     number: quotation.number,
     date: new Date(quotation.created_at).toLocaleDateString(),
+    status: "sent",
     customer: { name: quotation.customer_name, phone: quotation.customer_phone, email: quotation.customer_email },
     lineItems: [{ description: quotation.service_description, quantity: 1, unitPrice: quotation.amount }],
     total: quotation.amount,

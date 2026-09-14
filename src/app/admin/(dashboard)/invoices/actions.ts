@@ -68,6 +68,7 @@ export async function sendInvoice(id: string) {
     kind: "Invoice",
     number: invoice.number,
     date: new Date(invoice.created_at).toLocaleDateString(),
+    status: "sent",
     customer: { name: invoice.customer_name, phone: invoice.customer_phone, email: invoice.customer_email },
     lineItems: invoice.line_items.map((i) => ({
       description: i.description,
