@@ -6,7 +6,7 @@ import { LayoutDashboard, ClipboardList, FileText, Receipt, FileCheck2 } from "l
 
 const links = [
   { label: "Dashboard", href: "/admin", Icon: LayoutDashboard },
-  { label: "Bookings", href: "/admin/bookings", Icon: ClipboardList },
+  { label: "Leads", href: "/admin/leads", Icon: ClipboardList },
   { label: "Quotations", href: "/admin/quotations", Icon: FileText },
   { label: "Invoices", href: "/admin/invoices", Icon: FileCheck2 },
   { label: "Receipts", href: "/admin/receipts", Icon: Receipt },

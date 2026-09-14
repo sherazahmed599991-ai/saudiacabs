@@ -42,7 +42,7 @@ export default async function AdminDashboardPage() {
   const { newBookings, draftQuotations, unpaidInvoices, recentBookings, recentQuotations, recentInvoices } = await getDashboardData();
 
   const stats = [
-    { label: "New Booking Requests", value: newBookings, href: "/admin/bookings" },
+    { label: "New Booking Requests", value: newBookings, href: "/admin/leads" },
     { label: "Open Quotations", value: draftQuotations, href: "/admin/quotations" },
     { label: "Unpaid Invoices", value: unpaidInvoices, href: "/admin/invoices" },
   ];
@@ -67,7 +67,7 @@ export default async function AdminDashboardPage() {
       <div className="mb-6 rounded-lg border border-border bg-white">
         <div className="flex items-center justify-between border-b border-border px-5 py-4">
           <h2 className="font-semibold text-foreground">Recent Booking Requests</h2>
-          <Link href="/admin/bookings" className="text-sm font-medium text-primary">
+          <Link href="/admin/leads" className="text-sm font-medium text-primary">
             View all
           </Link>
         </div>

@@ -23,16 +23,30 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // Being a signed-in Supabase user is not the same as being an admin.
+  // ADMIN_EMAILS mirrors the allowlist lib/admin-auth.ts already enforces
+  // for the /api/admin/* routes — without this, any authenticated Supabase
+  // account (anyone the project allows to sign up) would pass as admin.
+  const allowlist = process.env.ADMIN_EMAILS;
+  const isAdmin =
+    !!user &&
+    (!allowlist ||
+      allowlist
+        .split(",")
+        .map((e) => e.trim().toLowerCase())
+        .filter(Boolean)
+        .includes((user.email || "").toLowerCase()));
+
   const { pathname } = request.nextUrl;
   const isLoginPath = pathname.startsWith("/admin/login");
 
-  if (pathname.startsWith("/admin") && !isLoginPath && !user) {
+  if (pathname.startsWith("/admin") && !isLoginPath && !isAdmin) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin/login";
     return NextResponse.redirect(url);
   }
 
-  if (isLoginPath && user) {
+  if (isLoginPath && isAdmin) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin";
     return NextResponse.redirect(url);

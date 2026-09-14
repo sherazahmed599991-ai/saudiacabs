@@ -2,11 +2,11 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { BookingRequest } from "@/lib/types";
 import BookingRow from "./BookingRow";
 
-export const metadata = { title: "Bookings — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "Leads — Saudia Cabs Admin", robots: { index: false, follow: false } };
 
 const statuses = ["new", "contacted", "quoted", "booked", "completed", "cancelled"];
 
-export default async function BookingsPage({
+export default async function LeadsPage({
   searchParams,
 }: {
   searchParams: Promise<{ q?: string; status?: string }>;

@@ -10,7 +10,7 @@ export async function updateBookingStatus(id: string, formData: FormData) {
   const supabase = await createSupabaseServerClient();
   await supabase.from("booking_requests").update({ status }).eq("id", id);
 
-  revalidatePath("/admin/bookings");
+  revalidatePath("/admin/leads");
   revalidatePath("/admin");
 }
 
@@ -46,7 +46,7 @@ export async function updateBooking(id: string, _prevState: BookingEditState, fo
     return { status: "error", message: "Something went wrong saving the booking." };
   }
 
-  revalidatePath("/admin/bookings");
+  revalidatePath("/admin/leads");
   revalidatePath("/admin");
   return { status: "success", message: "" };
 }
@@ -55,6 +55,6 @@ export async function deleteBooking(id: string) {
   const supabase = await createSupabaseServerClient();
   await supabase.from("booking_requests").delete().eq("id", id);
 
-  revalidatePath("/admin/bookings");
+  revalidatePath("/admin/leads");
   revalidatePath("/admin");
 }
