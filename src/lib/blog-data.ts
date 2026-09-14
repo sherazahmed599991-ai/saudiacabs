@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
       "Everything you need to know about getting from Jeddah's King Abdulaziz International Airport (KAIA) to Makkah — distance, travel time, vehicle options and booking tips.",
     keywords: ["jeddah airport to makkah", "kaia to makkah transfer", "jeddah airport taxi", "umrah airport pickup"],
     category: "Airport Transfers",
-    publishDate: "2026-07-01",
+    publishDate: "2026-08-01",
     readTime: "6 min read",
     excerpt: "Distance, travel time, vehicle options and what to expect when you land at Jeddah's King Abdulaziz International Airport for your Umrah journey.",
     content: [
@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
       "Arriving at Prince Mohammad Bin Abdulaziz Airport in Madinah? Here's what to expect, how far it is to Masjid an-Nabawi, and how to book a reliable transfer.",
     keywords: ["madinah airport transfer", "amaa airport taxi", "prince mohammad bin abdulaziz airport", "madinah to haram transfer"],
     category: "Airport Transfers",
-    publishDate: "2026-07-04",
+    publishDate: "2026-08-02",
     readTime: "5 min read",
     excerpt: "What to expect landing at Prince Mohammad Bin Abdulaziz Airport (AMAA) and how to get to your Madinah hotel near Masjid an-Nabawi without hassle.",
     content: [
@@ -82,7 +82,7 @@ export const blogPosts: BlogPost[] = [
       "Flying into Riyadh before Umrah? Compare travel options from Riyadh to Makkah — distance, drive time, and why most pilgrims choose Jeddah instead.",
     keywords: ["riyadh to makkah transfer", "riyadh airport to makkah", "riyadh to makkah distance"],
     category: "Airport Transfers",
-    publishDate: "2026-07-08",
+    publishDate: "2026-08-03",
     readTime: "5 min read",
     excerpt: "Riyadh isn't the usual gateway for Umrah, but if your flight lands there, here's what the onward journey to Makkah actually involves.",
     content: [
@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
       "Combining a visit to AlUla with Umrah? Here's the distance, travel time and transport options for getting from AlUla to Makkah.",
     keywords: ["alula to makkah", "alula umrah transport", "alula to makkah distance"],
     category: "Airport Transfers",
-    publishDate: "2026-07-11",
+    publishDate: "2026-08-04",
     readTime: "4 min read",
     excerpt: "AlUla's heritage sites make a memorable add-on to an Umrah trip — here's how the transfer to Makkah actually works.",
     content: [
@@ -136,7 +136,7 @@ export const blogPosts: BlogPost[] = [
       "Taif is a cooler, higher-altitude alternative gateway near Makkah. Here's what to know about transfers from Taif Airport for your Umrah trip.",
     keywords: ["taif airport transfer", "taif to makkah", "taif umrah taxi"],
     category: "Airport Transfers",
-    publishDate: "2026-07-15",
+    publishDate: "2026-08-05",
     readTime: "4 min read",
     excerpt: "Taif's cooler mountain climate makes it a pleasant stopover — here's how the transfer to Makkah from Taif Airport compares.",
     content: [
@@ -160,7 +160,7 @@ export const blogPosts: BlogPost[] = [
       "A guide to the most significant Ziyarat sites in and around Makkah — Jabal al-Nour, Jabal Thawr, Mina, Arafat and Muzdalifah — with practical visiting tips.",
     keywords: ["makkah ziyarat", "ziyarat sites makkah", "jabal al-nour", "jabal thawr", "mina arafat muzdalifah"],
     category: "Ziyarat Guides",
-    publishDate: "2026-07-18",
+    publishDate: "2026-08-06",
     readTime: "7 min read",
     excerpt: "Beyond the Haram itself, Makkah is surrounded by historically significant sites well worth a guided visit during your stay.",
     content: [
@@ -193,7 +193,7 @@ export const blogPosts: BlogPost[] = [
       "A practical guide to visiting Madinah's key Ziyarat sites beyond Masjid an-Nabawi — Quba Mosque, Jabal Uhud, and the Seven Mosques.",
     keywords: ["madinah ziyarat", "quba mosque", "jabal uhud", "seven mosques madinah"],
     category: "Ziyarat Guides",
-    publishDate: "2026-07-22",
+    publishDate: "2026-08-07",
     readTime: "6 min read",
     excerpt: "Madinah's Ziyarat sites are spread further apart than Makkah's — here's how to see them all comfortably in a single guided trip.",
     content: [
@@ -220,7 +220,7 @@ export const blogPosts: BlogPost[] = [
       "Planning a visit to Jabal Uhud in Madinah? Here's the history, what you'll see, and how to arrange transport there and back.",
     keywords: ["jabal uhud", "mount uhud madinah", "uhud visit guide"],
     category: "Ziyarat Guides",
-    publishDate: "2026-07-25",
+    publishDate: "2026-08-08",
     readTime: "5 min read",
     excerpt: "One of Madinah's most historically significant sites, and a common stop on any Ziyarat itinerary.",
     content: [
@@ -244,7 +244,7 @@ export const blogPosts: BlogPost[] = [
       "A guide to visiting Quba Mosque in Madinah — significance, best time to go, and how to arrange transport from your hotel.",
     keywords: ["quba mosque", "masjid quba", "quba mosque madinah visit"],
     category: "Ziyarat Guides",
-    publishDate: "2026-07-29",
+    publishDate: "2026-08-09",
     readTime: "4 min read",
     excerpt: "A short drive from central Madinah, Quba Mosque is one of the most commonly visited Ziyarat sites — here's what to know before you go.",
     content: [
@@ -267,7 +267,7 @@ export const blogPosts: BlogPost[] = [
       "Planning the intercity transfer between Makkah and Madinah? Here's the distance, travel time, route options and what to expect on the road.",
     keywords: ["makkah to madinah by road", "makkah madinah transfer", "makkah to madinah taxi"],
     category: "Makkah–Madinah Travel",
-    publishDate: "2026-08-01",
+    publishDate: "2026-08-10",
     readTime: "6 min read",
     excerpt: "A door-to-door look at what the Makkah-Madinah road transfer actually involves — distance, timing, stops and vehicle choice.",
     content: [
@@ -300,7 +300,7 @@ export const blogPosts: BlogPost[] = [
       "Should you travel between Makkah and Madinah in the morning, evening, or overnight? Here's how to time your intercity transfer.",
     keywords: ["best time makkah to madinah", "when to travel makkah madinah", "makkah madinah overnight transfer"],
     category: "Makkah–Madinah Travel",
-    publishDate: "2026-08-05",
+    publishDate: "2026-08-11",
     readTime: "5 min read",
     excerpt: "Timing your Makkah-Madinah transfer well can make a 4-5 hour drive feel a lot shorter — here's what to consider.",
     content: [
@@ -325,7 +325,7 @@ export const blogPosts: BlogPost[] = [
       "Private car, shared shuttle, bus or train — comparing your options for travelling between Makkah and Madinah.",
     keywords: ["makkah madinah transport options", "haramain train vs taxi", "makkah madinah distance"],
     category: "Makkah–Madinah Travel",
-    publishDate: "2026-08-08",
+    publishDate: "2026-08-12",
     readTime: "6 min read",
     excerpt: "Private transfer, shared shuttle, or the Haramain train — here's how the main options between Makkah and Madinah actually compare.",
     content: [
@@ -352,7 +352,7 @@ export const blogPosts: BlogPost[] = [
       "What is a Miqat, which one applies to your route, and how do you arrange transport to stop there before continuing to Makkah?",
     keywords: ["miqat points", "miqat for umrah", "miqat boundary makkah"],
     category: "Miqat & Ihram",
-    publishDate: "2026-08-12",
+    publishDate: "2026-08-13",
     readTime: "6 min read",
     excerpt: "Understanding which Miqat applies to your journey, and how to plan a comfortable stop there before entering Ihram.",
     content: [
@@ -383,7 +383,7 @@ export const blogPosts: BlogPost[] = [
       "A practical guide to stopping at Dhul Hulaifah (Abyar Ali), the Miqat for pilgrims travelling from Madinah to Makkah.",
     keywords: ["dhul hulaifah", "abyar ali miqat", "miqat from madinah"],
     category: "Miqat & Ihram",
-    publishDate: "2026-08-15",
+    publishDate: "2026-08-14",
     readTime: "5 min read",
     excerpt: "For pilgrims travelling from Madinah, Dhul Hulaifah (Abyar Ali) is the Miqat stop before continuing to Makkah.",
     content: [
@@ -407,7 +407,7 @@ export const blogPosts: BlogPost[] = [
       "Practical tips for a smooth Miqat stop — what to bring, what to wear, and how to plan your transport around it.",
     keywords: ["entering ihram", "miqat tips", "ihram preparation"],
     category: "Miqat & Ihram",
-    publishDate: "2026-08-18",
+    publishDate: "2026-08-15",
     readTime: "5 min read",
     excerpt: "A few practical things to prepare before you reach your Miqat stop, so the process is calm rather than rushed.",
     content: [
@@ -437,7 +437,7 @@ export const blogPosts: BlogPost[] = [
       "Planning Umrah transport for a large family or group? Here's how to think about vehicle sizing, luggage, and coordinating everyone's schedule.",
     keywords: ["umrah group travel", "family umrah transport", "large group umrah taxi"],
     category: "Group & Family Travel",
-    publishDate: "2026-08-21",
+    publishDate: "2026-08-16",
     readTime: "6 min read",
     excerpt: "Coordinating transport for a large family or group takes a bit more planning — here's how to get it right the first time.",
     content: [
@@ -463,7 +463,7 @@ export const blogPosts: BlogPost[] = [
       "Sedan, van, or bus? A practical breakdown of which vehicle suits your Umrah group size, luggage, and comfort needs.",
     keywords: ["umrah vehicle choice", "best vehicle for umrah group", "umrah van vs bus"],
     category: "Group & Family Travel",
-    publishDate: "2026-08-24",
+    publishDate: "2026-08-17",
     readTime: "5 min read",
     excerpt: "From a 3-seater sedan to a 25-seater coach — here's how to match the vehicle to your group size and needs.",
     content: [
@@ -491,7 +491,7 @@ export const blogPosts: BlogPost[] = [
       "A beginner's guide to performing Umrah for the first time — what to expect, how to prepare, and practical tips for a smooth trip.",
     keywords: ["first time umrah guide", "umrah for beginners", "how to perform umrah"],
     category: "Umrah Planning",
-    publishDate: "2026-08-27",
+    publishDate: "2026-08-18",
     readTime: "8 min read",
     excerpt: "Performing Umrah for the first time can feel overwhelming to plan — here's a practical starting point covering the essentials.",
     content: [
@@ -528,7 +528,7 @@ export const blogPosts: BlogPost[] = [
       "Weather, crowd levels and cost all shift throughout the year — here's how to choose the best time of year for your Umrah trip.",
     keywords: ["best time for umrah", "umrah season", "when to perform umrah"],
     category: "Umrah Planning",
-    publishDate: "2026-08-30",
+    publishDate: "2026-08-19",
     readTime: "6 min read",
     excerpt: "Weather, crowds and pricing all vary significantly through the year — here's how to weigh them against your own priorities.",
     content: [
@@ -554,7 +554,7 @@ export const blogPosts: BlogPost[] = [
       "A practical Umrah packing checklist covering Ihram clothing, documents, health essentials and everyday items.",
     keywords: ["umrah packing list", "what to pack for umrah", "umrah checklist"],
     category: "Umrah Planning",
-    publishDate: "2026-09-02",
+    publishDate: "2026-08-20",
     readTime: "6 min read",
     excerpt: "A practical checklist so nothing essential gets left behind — from Ihram clothing to documents and everyday comfort items.",
     content: [
@@ -600,7 +600,7 @@ export const blogPosts: BlogPost[] = [
       "A breakdown of the main cost categories for an Umrah trip — flights, visa, accommodation and local transport — to help you budget realistically.",
     keywords: ["umrah cost", "umrah budget", "how much does umrah cost"],
     category: "Umrah Planning",
-    publishDate: "2026-09-05",
+    publishDate: "2026-08-21",
     readTime: "6 min read",
     excerpt: "Flights, visa, hotels and local transport all add up differently depending on when and how you travel — here's how to budget sensibly.",
     content: [
@@ -634,7 +634,7 @@ export const blogPosts: BlogPost[] = [
       "An overview of how Umrah visas generally work, who needs one, and where to check current requirements before you travel.",
     keywords: ["umrah visa guide", "umrah visa requirements", "how to get umrah visa"],
     category: "Umrah Planning",
-    publishDate: "2026-09-08",
+    publishDate: "2026-08-22",
     readTime: "5 min read",
     excerpt: "Visa rules and processes can change, so here's a general overview and where to check the current requirements before booking flights.",
     content: [
@@ -667,7 +667,7 @@ export const blogPosts: BlogPost[] = [
       "A guide to Ihram clothing requirements for men and women, and what's permitted or best avoided during the state of Ihram.",
     keywords: ["ihram guide", "ihram clothing men women", "what to wear umrah"],
     category: "Umrah Planning",
-    publishDate: "2026-09-10",
+    publishDate: "2026-08-23",
     readTime: "5 min read",
     excerpt: "Ihram requirements differ for men and women — here's a clear, practical overview of what to wear and what to avoid.",
     content: [
@@ -696,7 +696,7 @@ export const blogPosts: BlogPost[] = [
       "A general overview of the sequence of Umrah rituals, from entering Ihram to Tawaf, Sa'i and Halq or Taqsir.",
     keywords: ["umrah step by step", "umrah rituals order", "how to perform umrah steps"],
     category: "Umrah Planning",
-    publishDate: "2026-09-12",
+    publishDate: "2026-08-24",
     readTime: "6 min read",
     excerpt: "A general overview of how the Umrah rituals fit together, from Ihram through to Tawaf, Sa'i and Halq or Taqsir.",
     content: [
@@ -724,7 +724,7 @@ export const blogPosts: BlogPost[] = [
       "Practical advice for making Umrah more comfortable for elderly or mobility-impaired pilgrims, from transport to timing.",
     keywords: ["umrah for elderly", "umrah wheelchair accessibility", "disabled pilgrims umrah tips"],
     category: "Umrah Planning",
-    publishDate: "2026-09-13",
+    publishDate: "2026-08-25",
     readTime: "6 min read",
     excerpt: "A few adjustments to timing, transport and pacing can make a significant difference for elderly or mobility-impaired pilgrims.",
     content: [
@@ -756,7 +756,7 @@ export const blogPosts: BlogPost[] = [
       "How to choose where to stay in Makkah — proximity to the Haram, budget trade-offs, and how transport can help if you stay further out.",
     keywords: ["where to stay in makkah", "makkah hotels near haram", "makkah accommodation guide"],
     category: "City Guides",
-    publishDate: "2026-08-03",
+    publishDate: "2026-08-26",
     readTime: "5 min read",
     excerpt: "Proximity to the Haram comes at a premium — here's how to think about the trade-off between location and budget.",
     content: [
@@ -784,7 +784,7 @@ export const blogPosts: BlogPost[] = [
       "A guide to choosing accommodation in Madinah — how far from Masjid an-Nabawi is reasonable, and what to expect at each distance.",
     keywords: ["where to stay in madinah", "madinah hotels near masjid nabawi", "madinah accommodation"],
     category: "City Guides",
-    publishDate: "2026-08-06",
+    publishDate: "2026-08-27",
     readTime: "5 min read",
     excerpt: "Madinah's hotel zones are generally more compact than Makkah's — here's how to choose the right area for your stay.",
     content: [
@@ -809,7 +809,7 @@ export const blogPosts: BlogPost[] = [
       "When is Masjid al-Haram least crowded? A practical guide to timing your visits for a calmer, more comfortable experience.",
     keywords: ["masjid al-haram crowds", "best time to visit haram", "quiet time makkah haram"],
     category: "City Guides",
-    publishDate: "2026-08-10",
+    publishDate: "2026-08-28",
     readTime: "5 min read",
     excerpt: "Crowd levels at the Haram shift dramatically by time of day and season — here's how to plan around them.",
     content: [
@@ -833,7 +833,7 @@ export const blogPosts: BlogPost[] = [
       "How does getting around Makkah actually work — shuttle buses, taxis, and why most visitors prefer a private driver.",
     keywords: ["makkah public transport", "makkah taxi", "getting around makkah"],
     category: "City Guides",
-    publishDate: "2026-08-13",
+    publishDate: "2026-08-29",
     readTime: "5 min read",
     excerpt: "A look at the transport options within Makkah itself, and why most visitors end up preferring a private driver for anything beyond walking distance.",
     content: [
@@ -858,7 +858,7 @@ export const blogPosts: BlogPost[] = [
       "Practical tips for travelling to Umrah with children — what to pack, how to plan the pace, and transport considerations for families.",
     keywords: ["umrah with kids", "umrah family travel tips", "traveling to umrah with children"],
     category: "City Guides",
-    publishDate: "2026-08-17",
+    publishDate: "2026-08-30",
     readTime: "6 min read",
     excerpt: "Travelling with children adds a few extra considerations to your Umrah plan — here's how to make it manageable for the whole family.",
     content: [
