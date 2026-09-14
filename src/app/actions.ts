@@ -1,7 +1,7 @@
 "use server";
 
 import { getSupabaseClient } from "@/lib/supabase";
-import { sendBookingNotificationEmail } from "@/lib/mail";
+import { sendBookingNotificationEmail, sendBookingConfirmationEmail } from "@/lib/mail";
 
 export type BookingFormState = {
   status: "idle" | "success" | "error";
@@ -14,6 +14,7 @@ export async function submitBookingRequest(
 ): Promise<BookingFormState> {
   const fullName = String(formData.get("fullName") ?? "").trim();
   const phone = String(formData.get("phone") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
   const passengers = String(formData.get("passengers") ?? "").trim();
   const serviceType = String(formData.get("serviceType") ?? "").trim();
   const travelDate = String(formData.get("travelDate") ?? "").trim();
@@ -32,6 +33,7 @@ export async function submitBookingRequest(
     const { error } = await supabase.from("booking_requests").insert({
       full_name: fullName,
       phone,
+      email: email || null,
       passengers: passengers || null,
       service_type: serviceType,
       travel_date: travelDate || null,
@@ -53,8 +55,8 @@ export async function submitBookingRequest(
     };
   }
 
-  // Booking is already saved in Supabase at this point — the email is a
-  // best-effort notification, so a failure here must not fail the request.
+  // Booking is already saved in Supabase at this point — both emails
+  // below are best-effort, so a failure here must not fail the request.
   try {
     await sendBookingNotificationEmail({
       fullName,
@@ -68,8 +70,18 @@ export async function submitBookingRequest(
     console.error("Booking notification email failed:", err);
   }
 
+  if (email) {
+    try {
+      await sendBookingConfirmationEmail({ to: email, fullName, serviceType, travelDate: travelDate || null });
+    } catch (err) {
+      console.error("Booking confirmation email failed:", err);
+    }
+  }
+
   return {
     status: "success",
-    message: "Thanks! We've received your request — we'll get back to you on WhatsApp shortly.",
+    message: email
+      ? "Thanks! We've received your request — check your email for confirmation, and we'll follow up on WhatsApp shortly."
+      : "Thanks! We've received your request — we'll get back to you on WhatsApp shortly.",
   };
 }

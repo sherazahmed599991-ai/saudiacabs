@@ -69,6 +69,39 @@ export async function sendBookingNotificationEmail(booking: BookingNotification)
   });
 }
 
+type BookingConfirmation = {
+  to: string;
+  fullName: string;
+  serviceType: string;
+  travelDate: string | null;
+};
+
+export async function sendBookingConfirmationEmail({ to, fullName, serviceType, travelDate }: BookingConfirmation) {
+  const user = process.env.INFO_SMTP_USER;
+
+  if (!infoTransport || !user) {
+    throw new Error("Missing INFO_SMTP_USER/INFO_SMTP_PASS environment variables");
+  }
+
+  const html = `
+    <p>Assalamu Alaikum ${fullName},</p>
+    <p>Thank you for your booking request with Saudia Cabs. We've received the details below and will confirm your trip on WhatsApp within minutes:</p>
+    <table cellpadding="6" style="border-collapse:collapse">
+      <tr><td style="font-weight:600;border:1px solid #E4DEC6">Service</td><td style="border:1px solid #E4DEC6">${serviceType}</td></tr>
+      <tr><td style="font-weight:600;border:1px solid #E4DEC6">Travel Date</td><td style="border:1px solid #E4DEC6">${travelDate ?? "To be confirmed"}</td></tr>
+    </table>
+    <p>If you need to reach us sooner, WhatsApp us anytime at +966 59 894 7503.</p>
+    <p>— Saudia Cabs</p>
+  `;
+
+  await infoTransport.sendMail({
+    from: `Saudia Cabs <${user}>`,
+    to,
+    subject: `We've received your booking request — Saudia Cabs`,
+    html,
+  });
+}
+
 type CustomerDocumentEmail = {
   to: string;
   customerName: string;
