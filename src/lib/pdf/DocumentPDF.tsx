@@ -30,7 +30,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   headerLeft: { flexDirection: "row", alignItems: "center" },
-  logo: { width: 42, height: 42, borderRadius: 21 },
+  // Source logo.jpeg is a wide 1408x768 lockup, not square - without
+  // objectFit react-pdf stretches it to fill the box, flattening it.
+  // "cover" crops it to fill the circle instead, matching how the site's
+  // own header (src/components/Header.tsx) handles the same image.
+  logo: { width: 42, height: 42, borderRadius: 21, objectFit: "cover" },
   brandBlock: { marginLeft: 12 },
   brand: { fontSize: 17, fontWeight: 700, color: BRAND_GOLD_LIGHT, letterSpacing: 0.5 },
   brandSub: { fontSize: 8, color: CREAM, marginTop: 3, opacity: 0.9 },
