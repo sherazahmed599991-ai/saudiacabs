@@ -1,26 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/supabase/env";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 // Supabase free-tier projects auto-pause after 7 days with no API activity.
-// Vercel Cron hits this daily (see vercel.json) with a plain read against a
-// small public table - the query itself is what counts as activity, so it
-// runs on the anon key and doesn't need service-role access.
+// Vercel Cron hits this daily (see vercel.json). The query itself counts as
+// activity, so it runs on the anon key.
+//
+// Fails closed: without CRON_SECRET the endpoint refuses every call instead
+// of being open to the public internet. Vercel sends it automatically as
+// "Authorization: Bearer <CRON_SECRET>".
 export async function GET(request: NextRequest) {
-    if (process.env.CRON_SECRET) {
-        const authHeader = request.headers.get("authorization");
-        if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
+    const secret = process.env.CRON_SECRET;
+    if (!secret || request.headers.get("authorization") !== `Bearer ${secret}`) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const supabase = createClient(process.env.SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-    const { error } = await supabase.from("booking_requests").select("id").limit(1);
+    const supabase = createClient(getSupabaseUrl(), getSupabaseAnonKey(), {
+        auth: { persistSession: false, autoRefreshToken: false },
+    });
+    // head:true counts without returning rows. The anon role can't SELECT
+    // booking_requests (RLS), so this succeeds with 0 rows — still activity.
+    const { error } = await supabase.from("booking_requests").select("id", { head: true, count: "exact" });
 
     if (error) {
-        return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+        console.error("keep-alive failed:", error.message);
+        return NextResponse.json({ ok: false }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true, pinged_at: new Date().toISOString() });

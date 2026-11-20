@@ -2,29 +2,57 @@
 
 import { getSupabaseClient } from "@/lib/supabase";
 import { sendBookingNotificationEmail, sendBookingConfirmationEmail } from "@/lib/mail";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { clean, isEmail } from "@/lib/validation";
 
 export type BookingFormState = {
   status: "idle" | "success" | "error";
   message: string;
 };
 
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const PHONE_RE = /^[+\d][\d\s().-]{5,24}$/;
+
 export async function submitBookingRequest(
   _prevState: BookingFormState,
   formData: FormData
 ): Promise<BookingFormState> {
-  const fullName = String(formData.get("fullName") ?? "").trim();
-  const phone = String(formData.get("phone") ?? "").trim();
-  const email = String(formData.get("email") ?? "").trim();
-  const passengers = String(formData.get("passengers") ?? "").trim();
-  const serviceType = String(formData.get("serviceType") ?? "").trim();
-  const travelDate = String(formData.get("travelDate") ?? "").trim();
-  const message = String(formData.get("message") ?? "").trim();
+  // Honeypot: real users never see or fill this field. Pretend success so
+  // bots get no signal to adapt to.
+  if (clean(formData.get("website"), 100)) {
+    return { status: "success", message: "Thanks! We've received your request." };
+  }
+
+  const ip = await getClientIp();
+  if (!checkRateLimit(`booking:${ip}`, 5, 10 * 60_000)) {
+    return { status: "error", message: "Too many requests. Please wait a few minutes or contact us on WhatsApp." };
+  }
+
+  const fullName = clean(formData.get("fullName"), 100);
+  const phone = clean(formData.get("phone"), 25);
+  const email = clean(formData.get("email"), 254);
+  const passengers = clean(formData.get("passengers"), 60);
+  const serviceType = clean(formData.get("serviceType"), 100);
+  const travelDate = clean(formData.get("travelDate"), 10);
+  const message = clean(formData.get("message"), 2000, false);
 
   if (!fullName || !phone || !serviceType) {
     return {
       status: "error",
       message: "Please fill in your name, phone number, and service type.",
     };
+  }
+
+  if (!PHONE_RE.test(phone)) {
+    return { status: "error", message: "Please enter a valid phone number." };
+  }
+
+  if (email && !isEmail(email)) {
+    return { status: "error", message: "Please enter a valid email address." };
+  }
+
+  if (travelDate && (!DATE_RE.test(travelDate) || Number.isNaN(Date.parse(travelDate)))) {
+    return { status: "error", message: "Please enter a valid travel date." };
   }
 
   try {

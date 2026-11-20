@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { safeSearchTerm } from "@/lib/validation";
 import type { ReceiptWithInvoice, PaymentMethod } from "@/lib/types";
 import { formatSAR, formatDate } from "@/lib/format";
 
@@ -12,7 +13,8 @@ export default async function ReceiptsPage({
 }: {
   searchParams: Promise<{ q?: string; method?: string }>;
 }) {
-  const { q, method } = await searchParams;
+  const { q: rawQ, method } = await searchParams;
+  const q = safeSearchTerm(rawQ);
 
   const supabase = await createSupabaseServerClient();
 

@@ -1,11 +1,15 @@
 import { NextResponse } from "next/server";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { getAdmin } from "@/lib/auth";
+import { isUuid } from "@/lib/validation";
 import { renderDocumentPDF } from "@/lib/pdf/render";
 import type { ReceiptWithInvoice } from "@/lib/types";
 
 export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const supabase = await createSupabaseServerClient();
+  const admin = await getAdmin();
+  if (!admin) return new NextResponse("Unauthorized", { status: 401 });
+  if (!isUuid(id)) return new NextResponse("Not found", { status: 404 });
+  const { supabase } = admin;
   const { data: receipt } = await supabase.from("receipts").select("*, invoice:invoices(*)").eq("id", id).single();
 
   if (!receipt) {

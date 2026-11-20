@@ -56,6 +56,10 @@ export default function BookingForm() {
           We&apos;ll email you a confirmation and follow up on WhatsApp within minutes.
         </p>
         <form ref={formRef} action={formAction} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+            <label htmlFor="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
           <div className="rg-2" style={{ display: "grid", gap: "20px" }}>
             <div>
               <label htmlFor="fullName" style={labelStyle}>Full Name</label>

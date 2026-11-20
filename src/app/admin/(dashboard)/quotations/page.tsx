@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { safeSearchTerm } from "@/lib/validation";
 import type { Quotation } from "@/lib/types";
 import { formatSAR, formatDate } from "@/lib/format";
 
@@ -20,7 +21,8 @@ export default async function QuotationsPage({
 }: {
   searchParams: Promise<{ q?: string; status?: string }>;
 }) {
-  const { q, status } = await searchParams;
+  const { q: rawQ, status } = await searchParams;
+  const q = safeSearchTerm(rawQ);
 
   const supabase = await createSupabaseServerClient();
   let query = supabase.from("quotations").select("*").order("created_at", { ascending: false });

@@ -1,18 +1,10 @@
-import { redirect } from "next/navigation";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/auth";
 import { signOut } from "../actions";
 import AdminNav from "./AdminNav";
 import { LogOut } from "lucide-react";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const supabase = await createSupabaseServerClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/admin/login");
-  }
+  const { user } = await requireAdmin();
 
   return (
     <div className="min-h-screen bg-surface">

@@ -2,40 +2,49 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/auth";
 import { renderDocumentPDF } from "@/lib/pdf/render";
 import { sendQuotationEmail } from "@/lib/mail";
-import type { Quotation, QuotationStatus } from "@/lib/types";
+import { parseCustomer, parseOptionalUuid } from "@/lib/document-input";
+import { QUOTATION_STATUSES, clean, isUuid, oneOf, parseAmount } from "@/lib/validation";
+import type { Quotation } from "@/lib/types";
 
 export type QuotationFormState = { status: "idle" | "success" | "error"; message: string };
+
+function parseQuotationFields(formData: FormData) {
+  const customer = parseCustomer(formData);
+  const serviceDescription = clean(formData.get("serviceDescription"), 500);
+  const amount = parseAmount(formData.get("amount"));
+  const notes = clean(formData.get("notes"), 2000, false);
+
+  let error = customer.error;
+  if (!error && (!serviceDescription || !amount)) {
+    error = "Please fill in all required fields with a valid amount.";
+  }
+  return { customer: customer.value, serviceDescription, amount, notes, error };
+}
 
 export async function createQuotation(
   _prevState: QuotationFormState,
   formData: FormData
 ): Promise<QuotationFormState> {
-  const customerName = String(formData.get("customerName") ?? "").trim();
-  const customerPhone = String(formData.get("customerPhone") ?? "").trim();
-  const customerEmail = String(formData.get("customerEmail") ?? "").trim();
-  const serviceDescription = String(formData.get("serviceDescription") ?? "").trim();
-  const amount = Number(formData.get("amount"));
-  const notes = String(formData.get("notes") ?? "").trim();
-  const bookingRequestId = String(formData.get("bookingRequestId") ?? "").trim();
+  const { supabase } = await requireAdmin();
+  const f = parseQuotationFields(formData);
+  const bookingRequestId = parseOptionalUuid(formData, "bookingRequestId");
 
-  if (!customerName || !customerPhone || !customerEmail || !serviceDescription || !amount || amount <= 0) {
-    return { status: "error", message: "Please fill in all required fields with a valid amount." };
-  }
+  if (f.error || !f.amount) return { status: "error", message: f.error ?? "Invalid amount." };
+  if (bookingRequestId === undefined) return { status: "error", message: "Invalid linked booking." };
 
-  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
     .from("quotations")
     .insert({
-      customer_name: customerName,
-      customer_phone: customerPhone,
-      customer_email: customerEmail,
-      service_description: serviceDescription,
-      amount,
-      notes: notes || null,
-      booking_request_id: bookingRequestId || null,
+      customer_name: f.customer.name,
+      customer_phone: f.customer.phone,
+      customer_email: f.customer.email,
+      service_description: f.serviceDescription,
+      amount: f.amount,
+      notes: f.notes || null,
+      booking_request_id: bookingRequestId,
     })
     .select("id")
     .single();
@@ -50,18 +59,24 @@ export async function createQuotation(
 }
 
 export async function updateQuotationStatus(id: string, formData: FormData) {
-  const status = String(formData.get("status") ?? "") as QuotationStatus;
-  if (!status) return;
+  const { supabase } = await requireAdmin();
+  const status = oneOf(String(formData.get("status") ?? ""), QUOTATION_STATUSES);
+  if (!isUuid(id) || !status) return;
 
-  const supabase = await createSupabaseServerClient();
-  await supabase.from("quotations").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
+  const { error } = await supabase
+    .from("quotations")
+    .update({ status, updated_at: new Date().toISOString() })
+    .eq("id", id);
+  if (error) console.error("Failed to update quotation status:", error.message);
 
   revalidatePath(`/admin/quotations/${id}`);
   revalidatePath("/admin/quotations");
 }
 
 export async function sendQuotation(id: string) {
-  const supabase = await createSupabaseServerClient();
+  const { supabase } = await requireAdmin();
+  if (!isUuid(id)) throw new Error("Invalid quotation");
+
   const { data: quotation } = await supabase.from("quotations").select("*").eq("id", id).single<Quotation>();
   if (!quotation) throw new Error("Quotation not found");
 
@@ -83,10 +98,11 @@ export async function sendQuotation(id: string) {
     pdf,
   });
 
-  await supabase
+  const { error } = await supabase
     .from("quotations")
     .update({ status: "sent", updated_at: new Date().toISOString() })
     .eq("id", id);
+  if (error) console.error("Quotation emailed but status update failed:", error.message);
 
   revalidatePath(`/admin/quotations/${id}`);
   revalidatePath("/admin/quotations");
@@ -97,27 +113,21 @@ export async function updateQuotation(
   _prevState: QuotationFormState,
   formData: FormData
 ): Promise<QuotationFormState> {
-  const customerName = String(formData.get("customerName") ?? "").trim();
-  const customerPhone = String(formData.get("customerPhone") ?? "").trim();
-  const customerEmail = String(formData.get("customerEmail") ?? "").trim();
-  const serviceDescription = String(formData.get("serviceDescription") ?? "").trim();
-  const amount = Number(formData.get("amount"));
-  const notes = String(formData.get("notes") ?? "").trim();
+  const { supabase } = await requireAdmin();
+  const f = parseQuotationFields(formData);
 
-  if (!customerName || !customerPhone || !customerEmail || !serviceDescription || !amount || amount <= 0) {
-    return { status: "error", message: "Please fill in all required fields with a valid amount." };
-  }
+  if (!isUuid(id)) return { status: "error", message: "Invalid quotation." };
+  if (f.error || !f.amount) return { status: "error", message: f.error ?? "Invalid amount." };
 
-  const supabase = await createSupabaseServerClient();
   const { error } = await supabase
     .from("quotations")
     .update({
-      customer_name: customerName,
-      customer_phone: customerPhone,
-      customer_email: customerEmail,
-      service_description: serviceDescription,
-      amount,
-      notes: notes || null,
+      customer_name: f.customer.name,
+      customer_phone: f.customer.phone,
+      customer_email: f.customer.email,
+      service_description: f.serviceDescription,
+      amount: f.amount,
+      notes: f.notes || null,
       updated_at: new Date().toISOString(),
     })
     .eq("id", id);
@@ -133,15 +143,20 @@ export async function updateQuotation(
 }
 
 export async function deleteQuotation(id: string) {
-  const supabase = await createSupabaseServerClient();
-  await supabase.from("quotations").delete().eq("id", id);
+  const { supabase } = await requireAdmin();
+  if (isUuid(id)) {
+    const { error } = await supabase.from("quotations").delete().eq("id", id);
+    if (error) console.error("Failed to delete quotation:", error.message);
+  }
 
   revalidatePath("/admin/quotations");
   redirect("/admin/quotations");
 }
 
 export async function duplicateQuotation(id: string) {
-  const supabase = await createSupabaseServerClient();
+  const { supabase } = await requireAdmin();
+  if (!isUuid(id)) throw new Error("Invalid quotation");
+
   const { data: quotation } = await supabase.from("quotations").select("*").eq("id", id).single<Quotation>();
   if (!quotation) throw new Error("Quotation not found");
 
@@ -168,7 +183,9 @@ export async function duplicateQuotation(id: string) {
 }
 
 export async function convertQuotationToInvoice(id: string) {
-  const supabase = await createSupabaseServerClient();
+  const { supabase } = await requireAdmin();
+  if (!isUuid(id)) throw new Error("Invalid quotation");
+
   const { data: quotation } = await supabase.from("quotations").select("*").eq("id", id).single<Quotation>();
   if (!quotation) throw new Error("Quotation not found");
 

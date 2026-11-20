@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Quarantined old code, not built or served.
+    "_legacy/**",
   ]),
 ]);
 

@@ -2,15 +2,18 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/auth";
 import { renderDocumentPDF } from "@/lib/pdf/render";
 import { sendReceiptEmail } from "@/lib/mail";
+import { PAYMENT_METHODS, isUuid, oneOf, parseAmount } from "@/lib/validation";
 import type { ReceiptWithInvoice } from "@/lib/types";
 
 export type ReceiptEditState = { status: "idle" | "success" | "error"; message: string };
 
 export async function sendReceipt(id: string) {
-  const supabase = await createSupabaseServerClient();
+  const { supabase } = await requireAdmin();
+  if (!isUuid(id)) throw new Error("Invalid receipt");
+
   const { data: receipt } = await supabase
     .from("receipts")
     .select("*, invoice:invoices(*)")
@@ -51,18 +54,21 @@ export async function updateReceipt(
   _prevState: ReceiptEditState,
   formData: FormData
 ): Promise<ReceiptEditState> {
-  const amountPaid = Number(formData.get("amountPaid"));
-  const paymentMethod = String(formData.get("paymentMethod") ?? "cash");
-  const paidAt = String(formData.get("paidAt") ?? "").trim();
+  const { supabase } = await requireAdmin();
 
-  if (!amountPaid || amountPaid <= 0 || !paidAt) {
-    return { status: "error", message: "Please provide a valid amount and payment date." };
+  const amountPaid = parseAmount(formData.get("amountPaid"));
+  const paymentMethod = oneOf(String(formData.get("paymentMethod") ?? ""), PAYMENT_METHODS);
+  const paidAtRaw = String(formData.get("paidAt") ?? "").trim();
+  const paidAtMs = Date.parse(paidAtRaw);
+
+  if (!isUuid(id)) return { status: "error", message: "Invalid receipt." };
+  if (!amountPaid || !paymentMethod || !paidAtRaw || Number.isNaN(paidAtMs)) {
+    return { status: "error", message: "Please provide a valid amount, payment method and payment date." };
   }
 
-  const supabase = await createSupabaseServerClient();
   const { error } = await supabase
     .from("receipts")
-    .update({ amount_paid: amountPaid, payment_method: paymentMethod, paid_at: paidAt })
+    .update({ amount_paid: amountPaid, payment_method: paymentMethod, paid_at: paidAtRaw })
     .eq("id", id);
 
   if (error) {
@@ -76,10 +82,16 @@ export async function updateReceipt(
 }
 
 export async function deleteReceipt(id: string) {
-  const supabase = await createSupabaseServerClient();
+  const { supabase } = await requireAdmin();
+  if (!isUuid(id)) redirect("/admin/receipts");
+
   const { data: receipt } = await supabase.from("receipts").select("invoice_id").eq("id", id).single();
 
-  await supabase.from("receipts").delete().eq("id", id);
+  const { error: deleteError } = await supabase.from("receipts").delete().eq("id", id);
+  if (deleteError) {
+    console.error("Failed to delete receipt:", deleteError.message);
+    throw new Error("Failed to delete receipt");
+  }
 
   // A receipt only exists because its invoice was marked paid — removing the
   // receipt without reverting the invoice would leave it stuck as "paid"

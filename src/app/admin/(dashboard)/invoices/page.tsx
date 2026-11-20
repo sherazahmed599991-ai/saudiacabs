@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { safeSearchTerm } from "@/lib/validation";
 import type { Invoice } from "@/lib/types";
 import { formatSAR, formatDate } from "@/lib/format";
 
@@ -19,7 +20,8 @@ export default async function InvoicesPage({
 }: {
   searchParams: Promise<{ q?: string; status?: string }>;
 }) {
-  const { q, status } = await searchParams;
+  const { q: rawQ, status } = await searchParams;
+  const q = safeSearchTerm(rawQ);
 
   const supabase = await createSupabaseServerClient();
   let query = supabase.from("invoices").select("*").order("created_at", { ascending: false });

@@ -1,10 +1,12 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/supabase/env";
+import { isAdminEmail } from "@/lib/admin-allowlist";
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
 
-  const supabase = createServerClient(process.env.SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+  const supabase = createServerClient(getSupabaseUrl(), getSupabaseAnonKey(), {
     cookies: {
       getAll() {
         return request.cookies.getAll();
@@ -24,18 +26,10 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   // Being a signed-in Supabase user is not the same as being an admin.
-  // ADMIN_EMAILS mirrors the allowlist lib/admin-auth.ts already enforces
-  // for the /api/admin/* routes — without this, any authenticated Supabase
-  // account (anyone the project allows to sign up) would pass as admin.
-  const allowlist = process.env.ADMIN_EMAILS;
-  const isAdmin =
-    !!user &&
-    (!allowlist ||
-      allowlist
-        .split(",")
-        .map((e) => e.trim().toLowerCase())
-        .filter(Boolean)
-        .includes((user.email || "").toLowerCase()));
+  // Fails closed: with no ADMIN_EMAILS configured, nobody gets in. Every
+  // admin page/action/route also re-checks via lib/auth.ts — this proxy is
+  // only the first layer.
+  const isAdmin = !!user && isAdminEmail(user.email);
 
   const { pathname } = request.nextUrl;
   const isLoginPath = pathname.startsWith("/admin/login");

@@ -1,4 +1,5 @@
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { safeSearchTerm } from "@/lib/validation";
 import type { BookingRequest } from "@/lib/types";
 import BookingRow from "./BookingRow";
 
@@ -11,7 +12,8 @@ export default async function LeadsPage({
 }: {
   searchParams: Promise<{ q?: string; status?: string }>;
 }) {
-  const { q, status } = await searchParams;
+  const { q: rawQ, status } = await searchParams;
+  const q = safeSearchTerm(rawQ);
 
   const supabase = await createSupabaseServerClient();
   let query = supabase.from("booking_requests").select("*").order("created_at", { ascending: false });
