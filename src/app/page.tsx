@@ -10,7 +10,7 @@ import BookingForm from "@/components/BookingForm";
 export const metadata: Metadata = {
   title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
   description:
-    "Private Umrah taxi and airport transfers across Saudi Arabia — Makkah, Madinah, Jeddah, Riyadh, AlUla & Taif. Fixed quotes on WhatsApp, available 24/7.",
+    "Private Umrah taxi and airport transfers in Makkah, Madinah & Jeddah — plus private taxi service all over Saudi Arabia, including Riyadh, Abha, Tabuk, AlUla & Taif. Fixed quotes on WhatsApp, 24/7.",
   keywords: [
     "umrah taxi saudi arabia",
     "private taxi makkah madinah jeddah",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Saudia Cabs",
     title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
     description:
-      "Private taxi and chauffeur transfers across Makkah, Madinah, Jeddah, Riyadh, AlUla and Taif — airport transfers, Ziyarat, Miqat and intercity journeys. Book on WhatsApp, 24/7.",
+      "Umrah taxi in Makkah, Madinah and Jeddah, plus private taxi service all over Saudi Arabia — Riyadh, Abha, Tabuk, AlUla and Taif. Airport transfers, Ziyarat, Miqat and intercity journeys. Book on WhatsApp, 24/7.",
     url: "https://saudiacabs.com/",
     images: [
       {
@@ -145,6 +145,16 @@ const cityServices = [
   { name: "Jeddah", desc: "Airport transfers and private intercity taxis." },
 ];
 
+// Cities beyond the three Umrah hubs. Cities with a dedicated page link to it;
+// the rest open a WhatsApp chat pre-filled with the city name.
+const otherCities: { name: string; href?: string }[] = [
+  { name: "Riyadh", href: "/services/airport-transfer/riyadh/" },
+  { name: "Abha" },
+  { name: "Tabuk" },
+  { name: "AlUla", href: "/services/airport-transfer/alula/" },
+  { name: "Taif", href: "/services/airport-transfer/taif/" },
+];
+
 const tips = [
   { title: "Jeddah Airport to Makkah: What Pilgrims Should Know", category: "Pilgrim Guide", readTime: "3 min read", desc: "Where to wear Ihram, perform Niyyah, and handle immigration efficiently at KAIA terminal." },
   { title: "Makkah to Madinah Taxi Guide", category: "Route Guide", readTime: "3 min read", desc: "What to expect on the intercity journey, travel time, and how to book a direct transfer." },
@@ -161,7 +171,7 @@ const faqs: { q: string; a: string; related?: { label: string; href: string } }[
   { q: "Do you provide Miqat transfers?", a: "Yes. We stop at the correct Miqat boundary point for your route so you can enter Ihram, then continue directly to Makkah — no extra charge for the wait.", related: { label: "Learn more about Miqat transfers", href: "/services/miqat-transfer/" } },
   { q: "How do I meet my driver at the airport?", a: "Your driver tracks your flight arrival time and waits at the arrivals area with a nameplate, coordinating with you by WhatsApp as soon as you land." },
   { q: "Are your prices fixed?", a: "Yes. All our rates are agreed and fixed during booking — no hidden charges, surge pricing, or extra fees for waiting time." },
-  { q: "Which cities and airports do you serve?", a: "We operate across Makkah, Madinah, Jeddah, Riyadh, AlUla and Taif, including transfers from Jeddah (KAIA), Madinah (AMAA), Riyadh, AlUla and Taif airports.", related: { label: "See all airport transfer options", href: "/services/airport-transfer/" } },
+  { q: "Which cities and airports do you serve?", a: "Umrah transport in Makkah, Madinah and Jeddah is our main focus, but we provide private taxi service all over Saudi Arabia — including Riyadh, Abha, Tabuk, AlUla and Taif. We handle transfers from Jeddah (KAIA), Madinah (AMAA), Riyadh, AlUla and Taif airports, and can quote for any other city on request.", related: { label: "See all airport transfer options", href: "/services/airport-transfer/" } },
 ];
 
 export default function Home() {
@@ -196,8 +206,9 @@ export default function Home() {
               <span style={{ color: "#ffffff" }}>in Saudi Arabia</span>
             </h1>
             <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "18px", maxWidth: "660px", margin: "0 auto 32px", lineHeight: "1.75" }}>
-              Reliable private taxi and chauffeur transfers across Makkah, Madinah, Jeddah, Riyadh, AlUla and Taif —
-              including airport transfers, intercity journeys, Ziyarat and Miqat stops. Book your private car 24/7 through WhatsApp.
+              Umrah is our specialty — airport transfers, Makkah–Madinah journeys, Ziyarat and Miqat stops. We also provide
+              private taxi and chauffeur service all over Saudi Arabia, including Riyadh, Abha, Tabuk, AlUla and Taif.
+              Book your private car 24/7 through WhatsApp.
             </p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap", marginBottom: "28px" }}>
               <a
@@ -214,7 +225,7 @@ export default function Home() {
               </Link>
             </div>
             <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "14px", letterSpacing: "0.02em" }}>
-              24/7 Booking &nbsp;·&nbsp; Private Cars &nbsp;·&nbsp; Fixed Quotes &nbsp;·&nbsp; Professional Drivers
+              Umrah Specialists &nbsp;·&nbsp; Serving All of Saudi Arabia &nbsp;·&nbsp; Fixed Quotes &nbsp;·&nbsp; 24/7 Booking
             </p>
           </div>
         </section>
@@ -439,8 +450,11 @@ export default function Home() {
         <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <h2 style={{ marginBottom: "14px" }}>Taxi Services Across Saudi Arabia</h2>
-              <p style={{ fontSize: "17px", color: "#5C6B5A" }}>Serving pilgrims, tourists, and locals across major Saudi cities — available 24/7.</p>
+              <h2 style={{ marginBottom: "14px" }}>Mainly Umrah — and Taxi Service All Over Saudi Arabia</h2>
+              <p style={{ fontSize: "17px", color: "#5C6B5A", maxWidth: "700px", margin: "0 auto" }}>
+                Umrah and Ziyarat transport in Makkah, Madinah and Jeddah is what we do most. We also drive pilgrims,
+                tourists, business travelers and locals to other cities across the Kingdom — available 24/7.
+              </p>
             </div>
             <div className="rg-3" style={{ display: "grid", gap: "24px", marginBottom: "36px" }}>
               {cityServices.map(({ name, desc }) => (
@@ -449,6 +463,33 @@ export default function Home() {
                   <p style={{ fontSize: "13.5px", color: "#5C6B5A", lineHeight: "1.6" }}>{desc}</p>
                 </div>
               ))}
+            </div>
+            <div style={{ textAlign: "center", marginBottom: "36px" }}>
+              <h3 style={{ fontSize: "18px", marginBottom: "6px" }}>Also serving cities across the Kingdom</h3>
+              <p style={{ fontSize: "15px", color: "#5C6B5A", marginBottom: "20px" }}>
+                Tell us your pickup and destination anywhere in Saudi Arabia and we&apos;ll send a fixed quote on WhatsApp.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "center" }}>
+                {otherCities.map(({ name, href }) => {
+                  const chip = { display: "inline-flex", alignItems: "center", gap: "6px", padding: "10px 20px", border: "1px solid #E4DEC6", borderRadius: "42px", backgroundColor: "#ffffff", color: "#184A27", fontSize: "15px", fontWeight: 500, textDecoration: "none" } as const;
+                  return href ? (
+                    <Link key={name} href={href} style={chip}><MapPin size={15} color="#8F6F25" /> {name}</Link>
+                  ) : (
+                    <a
+                      key={name}
+                      href={`https://wa.me/966598947503?text=${encodeURIComponent(`Salam, I need a private taxi in ${name}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={chip}
+                    >
+                      <MapPin size={15} color="#8F6F25" /> {name}
+                    </a>
+                  );
+                })}
+                <span style={{ display: "inline-flex", alignItems: "center", padding: "10px 20px", fontSize: "15px", color: "#5C6B5A" }}>
+                  …and any other city on request
+                </span>
+              </div>
             </div>
             <div style={{ textAlign: "center" }}>
               <Link href="/services/" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#8F6F25", fontSize: "15px", fontWeight: "600", textDecoration: "none" }}>

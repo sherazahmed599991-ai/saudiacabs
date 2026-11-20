@@ -30,6 +30,8 @@ export function LocalBusinessSchema() {
       { "@type": "City", name: "Riyadh" },
       { "@type": "City", name: "AlUla" },
       { "@type": "City", name: "Taif" },
+      { "@type": "City", name: "Abha" },
+      { "@type": "City", name: "Tabuk" },
     ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -100,6 +102,8 @@ export function ServiceSchema({
       { "@type": "City", name: "Riyadh" },
       { "@type": "City", name: "AlUla" },
       { "@type": "City", name: "Taif" },
+      { "@type": "City", name: "Abha" },
+      { "@type": "City", name: "Tabuk" },
     ],
     serviceType: "Transportation",
   };

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Saudia Cabs",
   },
   description:
-    "Trusted Umrah transportation in Makkah, Madinah & Jeddah. Airport transfers, Ziyarat tours, Makkah–Madinah transfers & group packages. Available 24/7. Book on WhatsApp.",
+    "Trusted Umrah transportation in Makkah, Madinah & Jeddah. Airport transfers, Ziyarat tours, Makkah–Madinah transfers & group packages, plus private taxi service across Saudi Arabia (Riyadh, Abha, Tabuk). Available 24/7. Book on WhatsApp.",
   keywords: [
     "umrah ride",
     "umrah transportation",
