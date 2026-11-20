@@ -30,7 +30,7 @@ export default function BookOnlinePage() {
       <LocalBusinessSchema />
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Book Online", url: "/book-online/" }]} />
       <Header />
-      <main>
+      <main id="main-content">
         <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>

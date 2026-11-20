@@ -37,10 +37,6 @@ export const metadata: Metadata = {
   formatDetection: { telephone: true, email: false },
   alternates: {
     canonical: BASE_URL,
-    languages: {
-      "en-US": BASE_URL,
-      "ar-SA": BASE_URL,
-    },
   },
   openGraph: {
     type: "website",
@@ -83,9 +79,6 @@ export const metadata: Metadata = {
     "geo.placename": "Makkah, Saudi Arabia",
     "geo.position": "21.3891;39.8579",
     "ICBM": "21.3891, 39.8579",
-    "language": "English",
-    "revisit-after": "7 days",
-    "rating": "general",
   },
 };
 
@@ -96,12 +89,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <head>
-        {/* Preconnect for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

@@ -61,13 +61,14 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "4px" }} className="hidden-mobile">
+        <nav aria-label="Main" style={{ display: "flex", alignItems: "center", gap: "4px" }} className="hidden-mobile">
           {navLinks.map((item) => {
             const isActive = pathname === item.href || pathname === item.href.replace(/\/$/, "");
             return (
               <Link
                 key={item.label}
                 href={item.href}
+                aria-current={isActive ? "page" : undefined}
                 style={{
                   fontSize: "15px",
                   fontWeight: "500",
@@ -92,7 +93,7 @@ export default function Header() {
               display: "flex",
               alignItems: "center",
               gap: "6px",
-              backgroundColor: "#25D366",
+              backgroundColor: "#0E7A3E",
               color: "#fff",
               fontSize: "14px",
               fontWeight: "500",
@@ -111,7 +112,7 @@ export default function Header() {
               display: "flex",
               alignItems: "center",
               gap: "6px",
-              backgroundColor: "#B5913D",
+              backgroundColor: "#8F6F25",
               color: "#fff",
               fontSize: "14px",
               fontWeight: "500",
@@ -129,6 +130,9 @@ export default function Header() {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
           className="show-mobile"
           style={{
             background: "none",
@@ -145,13 +149,14 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div style={{ backgroundColor: "#184A27", borderTop: "1px solid #0F2A18", padding: "16px 24px" }}>
+        <div id="mobile-menu" style={{ backgroundColor: "#184A27", borderTop: "1px solid #0F2A18", padding: "16px 24px" }}>
           {navLinks.map((item) => {
             const isActive = pathname === item.href || pathname === item.href.replace(/\/$/, "");
             return (
               <Link
                 key={item.label}
                 href={item.href}
+                aria-current={isActive ? "page" : undefined}
                 onClick={() => setMenuOpen(false)}
                 style={{
                   display: "block",
@@ -178,7 +183,7 @@ export default function Header() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "6px",
-                backgroundColor: "#25D366",
+                backgroundColor: "#0E7A3E",
                 color: "#fff",
                 fontSize: "14px",
                 fontWeight: "500",
@@ -197,7 +202,7 @@ export default function Header() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "6px",
-                backgroundColor: "#B5913D",
+                backgroundColor: "#8F6F25",
                 color: "#fff",
                 fontSize: "14px",
                 fontWeight: "500",

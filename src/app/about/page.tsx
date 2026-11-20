@@ -20,7 +20,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
 
         {/* Page Header */}
         <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
@@ -181,7 +181,7 @@ export default function AboutPage() {
                 alignItems: "center",
                 gap: "8px",
                 backgroundColor: "#fff",
-                color: "#B5913D",
+                color: "#8F6F25",
                 fontSize: "16px",
                 fontWeight: "600",
                 padding: "14px 36px",

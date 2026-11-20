@@ -30,7 +30,7 @@ export default function BlogIndexPage() {
     <>
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }]} />
       <Header />
-      <main>
+      <main id="main-content">
         <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
@@ -63,7 +63,7 @@ export default function BlogIndexPage() {
                     <span style={{ display: "flex", alignItems: "center", gap: "5px" }}><Calendar size={13} /> {formatDate(post.publishDate)}</span>
                     <span style={{ display: "flex", alignItems: "center", gap: "5px" }}><Clock size={13} /> {post.readTime}</span>
                   </div>
-                  <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#B5913D", fontSize: "14px", fontWeight: 600 }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#8F6F25", fontSize: "14px", fontWeight: 600 }}>
                     Read Guide <ArrowRight size={14} />
                   </span>
                 </Link>
@@ -76,7 +76,7 @@ export default function BlogIndexPage() {
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ marginBottom: "16px" }}>Ready to Book Your Trip?</h2>
             <p style={{ fontSize: "17px", color: "#5C6B5A", marginBottom: "32px" }}>Submit your trip details and we&apos;ll confirm on WhatsApp within minutes.</p>
-            <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+            <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#8F6F25", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
               Book Online <ArrowRight size={18} />
             </Link>
           </div>

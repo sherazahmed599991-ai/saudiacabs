@@ -50,7 +50,7 @@ export default function MakkahMadinahTransferPage() {
       ]} />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main>
+      <main id="main-content">
         <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
@@ -71,7 +71,7 @@ export default function MakkahMadinahTransferPage() {
               {" "}<strong style={{ color: "#fff" }}>Madinah Al-Munawwarah</strong> — for 1 to 17 passengers.
             </p>
             <div style={{ display: "flex", gap: "12px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "42px", textDecoration: "none" }}>
+              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#0E7A3E", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "42px", textDecoration: "none" }}>
                 <MessageCircle size={17} /> Book on WhatsApp
               </a>
               <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
@@ -90,7 +90,7 @@ export default function MakkahMadinahTransferPage() {
                 { route: "Madinah → Makkah", time: "4–5 hours", from: "Your hotel in Madinah", to: "Your hotel in Makkah" },
               ].map((r) => (
                 <div key={r.route} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "32px 28px", textAlign: "center" }}>
-                  <div style={{ fontSize: "22px", fontWeight: "700", color: "#B5913D", marginBottom: "16px" }}>{r.route}</div>
+                  <div style={{ fontSize: "22px", fontWeight: "700", color: "#8F6F25", marginBottom: "16px" }}>{r.route}</div>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginBottom: "12px" }}>
                     <Clock size={16} color="#5C6B5A" />
                     <span style={{ fontSize: "15px", color: "#5C6B5A" }}>Travel time: {r.time}</span>
@@ -139,7 +139,7 @@ export default function MakkahMadinahTransferPage() {
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Book Your Transfer Now</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>Tell us your travel date, group size and pickup location.</p>
-            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
+            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#8F6F25", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
               <MessageCircle size={18} /> +966 59 894 7503
             </a>
           </div>

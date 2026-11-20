@@ -114,8 +114,8 @@ const fleet = [
   { src: "/camry.webp", name: "Toyota Camry", seats: 4, bestFor: "Couples / small families" },
   { src: "/staria.webp", name: "Hyundai Staria", seats: 7, bestFor: "Families" },
   { src: "/Gmc.webp", name: "GMC Yukon", seats: 7, bestFor: "Premium / luxury" },
-  { src: "/hiace 11 seator.webp", name: "Toyota Hiace", seats: 11, bestFor: "Groups" },
-  { src: "/coaster 17 seator.webp", name: "Toyota Coaster", seats: 17, bestFor: "Larger groups" },
+  { src: "/hiace-11-seater.webp", name: "Toyota Hiace", seats: 11, bestFor: "Groups" },
+  { src: "/coaster-17-seater.webp", name: "Toyota Coaster", seats: 17, bestFor: "Larger groups" },
 ];
 
 const whyUs = [
@@ -171,7 +171,7 @@ export default function Home() {
       <WebsiteSchema />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main style={{ flex: 1 }}>
+      <main id="main-content" style={{ flex: 1 }}>
 
         {/* 1. Hero */}
         <section
@@ -205,7 +205,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
-                style={{ backgroundColor: "#ffffff", color: "#B5913D", boxShadow: "0 4px 16px rgba(0,0,0,0.15)", display: "inline-flex", alignItems: "center", gap: "8px" }}
+                style={{ backgroundColor: "#ffffff", color: "#8F6F25", boxShadow: "0 4px 16px rgba(0,0,0,0.15)", display: "inline-flex", alignItems: "center", gap: "8px" }}
               >
                 <MessageCircle size={18} /> Get a Fixed Quote on WhatsApp
               </a>
@@ -224,7 +224,7 @@ export default function Home() {
           <div className="container rg-4" style={{ display: "grid", gap: "32px", textAlign: "center" }}>
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div style={{ fontSize: "36px", fontWeight: "700", color: "#B5913D", lineHeight: "1", marginBottom: "8px" }}>{stat.number}</div>
+                <div style={{ fontSize: "36px", fontWeight: "700", color: "#8F6F25", lineHeight: "1", marginBottom: "8px" }}>{stat.number}</div>
                 <div style={{ fontSize: "15px", color: "#5C6B5A", fontWeight: "500" }}>{stat.label}</div>
               </div>
             ))}
@@ -268,7 +268,7 @@ export default function Home() {
                 <Link key={i} href={href} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "24px", textDecoration: "none", display: "block" }}>
                   <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px" }}>{route}</h3>
                   <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "14px" }}>{desc}</p>
-                  <span style={{ fontSize: "14px", color: "#B5913D", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
+                  <span style={{ fontSize: "14px", color: "#8F6F25", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
                     Get Quote <ArrowRight size={14} />
                   </span>
                 </Link>
@@ -295,7 +295,7 @@ export default function Home() {
                     <Icon size={22} color="#B5913D" />
                   </div>
                   <h3 style={{ fontSize: "15px", color: "#17351F", marginBottom: "10px" }}>{name}</h3>
-                  <span style={{ fontSize: "13px", color: "#B5913D", fontWeight: "500" }}>View details →</span>
+                  <span style={{ fontSize: "13px", color: "#8F6F25", fontWeight: "500" }}>View details →</span>
                 </Link>
               ))}
             </div>
@@ -314,7 +314,7 @@ export default function Home() {
                 <Link key={title} href={href} style={{ backgroundColor: "#fff", border: "1px solid #E4DEC6", borderRadius: "8px", padding: "24px", textDecoration: "none", display: "block" }}>
                   <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px" }}>{title}</h3>
                   <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "14px" }}>{desc}</p>
-                  <span style={{ fontSize: "14px", color: "#B5913D", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
+                  <span style={{ fontSize: "14px", color: "#8F6F25", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
                     Learn more <ArrowRight size={14} />
                   </span>
                 </Link>
@@ -345,7 +345,7 @@ export default function Home() {
                     <tr key={car.name} style={{ borderTop: "1px solid #E4DEC6", backgroundColor: i % 2 === 0 ? "#fff" : "#fafaf9" }}>
                       <td style={{ padding: "16px", display: "flex", alignItems: "center", gap: "12px" }}>
                         <div style={{ position: "relative", width: "56px", height: "40px", borderRadius: "4px", overflow: "hidden", flexShrink: 0 }}>
-                          <Image src={car.src} alt={`${car.name} — Umrah taxi in Saudi Arabia`} fill style={{ objectFit: "cover" }} />
+                          <Image src={car.src} alt={`${car.name} — Umrah taxi in Saudi Arabia`} fill style={{ objectFit: "cover" }} sizes="56px" />
                         </div>
                         <span style={{ fontSize: "15px", fontWeight: "600", color: "#17351F" }}>{car.name}</span>
                       </td>
@@ -354,7 +354,7 @@ export default function Home() {
                       </td>
                       <td style={{ padding: "16px", fontSize: "14px", color: "#5C6B5A" }}>{car.bestFor}</td>
                       <td style={{ padding: "16px", whiteSpace: "nowrap" }}>
-                        <Link href="/fleet/" style={{ fontSize: "13.5px", color: "#B5913D", fontWeight: "600", textDecoration: "none", marginRight: "16px" }}>View Vehicle →</Link>
+                        <Link href="/fleet/" style={{ fontSize: "13.5px", color: "#8F6F25", fontWeight: "600", textDecoration: "none", marginRight: "16px" }}>View Vehicle →</Link>
                         <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20get%20a%20quote%20for%20${encodeURIComponent(car.name)}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: "13.5px", color: "#25D366", fontWeight: "600", textDecoration: "none" }}>Get Quote →</a>
                       </td>
                     </tr>
@@ -451,7 +451,7 @@ export default function Home() {
               ))}
             </div>
             <div style={{ textAlign: "center" }}>
-              <Link href="/services/" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#B5913D", fontSize: "15px", fontWeight: "600", textDecoration: "none" }}>
+              <Link href="/services/" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#8F6F25", fontSize: "15px", fontWeight: "600", textDecoration: "none" }}>
                 View All Saudi Taxi Services <ArrowRight size={16} />
               </Link>
             </div>
@@ -469,7 +469,7 @@ export default function Home() {
               {tips.map(({ title, category, readTime, desc }) => (
                 <div key={title} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", overflow: "hidden", display: "flex", flexDirection: "column", backgroundColor: "#ffffff" }}>
                   <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", fontWeight: "600", color: "#B5913D", marginBottom: "10px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", fontWeight: "600", color: "#8F6F25", marginBottom: "10px" }}>
                       <span>{category}</span>
                       <span style={{ color: "#5C6B5A" }}>{readTime}</span>
                     </div>
@@ -497,14 +497,14 @@ export default function Home() {
                 <details key={q} style={{ border: "1px solid #E4DEC6", borderRadius: "8px", backgroundColor: "#F4F1C6" }}>
                   <summary style={{ padding: "20px 24px", fontSize: "16px", fontWeight: "600", color: "#17351F", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", listStyle: "none" }}>
                     <span>{q}</span>
-                    <span style={{ fontSize: "20px", color: "#B5913D" }}>+</span>
+                    <span style={{ fontSize: "20px", color: "#8F6F25" }}>+</span>
                   </summary>
                   <p style={{ padding: "0 24px 24px", fontSize: "14.5px", color: "#5C6B5A", lineHeight: "1.6" }}>
                     {a}
                     {related && (
                       <>
                         {" "}
-                        <Link href={related.href} style={{ color: "#B5913D", fontWeight: "600" }}>
+                        <Link href={related.href} style={{ color: "#8F6F25", fontWeight: "600" }}>
                           {related.label} <ArrowRight size={12} style={{ display: "inline" }} />
                         </Link>
                       </>
@@ -528,7 +528,7 @@ export default function Home() {
               href="https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20a%20private%20taxi"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#8F6F25", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}
             >
               <MessageCircle size={18} /> Get Your Taxi Quote on WhatsApp
             </a>

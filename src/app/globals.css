@@ -113,10 +113,50 @@
   }
 }
 
+/* ── Accessibility ───────────────────────────── */
+/* Visible keyboard focus everywhere (mouse clicks don't trigger it). */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-dark);
+  outline-offset: 1px;
+  border-color: var(--primary-dark) !important;
+}
+
+/* "Skip to content" — hidden until it receives keyboard focus. */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -64px;
+  z-index: 1000;
+  background: var(--brand);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
 /* ── Buttons ─────────────────────────────────── */
+/* Button backgrounds use the darker gold/green so white text meets
+   WCAG AA contrast (4.5:1); the lighter brand gold is for decoration. */
 .btn-primary {
   display: inline-block;
-  background-color: var(--primary);
+  background-color: var(--primary-dark);
   color: #ffffff;
   font-size: 15px;
   font-weight: 500;
@@ -129,7 +169,7 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
+  background-color: #6F551A;
   box-shadow: 0 4px 16px rgba(181, 145, 61, 0.35);
   color: #ffffff;
 }
@@ -137,12 +177,12 @@
 .btn-outline {
   display: inline-block;
   background-color: transparent;
-  color: var(--primary);
+  color: var(--primary-dark);
   font-size: 15px;
   font-weight: 500;
   padding: 11px 27px;
   border-radius: 42px;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--primary-dark);
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   text-decoration: none;
@@ -157,7 +197,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--whatsapp);
+  background-color: #0E7A3E;
   color: #ffffff;
   font-size: 15px;
   font-weight: 500;
@@ -170,7 +210,7 @@
 }
 
 .btn-whatsapp:hover {
-  background-color: var(--whatsapp-dark);
+  background-color: #0B6633;
   box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
   color: #ffffff;
 }

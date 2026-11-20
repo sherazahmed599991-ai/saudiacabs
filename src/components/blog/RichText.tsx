@@ -19,13 +19,13 @@ function renderInline(text: string) {
     const [, label, href] = match;
     if (href.startsWith("/")) {
       parts.push(
-        <Link key={key++} href={href} style={{ color: "#B5913D", fontWeight: 600, textDecoration: "underline" }}>
+        <Link key={key++} href={href} style={{ color: "#8F6F25", fontWeight: 600, textDecoration: "underline" }}>
           {label}
         </Link>
       );
     } else {
       parts.push(
-        <a key={key++} href={href} target="_blank" rel="noopener noreferrer" style={{ color: "#B5913D", fontWeight: 600, textDecoration: "underline" }}>
+        <a key={key++} href={href} target="_blank" rel="noopener noreferrer" style={{ color: "#8F6F25", fontWeight: 600, textDecoration: "underline" }}>
           {label}
         </a>
       );

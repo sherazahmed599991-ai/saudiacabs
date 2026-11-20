@@ -33,8 +33,8 @@ const fleet = [
   { src: "/camry.webp", name: "Toyota Camry", seats: "4 Seater", tag: "Economy", h2: "Book 4-seater Camry for Umrah Taxi Service in Saudi Arabia", desc: "Perfect for individuals or couples. Comfortable, fuel-efficient, and easy to navigate through the holy city." },
   { src: "/staria.webp", name: "Hyundai Staria", seats: "7 Seater", tag: "Premium", h2: "Book 7-seater Staria for Umrah Taxi Service in Saudi Arabia", desc: "Spacious premium MPV ideal for small families. Modern interior with wide seats and ample legroom." },
   { src: "/Gmc.webp", name: "GMC Yukon", seats: "7 Seater", tag: "Luxury", h2: "Book 7-seater GMC for Umrah Taxi Service in Saudi Arabia", desc: "Full-size luxury SUV for those who want a premium experience with extra comfort and style." },
-  { src: "/hiace 11 seator.webp", name: "Toyota Hiace", seats: "11 Seater", tag: "Group", h2: "Book 11-seater Hiace for Umrah Taxi Service in Saudi Arabia", desc: "Popular choice for medium-sized groups. Reliable, spacious, and great for Ziyarat tours." },
-  { src: "/coaster 17 seator.webp", name: "Toyota Coaster", seats: "17 Seater", tag: "Large Group", h2: "Book 17-seater Coaster for Umrah Taxi Service in Saudi Arabia", desc: "Best for large families or group packages. Comfortable bus-style seating with AC throughout." },
+  { src: "/hiace-11-seater.webp", name: "Toyota Hiace", seats: "11 Seater", tag: "Group", h2: "Book 11-seater Hiace for Umrah Taxi Service in Saudi Arabia", desc: "Popular choice for medium-sized groups. Reliable, spacious, and great for Ziyarat tours." },
+  { src: "/coaster-17-seater.webp", name: "Toyota Coaster", seats: "17 Seater", tag: "Large Group", h2: "Book 17-seater Coaster for Umrah Taxi Service in Saudi Arabia", desc: "Best for large families or group packages. Comfortable bus-style seating with AC throughout." },
 ];
 
 const tagColors: Record<string, string> = {
@@ -55,7 +55,7 @@ export default function FleetPage() {
       />
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Fleet", url: "/fleet/" }]} />
       <Header />
-      <main>
+      <main id="main-content">
         <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
@@ -82,7 +82,7 @@ export default function FleetPage() {
                     </div>
                   </div>
                   <div style={{ padding: "24px" }}>
-                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#B5913D", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
+                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#8F6F25", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
                     <h2 style={{ fontSize: "14px", color: "#17351F", marginBottom: "10px", fontWeight: "700", lineHeight: "1.45" }}>{car.h2}</h2>
                     <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "16px", lineHeight: "1.65" }}>{car.desc}</p>
                     <div style={{ display: "flex", gap: "16px", marginBottom: "20px" }}>
@@ -90,7 +90,7 @@ export default function FleetPage() {
                       <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Wind size={14} color="#B5913D" /> AC</span>
                       <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Sparkles size={14} color="#B5913D" /> Clean</span>
                     </div>
-                    <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20the%20${encodeURIComponent(car.name)}%20(${encodeURIComponent(car.seats)})%20for%20Umrah%20transport`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#25D366", color: "#fff", fontSize: "14px", fontWeight: "600", padding: "10px 22px", borderRadius: "42px", textDecoration: "none" }}>
+                    <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20the%20${encodeURIComponent(car.name)}%20(${encodeURIComponent(car.seats)})%20for%20Umrah%20transport`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#0E7A3E", color: "#fff", fontSize: "14px", fontWeight: "600", padding: "10px 22px", borderRadius: "42px", textDecoration: "none" }}>
                       <MessageCircle size={15} /> Book This Car
                     </a>
                   </div>
@@ -107,7 +107,7 @@ export default function FleetPage() {
                     </div>
                   </div>
                   <div style={{ padding: "24px" }}>
-                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#B5913D", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
+                    <p style={{ fontSize: "12px", fontWeight: "700", color: "#8F6F25", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.8px" }}>{car.name}</p>
                     <h2 style={{ fontSize: "14px", color: "#17351F", marginBottom: "10px", fontWeight: "700", lineHeight: "1.45" }}>{car.h2}</h2>
                     <p style={{ fontSize: "13.5px", color: "#5C6B5A", marginBottom: "16px", lineHeight: "1.65" }}>{car.desc}</p>
                     <div style={{ display: "flex", gap: "16px", marginBottom: "20px" }}>
@@ -115,7 +115,7 @@ export default function FleetPage() {
                       <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Wind size={14} color="#B5913D" /> AC</span>
                       <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#5C6B5A" }}><Sparkles size={14} color="#B5913D" /> Clean</span>
                     </div>
-                    <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20the%20${encodeURIComponent(car.name)}%20(${encodeURIComponent(car.seats)})%20for%20Umrah%20transport`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#25D366", color: "#fff", fontSize: "14px", fontWeight: "600", padding: "10px 22px", borderRadius: "42px", textDecoration: "none" }}>
+                    <a href={`https://wa.me/966598947503?text=Salam,%20I%20want%20to%20book%20the%20${encodeURIComponent(car.name)}%20(${encodeURIComponent(car.seats)})%20for%20Umrah%20transport`} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#0E7A3E", color: "#fff", fontSize: "14px", fontWeight: "600", padding: "10px 22px", borderRadius: "42px", textDecoration: "none" }}>
                       <MessageCircle size={15} /> Book This Car
                     </a>
                   </div>
@@ -130,10 +130,10 @@ export default function FleetPage() {
             <h2 style={{ marginBottom: "16px" }}>Not Sure Which Vehicle to Pick?</h2>
             <p style={{ fontSize: "17px", color: "#5C6B5A", marginBottom: "32px" }}>WhatsApp us and we will recommend the best vehicle for your group size.</p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="https://wa.me/966598947503?text=Salam,%20I%20need%20help%20choosing%20the%20right%20vehicle%20for%20my%20group" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+              <a href="https://wa.me/966598947503?text=Salam,%20I%20need%20help%20choosing%20the%20right%20vehicle%20for%20my%20group" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#0E7A3E", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 <MessageCircle size={18} /> Ask on WhatsApp
               </a>
-              <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+              <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#8F6F25", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 Book Now <ArrowRight size={18} />
               </Link>
             </div>

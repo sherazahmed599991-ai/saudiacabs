@@ -89,7 +89,7 @@ export default function ServicesPage() {
       />
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services/" }]} />
       <Header />
-      <main>
+      <main id="main-content">
         <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
@@ -117,12 +117,12 @@ export default function ServicesPage() {
                   <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0" }}>
                     {features.map((f) => (
                       <li key={f} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#17351F", marginBottom: "8px" }}>
-                        <span style={{ width: "6px", height: "6px", backgroundColor: "#B5913D", borderRadius: "50%", flexShrink: 0 }} />
+                        <span style={{ width: "6px", height: "6px", backgroundColor: "#8F6F25", borderRadius: "50%", flexShrink: 0 }} />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Link href={href} style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#B5913D", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>
+                  <Link href={href} style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#8F6F25", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>
                     Learn more <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -136,10 +136,10 @@ export default function ServicesPage() {
             <h2 style={{ marginBottom: "16px" }}>Ready to Book?</h2>
             <p style={{ fontSize: "17px", color: "#5C6B5A", marginBottom: "32px" }}>Contact us now and we will arrange everything for you.</p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+              <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#8F6F25", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
                 Book Now <ArrowRight size={18} />
               </Link>
-              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "transparent", color: "#B5913D", fontSize: "16px", fontWeight: "500", padding: "13px 35px", borderRadius: "42px", textDecoration: "none", border: "2px solid #B5913D" }}>
+              <Link href="/fleet/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "transparent", color: "#8F6F25", fontSize: "16px", fontWeight: "500", padding: "13px 35px", borderRadius: "42px", textDecoration: "none", border: "2px solid #B5913D" }}>
                 View Our Fleet <ArrowRight size={18} />
               </Link>
             </div>

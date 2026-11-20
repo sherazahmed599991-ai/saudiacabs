@@ -54,7 +54,7 @@ export default function MadinahAirportTransferPage() {
       ]} />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section style={{ backgroundColor: "#184A27", padding: "64px 0 56px" }}>
           <div className="container">
@@ -76,7 +76,7 @@ export default function MadinahAirportTransferPage() {
               your Madinah hotel, plus intercity transfers on to Makkah. Available 24/7.
             </p>
             <div style={{ display: "flex", gap: "12px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#25D366", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "4px", textDecoration: "none" }}>
+              <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#0E7A3E", color: "#fff", fontSize: "15px", fontWeight: "600", padding: "12px 28px", borderRadius: "4px", textDecoration: "none" }}>
                 <MessageCircle size={17} /> Book on WhatsApp
               </a>
               <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", fontSize: "15px", fontWeight: "500", padding: "12px 28px", borderRadius: "42px", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}>
@@ -155,7 +155,7 @@ export default function MadinahAirportTransferPage() {
           <div className="container" style={{ textAlign: "center" }}>
             <h2 style={{ color: "#fff", marginBottom: "16px" }}>Book Your Madinah Airport Transfer</h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "17px", marginBottom: "32px" }}>WhatsApp us your flight details and we will confirm your booking in minutes.</p>
-            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#B5913D", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
+            <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#fff", color: "#8F6F25", fontSize: "16px", fontWeight: "700", padding: "14px 40px", borderRadius: "42px", textDecoration: "none" }}>
               <MessageCircle size={18} /> +966 59 894 7503
             </a>
           </div>

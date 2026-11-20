@@ -8,7 +8,7 @@ import type { BookingFormState } from "@/app/actions";
 
 const initialBookingState: BookingFormState = { status: "idle", message: "" };
 
-const inputStyle = { width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #E4DEC6", borderRadius: "4px", outline: "none", color: "#17351F" };
+const inputStyle = { width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #E4DEC6", borderRadius: "4px", color: "#17351F" };
 const labelStyle = { display: "block", fontSize: "14px", fontWeight: "500", color: "#17351F", marginBottom: "8px" };
 
 function SubmitButton() {
@@ -22,7 +22,7 @@ function SubmitButton() {
         alignItems: "center",
         justifyContent: "center",
         gap: "8px",
-        backgroundColor: pending ? "#D9C695" : "#B5913D",
+        backgroundColor: pending ? "#B8A878" : "#8F6F25",
         color: "#fff",
         fontSize: "16px",
         fontWeight: "600",
@@ -63,16 +63,16 @@ export default function BookingForm() {
           <div className="rg-2" style={{ display: "grid", gap: "20px" }}>
             <div>
               <label htmlFor="fullName" style={labelStyle}>Full Name</label>
-              <input id="fullName" name="fullName" type="text" required placeholder="Your full name" style={inputStyle} />
+              <input id="fullName" name="fullName" type="text" autoComplete="name" required placeholder="Your full name" style={inputStyle} />
             </div>
             <div>
               <label htmlFor="phone" style={labelStyle}>Phone / WhatsApp</label>
-              <input id="phone" name="phone" type="tel" required placeholder="+966 xxx xxx xxx" style={inputStyle} />
+              <input id="phone" name="phone" type="tel" autoComplete="tel" required placeholder="+966 xxx xxx xxx" style={inputStyle} />
             </div>
           </div>
           <div>
             <label htmlFor="email" style={labelStyle}>Email Address</label>
-            <input id="email" name="email" type="email" required placeholder="you@example.com" style={inputStyle} />
+            <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" style={inputStyle} />
           </div>
           <div>
             <label htmlFor="passengers" style={labelStyle}>Number of Passengers</label>
@@ -109,7 +109,7 @@ export default function BookingForm() {
 
           {state.status !== "idle" && (
             <p
-              role="status"
+              role={state.status === "error" ? "alert" : "status"}
               aria-live="polite"
               style={{
                 fontSize: "14px",

@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <ArticleSchema title={post.title} description={post.metaDescription} url={`/blog/${post.slug}/`} datePublished={post.publishDate} />
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: post.title, url: `/blog/${post.slug}/` }]} />
       <Header />
-      <main>
+      <main id="main-content">
         <section style={{ backgroundColor: "#184A27", padding: "56px 0 48px" }}>
           <div className="container" style={{ maxWidth: "760px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <h3 style={{ fontSize: "15px", color: "#17351F", marginBottom: "12px" }}>Related Services</h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
                   {post.relatedServices.map((s) => (
-                    <Link key={s.href} href={s.href} style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#fff", border: "1px solid #E4DEC6", color: "#B5913D", fontSize: "13.5px", fontWeight: 600, padding: "8px 16px", borderRadius: "20px", textDecoration: "none" }}>
+                    <Link key={s.href} href={s.href} style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#fff", border: "1px solid #E4DEC6", color: "#8F6F25", fontSize: "13.5px", fontWeight: 600, padding: "8px 16px", borderRadius: "20px", textDecoration: "none" }}>
                       {s.label} <ArrowRight size={13} />
                     </Link>
                   ))}
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   >
                     <span style={{ fontSize: "11.5px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px", color: "#8F6F25", marginBottom: "8px" }}>{r.category}</span>
                     <h3 style={{ fontSize: "16px", color: "#17351F", marginBottom: "8px", lineHeight: "1.4" }}>{r.title}</h3>
-                    <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#B5913D", fontSize: "13px", fontWeight: 600, marginTop: "auto" }}>
+                    <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#8F6F25", fontSize: "13px", fontWeight: 600, marginTop: "auto" }}>
                       Read Guide <ArrowRight size={12} />
                     </span>
                   </Link>
@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="container">
             <h2 style={{ marginBottom: "16px" }}>Ready to Book Your Ride?</h2>
             <p style={{ fontSize: "17px", color: "#5C6B5A", marginBottom: "32px" }}>Submit your trip details and we&apos;ll confirm on WhatsApp within minutes.</p>
-            <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#B5913D", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
+            <Link href="/book-online/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "#8F6F25", color: "#fff", fontSize: "16px", fontWeight: "600", padding: "14px 36px", borderRadius: "42px", textDecoration: "none" }}>
               Book Online <ArrowRight size={18} />
             </Link>
           </div>

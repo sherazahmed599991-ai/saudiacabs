@@ -10,12 +10,12 @@ const initialState: BookingFormState = { status: "idle", message: "" };
 
 const contactInfo = [
   { Icon: MessageCircle, label: "WhatsApp", value: "+966 59 894 7503", href: "https://wa.me/966598947503", color: "#25D366" },
-  { Icon: Phone, label: "Phone", value: "+966 59 894 7503", href: "tel:+966598947503", color: "#B5913D" },
+  { Icon: Phone, label: "Phone", value: "+966 59 894 7503", href: "tel:+966598947503", color: "#8F6F25" },
   { Icon: MapPin, label: "Service Area", value: "Makkah, Madinah & Jeddah", href: null, color: "#fa7b17" },
   { Icon: Clock, label: "Availability", value: "24 hours / 7 days a week", href: null, color: "#34a853" },
 ];
 
-const inputStyle = { width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #E4DEC6", borderRadius: "4px", outline: "none", color: "#17351F" };
+const inputStyle = { width: "100%", padding: "11px 14px", fontSize: "15px", border: "1px solid #E4DEC6", borderRadius: "4px", color: "#17351F" };
 const labelStyle = { display: "block", fontSize: "14px", fontWeight: "500", color: "#17351F", marginBottom: "8px" };
 
 function SubmitButton() {
@@ -29,7 +29,7 @@ function SubmitButton() {
         alignItems: "center",
         justifyContent: "center",
         gap: "8px",
-        backgroundColor: pending ? "#D9C695" : "#B5913D",
+        backgroundColor: pending ? "#B8A878" : "#8F6F25",
         color: "#fff",
         fontSize: "16px",
         fontWeight: "600",
@@ -68,11 +68,11 @@ export default function GeneralInquiryForm() {
             <input type="hidden" name="serviceType" value="General Inquiry" />
             <div>
               <label htmlFor="fullName" style={labelStyle}>Full Name</label>
-              <input id="fullName" name="fullName" type="text" required placeholder="Your full name" style={inputStyle} />
+              <input id="fullName" name="fullName" type="text" autoComplete="name" required placeholder="Your full name" style={inputStyle} />
             </div>
             <div>
               <label htmlFor="phone" style={labelStyle}>Phone / WhatsApp</label>
-              <input id="phone" name="phone" type="tel" required placeholder="+966 xxx xxx xxx" style={inputStyle} />
+              <input id="phone" name="phone" type="tel" autoComplete="tel" required placeholder="+966 xxx xxx xxx" style={inputStyle} />
             </div>
             <div>
               <label htmlFor="message" style={labelStyle}>Message</label>
@@ -81,7 +81,7 @@ export default function GeneralInquiryForm() {
 
             {state.status !== "idle" && (
               <p
-                role="status"
+                role={state.status === "error" ? "alert" : "status"}
                 aria-live="polite"
                 style={{
                   fontSize: "14px",
@@ -120,10 +120,10 @@ export default function GeneralInquiryForm() {
               </div>
             ))}
           </div>
-          <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "#25D366", color: "#fff", fontSize: "17px", fontWeight: "600", padding: "16px", borderRadius: "8px", textDecoration: "none", marginBottom: "12px" }}>
+          <a href="https://wa.me/966598947503" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "#0E7A3E", color: "#fff", fontSize: "17px", fontWeight: "600", padding: "16px", borderRadius: "8px", textDecoration: "none", marginBottom: "12px" }}>
             <MessageCircle size={22} /> Chat on WhatsApp
           </a>
-          <a href="/book-online/" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "#B5913D", color: "#fff", fontSize: "17px", fontWeight: "600", padding: "16px", borderRadius: "8px", textDecoration: "none" }}>
+          <a href="/book-online/" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "#8F6F25", color: "#fff", fontSize: "17px", fontWeight: "600", padding: "16px", borderRadius: "8px", textDecoration: "none" }}>
             Looking to book a ride instead?
           </a>
           <p style={{ fontSize: "13px", color: "#5C6B5A", marginTop: "16px", textAlign: "center" }}>We typically respond within 5 minutes on WhatsApp.</p>
