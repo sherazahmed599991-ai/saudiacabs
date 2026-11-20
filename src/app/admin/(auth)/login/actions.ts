@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { clean } from "@/lib/validation";
+import { isAdminEmail } from "@/lib/admin-allowlist";
 
 export type AuthFormState = {
   status: "idle" | "error";
@@ -24,10 +25,20 @@ export async function signIn(_prevState: AuthFormState, formData: FormData): Pro
   }
 
   const supabase = await createSupabaseServerClient();
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
     return { status: "error", message: "Invalid email or password." };
+  }
+
+  // Valid Supabase account but not on the admin allowlist: say so instead of
+  // letting the proxy silently bounce them back to this page.
+  if (!isAdminEmail(data.user?.email)) {
+    await supabase.auth.signOut();
+    return {
+      status: "error",
+      message: "This account is not authorized as an admin. Check that ADMIN_EMAILS is set to this email and the site was redeployed.",
+    };
   }
 
   redirect("/admin");
