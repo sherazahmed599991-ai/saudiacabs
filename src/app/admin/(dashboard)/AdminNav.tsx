@@ -16,14 +16,15 @@ export default function AdminNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col gap-1">
+    <nav aria-label="Admin" className="flex gap-1 overflow-x-auto pb-1 md:flex-col md:overflow-visible md:pb-0">
       {links.map(({ label, href, Icon }) => {
         const isActive = href === "/admin" ? pathname === "/admin" : pathname.startsWith(href);
         return (
           <Link
             key={href}
             href={href}
-            className={`flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+            aria-current={isActive ? "page" : undefined}
+            className={`flex shrink-0 items-center gap-2.5 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors ${
               isActive ? "bg-primary/10 text-primary" : "text-muted hover:bg-surface hover:text-foreground"
             }`}
           >

@@ -5,7 +5,7 @@ import { formatDate } from "@/lib/format";
 import QuotationDetail from "./QuotationDetail";
 import QuotationActions from "./QuotationActions";
 
-export const metadata = { title: "Quotation — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "Quotation — Admin", robots: { index: false, follow: false } };
 
 export default async function QuotationDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

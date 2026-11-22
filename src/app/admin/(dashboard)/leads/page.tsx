@@ -1,32 +1,48 @@
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { safeSearchTerm } from "@/lib/validation";
+import { parsePage, pageRange } from "@/lib/pagination";
+import Pagination from "@/components/admin/Pagination";
 import type { BookingRequest } from "@/lib/types";
+import { Download } from "lucide-react";
 import BookingRow from "./BookingRow";
 
-export const metadata = { title: "Leads — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "Leads — Admin", robots: { index: false, follow: false } };
 
 const statuses = ["new", "contacted", "quoted", "booked", "completed", "cancelled"];
 
 export default async function LeadsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; status?: string }>;
+  searchParams: Promise<{ q?: string; status?: string; page?: string }>;
 }) {
-  const { q: rawQ, status } = await searchParams;
+  const { q: rawQ, status, page: rawPage } = await searchParams;
   const q = safeSearchTerm(rawQ);
+  const page = parsePage(rawPage);
+  const [from, to] = pageRange(page);
 
   const supabase = await createSupabaseServerClient();
-  let query = supabase.from("booking_requests").select("*").order("created_at", { ascending: false });
+  let query = supabase.from("booking_requests").select("*", { count: "exact" }).order("created_at", { ascending: false });
 
   if (q) query = query.or(`full_name.ilike.%${q}%,phone.ilike.%${q}%`);
   if (status) query = query.eq("status", status);
 
-  const { data } = await query;
+  const { data, count } = await query.range(from, to);
+  const total = count ?? 0;
   const bookings = (data ?? []) as BookingRequest[];
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold text-foreground">Booking Requests</h1>
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-2xl font-bold text-foreground">
+          Booking Requests <span className="text-base font-normal text-muted">({total})</span>
+        </h1>
+        <a
+          href={`/admin/leads/export?${new URLSearchParams({ ...(q ? { q } : {}), ...(status ? { status } : {}) }).toString()}`}
+          className="flex items-center gap-1.5 rounded-md border border-border bg-white px-3 py-2 text-sm font-medium text-foreground hover:bg-surface"
+        >
+          <Download size={15} /> Export CSV
+        </a>
+      </div>
 
       <form className="mb-4 flex flex-wrap gap-3">
         <input
@@ -53,11 +69,11 @@ export default async function LeadsPage({
         </button>
       </form>
 
-      <div className="overflow-hidden rounded-lg border border-border bg-white">
+      <div className="overflow-x-auto rounded-lg border border-border bg-white">
         {bookings.length === 0 ? (
           <p className="px-5 py-8 text-center text-sm text-muted">No booking requests match.</p>
         ) : (
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="border-b border-border bg-surface text-left text-xs uppercase text-muted">
                 <th className="px-5 py-3 font-medium">Name</th>
@@ -77,6 +93,8 @@ export default async function LeadsPage({
           </table>
         )}
       </div>
+
+      <Pagination page={page} total={total} basePath="/admin/leads/" params={{ q, status }} />
     </div>
   );
 }

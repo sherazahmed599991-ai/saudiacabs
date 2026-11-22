@@ -5,7 +5,7 @@ import { formatDate } from "@/lib/format";
 import InvoiceDetail from "./InvoiceDetail";
 import InvoiceActions from "./InvoiceActions";
 
-export const metadata = { title: "Invoice — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "Invoice — Admin", robots: { index: false, follow: false } };
 
 export default async function InvoiceDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

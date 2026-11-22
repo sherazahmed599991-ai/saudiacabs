@@ -5,7 +5,7 @@ import { formatDate } from "@/lib/format";
 import ReceiptDetail from "./ReceiptDetail";
 import ReceiptActions from "./ReceiptActions";
 
-export const metadata = { title: "Receipt — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "Receipt — Admin", robots: { index: false, follow: false } };
 
 export default async function ReceiptDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

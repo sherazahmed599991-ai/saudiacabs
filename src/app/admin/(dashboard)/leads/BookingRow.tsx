@@ -43,7 +43,8 @@ export default function BookingRow({ booking }: { booking: BookingRequest }) {
     if (state.status === "success") setEditing(false);
   }
 
-  const waHref = `https://wa.me/${booking.phone.replace(/[^0-9]/g, "")}`;
+  const waText = encodeURIComponent(`Assalamu Alaikum ${booking.full_name}, this is Saudia Cabs regarding your ${booking.service_type} request.`);
+  const waHref = `https://wa.me/${booking.phone.replace(/[^0-9]/g, "")}?text=${waText}`;
   const telHref = `tel:${booking.phone}`;
 
   async function handleDelete() {
@@ -54,7 +55,15 @@ export default function BookingRow({ booking }: { booking: BookingRequest }) {
   if (!editing) {
     return (
       <tr className="border-b border-border last:border-0">
-        <td className="px-5 py-3 font-medium text-foreground">{booking.full_name}</td>
+        <td className="px-5 py-3">
+          <div className="font-medium text-foreground">{booking.full_name}</div>
+          {booking.email && <div className="text-xs text-muted">{booking.email}</div>}
+          {booking.message && (
+            <div className="mt-0.5 max-w-xs truncate text-xs text-muted" title={booking.message}>
+              “{booking.message}”
+            </div>
+          )}
+        </td>
         <td className="px-5 py-3 text-muted">{booking.phone}</td>
         <td className="px-5 py-3 text-muted">{booking.service_type}</td>
         <td className="px-5 py-3 text-muted">{booking.travel_date ?? "—"}</td>
@@ -64,19 +73,19 @@ export default function BookingRow({ booking }: { booking: BookingRequest }) {
         <td className="px-5 py-3 text-muted">{new Date(booking.created_at).toLocaleDateString()}</td>
         <td className="px-5 py-3">
           <div className="flex items-center justify-end gap-3">
-            <a href={waHref} target="_blank" rel="noopener noreferrer" title="WhatsApp" className="text-muted hover:text-primary">
+            <a href={waHref} target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label={`WhatsApp ${booking.full_name}`} className="text-muted hover:text-primary">
               <MessageCircle size={15} />
             </a>
-            <a href={telHref} title="Call" className="text-muted hover:text-primary">
+            <a href={telHref} title="Call" aria-label={`Call ${booking.full_name}`} className="text-muted hover:text-primary">
               <Phone size={15} />
             </a>
             <Link href={`/admin/quotations/new?bookingId=${booking.id}`} className="text-xs font-medium text-primary">
               Quote
             </Link>
-            <button onClick={() => setEditing(true)} title="Edit" className="text-muted hover:text-foreground">
+            <button onClick={() => setEditing(true)} title="Edit" aria-label={`Edit ${booking.full_name}`} className="text-muted hover:text-foreground">
               <Pencil size={15} />
             </button>
-            <button onClick={handleDelete} title="Delete" className="text-muted hover:text-red-600">
+            <button onClick={handleDelete} title="Delete" aria-label={`Delete ${booking.full_name}`} className="text-muted hover:text-red-600">
               <Trash2 size={15} />
             </button>
           </div>
@@ -91,6 +100,7 @@ export default function BookingRow({ booking }: { booking: BookingRequest }) {
         <form action={formAction} className="grid grid-cols-2 gap-3 md:grid-cols-3">
           <input name="fullName" defaultValue={booking.full_name} placeholder="Full name" className={inputClass} required />
           <input name="phone" defaultValue={booking.phone} placeholder="Phone" className={inputClass} required />
+          <input name="email" type="email" defaultValue={booking.email ?? ""} placeholder="Email" className={inputClass} />
           <input name="passengers" defaultValue={booking.passengers ?? ""} placeholder="Passengers" className={inputClass} />
           <input name="serviceType" defaultValue={booking.service_type} placeholder="Service type" className={inputClass} required />
           <input name="travelDate" type="date" defaultValue={booking.travel_date ?? ""} className={inputClass} />

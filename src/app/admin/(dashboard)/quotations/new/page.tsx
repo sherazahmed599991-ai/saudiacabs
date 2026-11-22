@@ -2,7 +2,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { BookingRequest } from "@/lib/types";
 import QuotationForm from "../QuotationForm";
 
-export const metadata = { title: "New Quotation — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "New Quotation — Admin", robots: { index: false, follow: false } };
 
 export default async function NewQuotationPage({
   searchParams,

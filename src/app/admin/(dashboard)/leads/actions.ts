@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/auth";
-import { BOOKING_STATUSES, clean, isUuid, oneOf } from "@/lib/validation";
+import { BOOKING_STATUSES, clean, isEmail, isUuid, oneOf } from "@/lib/validation";
 
 export async function updateBookingStatus(id: string, formData: FormData) {
   const { supabase } = await requireAdmin();
@@ -23,6 +23,7 @@ export async function updateBooking(id: string, _prevState: BookingEditState, fo
 
   const fullName = clean(formData.get("fullName"), 100);
   const phone = clean(formData.get("phone"), 25);
+  const email = clean(formData.get("email"), 254);
   const passengers = clean(formData.get("passengers"), 60);
   const serviceType = clean(formData.get("serviceType"), 100);
   const travelDate = clean(formData.get("travelDate"), 10);
@@ -36,11 +37,14 @@ export async function updateBooking(id: string, _prevState: BookingEditState, fo
     return { status: "error", message: "Please enter a valid travel date." };
   }
 
+  if (email && !isEmail(email)) return { status: "error", message: "Please enter a valid email address." };
+
   const { error } = await supabase
     .from("booking_requests")
     .update({
       full_name: fullName,
       phone,
+      email: email || null,
       passengers: passengers || null,
       service_type: serviceType,
       travel_date: travelDate || null,

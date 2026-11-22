@@ -2,6 +2,7 @@ export type BookingRequest = {
   id: string;
   full_name: string;
   phone: string;
+  email: string | null;
   passengers: string | null;
   service_type: string;
   travel_date: string | null;

@@ -1,35 +1,34 @@
 import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { safeSearchTerm } from "@/lib/validation";
+import { parsePage, pageRange } from "@/lib/pagination";
+import Pagination from "@/components/admin/Pagination";
+import StatusBadge from "@/components/admin/StatusBadge";
 import type { Invoice } from "@/lib/types";
-import { formatSAR, formatDate } from "@/lib/format";
+import { formatSAR, formatDate, isOverdue } from "@/lib/format";
 
-export const metadata = { title: "Invoices — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "Invoices — Admin", robots: { index: false, follow: false } };
 
 const statuses = ["draft", "sent", "paid", "cancelled"];
-
-const statusColors: Record<string, string> = {
-  draft: "bg-gray-100 text-gray-600",
-  sent: "bg-blue-50 text-blue-600",
-  paid: "bg-green-50 text-green-700",
-  cancelled: "bg-red-50 text-red-600",
-};
 
 export default async function InvoicesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; status?: string }>;
+  searchParams: Promise<{ q?: string; status?: string; page?: string }>;
 }) {
-  const { q: rawQ, status } = await searchParams;
+  const { q: rawQ, status, page: rawPage } = await searchParams;
   const q = safeSearchTerm(rawQ);
+  const page = parsePage(rawPage);
+  const [from, to] = pageRange(page);
 
   const supabase = await createSupabaseServerClient();
-  let query = supabase.from("invoices").select("*").order("created_at", { ascending: false });
+  let query = supabase.from("invoices").select("*", { count: "exact" }).order("created_at", { ascending: false });
 
   if (q) query = query.or(`customer_name.ilike.%${q}%,number.ilike.%${q}%`);
   if (status) query = query.eq("status", status);
 
-  const { data } = await query;
+  const { data, count } = await query.range(from, to);
+  const total = count ?? 0;
   const invoices = (data ?? []) as Invoice[];
 
   return (
@@ -62,11 +61,11 @@ export default async function InvoicesPage({
         </button>
       </form>
 
-      <div className="overflow-hidden rounded-lg border border-border bg-white">
+      <div className="overflow-x-auto rounded-lg border border-border bg-white">
         {invoices.length === 0 ? (
           <p className="px-5 py-8 text-center text-sm text-muted">No invoices match.</p>
         ) : (
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="border-b border-border bg-surface text-left text-xs uppercase text-muted">
                 <th className="px-5 py-3 font-medium">Number</th>
@@ -87,9 +86,7 @@ export default async function InvoicesPage({
                   <td className="px-5 py-3 text-foreground">{inv.customer_name}</td>
                   <td className="px-5 py-3 text-muted">{formatSAR(inv.total)}</td>
                   <td className="px-5 py-3">
-                    <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${statusColors[inv.status] ?? ""}`}>
-                      {inv.status}
-                    </span>
+                    <StatusBadge status={isOverdue(inv) ? "overdue" : inv.status} />
                   </td>
                   <td className="px-5 py-3 text-muted">{formatDate(inv.created_at)}</td>
                 </tr>
@@ -98,6 +95,8 @@ export default async function InvoicesPage({
           </table>
         )}
       </div>
+
+      <Pagination page={page} total={total} basePath="/admin/invoices/" params={{ q, status }} />
     </div>
   );
 }

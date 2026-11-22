@@ -1,20 +1,24 @@
 import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { safeSearchTerm } from "@/lib/validation";
+import { parsePage, pageRange } from "@/lib/pagination";
+import Pagination from "@/components/admin/Pagination";
 import type { ReceiptWithInvoice, PaymentMethod } from "@/lib/types";
 import { formatSAR, formatDate } from "@/lib/format";
 
-export const metadata = { title: "Receipts — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "Receipts — Admin", robots: { index: false, follow: false } };
 
 const paymentMethods: PaymentMethod[] = ["cash", "card", "bank_transfer", "other"];
 
 export default async function ReceiptsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; method?: string }>;
+  searchParams: Promise<{ q?: string; method?: string; page?: string }>;
 }) {
-  const { q: rawQ, method } = await searchParams;
+  const { q: rawQ, method, page: rawPage } = await searchParams;
   const q = safeSearchTerm(rawQ);
+  const page = parsePage(rawPage);
+  const [from, to] = pageRange(page);
 
   const supabase = await createSupabaseServerClient();
 
@@ -26,7 +30,7 @@ export default async function ReceiptsPage({
 
   let query = supabase
     .from("receipts")
-    .select("*, invoice:invoices(number, customer_name)")
+    .select("*, invoice:invoices(number, customer_name)", { count: "exact" })
     .order("created_at", { ascending: false });
 
   if (q) {
@@ -36,7 +40,8 @@ export default async function ReceiptsPage({
   }
   if (method) query = query.eq("payment_method", method);
 
-  const { data } = await query;
+  const { data, count } = await query.range(from, to);
+  const total = count ?? 0;
   const receipts = (data ?? []) as ReceiptWithInvoice[];
 
   return (
@@ -64,13 +69,13 @@ export default async function ReceiptsPage({
         </button>
       </form>
 
-      <div className="overflow-hidden rounded-lg border border-border bg-white">
+      <div className="overflow-x-auto rounded-lg border border-border bg-white">
         {receipts.length === 0 ? (
           <p className="px-5 py-8 text-center text-sm text-muted">
             No receipts match — receipts are created automatically when an invoice is marked as paid.
           </p>
         ) : (
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="border-b border-border bg-surface text-left text-xs uppercase text-muted">
                 <th className="px-5 py-3 font-medium">Number</th>
@@ -100,6 +105,8 @@ export default async function ReceiptsPage({
           </table>
         )}
       </div>
+
+      <Pagination page={page} total={total} basePath="/admin/receipts/" params={{ q, method }} />
     </div>
   );
 }

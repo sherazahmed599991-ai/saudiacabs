@@ -2,7 +2,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { BookingRequest } from "@/lib/types";
 import InvoiceForm from "../InvoiceForm";
 
-export const metadata = { title: "New Invoice — Saudia Cabs Admin", robots: { index: false, follow: false } };
+export const metadata = { title: "New Invoice — Admin", robots: { index: false, follow: false } };
 
 export default async function NewInvoicePage({
   searchParams,
