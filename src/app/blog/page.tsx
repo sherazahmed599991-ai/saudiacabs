@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -6,18 +7,13 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
 import { BreadcrumbSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Umrah Travel Guides & Tips — Saudia Cabs Blog",
+export const metadata: Metadata = buildMetadata({
+  title: "Umrah Travel Guides & Tips",
   description:
-    "Practical guides for Umrah pilgrims: airport transfers, Ziyarat sites, Miqat points, packing lists, budgeting and everything else you need to plan a smooth trip.",
+    "Practical Umrah guides: airport transfers, Ziyarat sites, Miqat points, packing lists and budgeting to help you plan a smooth trip.",
+  path: "/blog/",
   keywords: ["umrah travel guide", "umrah tips", "umrah blog", "makkah madinah travel guides"],
-  alternates: { canonical: "https://saudiacabs.com/blog/" },
-  openGraph: {
-    title: "Umrah Travel Guides & Tips — Saudia Cabs",
-    description: "Practical guides covering every part of your Umrah journey, from airport arrival to Ziyarat and beyond.",
-    url: "https://saudiacabs.com/blog/",
-  },
-};
+});
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });

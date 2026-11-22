@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -7,10 +8,12 @@ import { Car, MapPin, Plane, Users, ArrowRight, Sparkles, Star, Wind, MessageCir
 import { LocalBusinessSchema, WebsiteSchema, FAQSchema } from "@/components/JsonLd";
 import BookingForm from "@/components/BookingForm";
 
-export const metadata: Metadata = {
-  title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
+export const metadata: Metadata = buildMetadata({
+  title: "Saudia Cabs — Umrah Taxi & Transport in Saudi Arabia",
+  absoluteTitle: "Saudia Cabs — Umrah Taxi & Transport in Saudi Arabia",
   description:
-    "Private Umrah taxi and airport transfers in Makkah, Madinah & Jeddah — plus private taxi service all over Saudi Arabia, including Riyadh, Abha, Tabuk, AlUla & Taif. Fixed quotes on WhatsApp, 24/7.",
+    "Private Umrah taxi in Makkah, Madinah & Jeddah, plus private taxi service across Saudi Arabia: Riyadh, Abha, Tabuk, AlUla, Taif. Fixed quotes, 24/7.",
+  path: "/",
   keywords: [
     "umrah taxi saudi arabia",
     "private taxi makkah madinah jeddah",
@@ -30,43 +33,7 @@ export const metadata: Metadata = {
     "toyota coaster umrah",
     "toyota hiace makkah",
   ],
-  alternates: { canonical: "https://saudiacabs.com/" },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "Saudia Cabs",
-    title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
-    description:
-      "Umrah taxi in Makkah, Madinah and Jeddah, plus private taxi service all over Saudi Arabia — Riyadh, Abha, Tabuk, AlUla and Taif. Airport transfers, Ziyarat, Miqat and intercity journeys. Book on WhatsApp, 24/7.",
-    url: "https://saudiacabs.com/",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Saudia Cabs — Trusted Umrah Transportation in Saudi Arabia",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Saudia Cabs — Private Umrah Taxi & Transportation in Saudi Arabia",
-    description:
-      "Airport transfers, Ziyarat, Miqat and intercity transfers across Saudi Arabia. Book on WhatsApp +966 59 894 7503.",
-    images: ["/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-};
+});
 
 const stats = [
   { number: "5000+", label: "Happy Pilgrims" },
@@ -169,7 +136,7 @@ const faqs: { q: string; a: string; related?: { label: string; href: string } }[
   { q: "Can I choose my vehicle?", a: "Yes. Tell us your group size and preference and we'll confirm availability — from a 4-seater Camry to a 17-seater Coaster.", related: { label: "See our full fleet", href: "/fleet/" } },
   { q: "Do you provide Ziyarat taxi services?", a: "Yes. Private guided Ziyarat tours to the major holy sites in both Makkah and Madinah, with drivers who know every location.", related: { label: "Explore our Ziyarat tours", href: "/services/ziyarat-tours/" } },
   { q: "Do you provide Miqat transfers?", a: "Yes. We stop at the correct Miqat boundary point for your route so you can enter Ihram, then continue directly to Makkah — no extra charge for the wait.", related: { label: "Learn more about Miqat transfers", href: "/services/miqat-transfer/" } },
-  { q: "How do I meet my driver at the airport?", a: "Your driver tracks your flight arrival time and waits at the arrivals area with a nameplate, coordinating with you by WhatsApp as soon as you land." },
+  { q: "How do I meet my driver at the airport?", a: "Your driver tracks your flight arrival time and waits at the arrivals area, coordinating with you by WhatsApp as soon as you land." },
   { q: "Are your prices fixed?", a: "Yes. All our rates are agreed and fixed during booking — no hidden charges, surge pricing, or extra fees for waiting time." },
   { q: "Which cities and airports do you serve?", a: "Umrah transport in Makkah, Madinah and Jeddah is our main focus, but we provide private taxi service all over Saudi Arabia — including Riyadh, Abha, Tabuk, AlUla and Taif. We handle transfers from Jeddah (KAIA), Madinah (AMAA), Riyadh, AlUla and Taif airports, and can quote for any other city on request.", related: { label: "See all airport transfer options", href: "/services/airport-transfer/" } },
 ];

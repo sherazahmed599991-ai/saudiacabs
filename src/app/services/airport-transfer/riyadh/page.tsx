@@ -1,27 +1,23 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Plane, CheckCircle, MessageCircle, ArrowRight } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Riyadh Airport Taxi — Private Transfers | Saudia Cabs",
+export const metadata: Metadata = buildMetadata({
+  title: "Riyadh Airport Taxi — Private Transfers",
   description:
-    "Private taxi transfers from Riyadh Airport to your hotel or destination in the city. 24/7 service, fixed price, professional drivers. Book on WhatsApp +966 59 894 7503.",
+    "Private taxi from Riyadh Airport to your hotel or destination in the city. 24/7 service, fixed price, professional drivers. Book on WhatsApp +966 59 894 7503.",
+  path: "/services/airport-transfer/riyadh/",
   keywords: [
     "riyadh airport taxi",
     "riyadh airport transfer",
     "private taxi riyadh",
     "riyadh airport pickup",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/airport-transfer/riyadh/" },
-  openGraph: {
-    title: "Riyadh Airport Taxi — Saudia Cabs",
-    description: "Private airport transfers in Riyadh. 24/7, fixed price, professional drivers. Book on WhatsApp.",
-    url: "https://saudiacabs.com/services/airport-transfer/riyadh/",
-  },
-};
+});
 
 const faqs = [
   { q: "Do you provide taxi service from Riyadh Airport?", a: "Yes. We provide private transfers from Riyadh Airport to your hotel or destination in the city. WhatsApp us your flight details and passenger count for a fixed quote." },
@@ -85,7 +81,7 @@ export default function RiyadhAirportTransferPage() {
             <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
               {[
                 { title: "Flight Tracking", desc: "We monitor your flight in real time. If it is delayed, your driver waits — no extra charge." },
-                { title: "Meet & Greet", desc: "Your driver will be at arrivals with a name sign and assist with your luggage." },
+                { title: "Meet & Greet", desc: "Your driver will be waiting at arrivals and assist with your luggage." },
                 { title: "24/7 Availability", desc: "Early morning, late night, any time — we are always available for your airport transfer." },
                 { title: "All Vehicle Sizes", desc: "From a solo traveller to a group of 17 — we have the right vehicle for you." },
                 { title: "Direct Route", desc: "No unnecessary stops or detours. We take you directly to your destination." },

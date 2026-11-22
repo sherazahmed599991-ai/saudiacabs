@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Plane, CheckCircle, Clock, MessageCircle, ArrowRight, MapPin } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Madinah Airport (AMAA) Taxi — Transfers to Madinah & Makkah",
+export const metadata: Metadata = buildMetadata({
+  title: "Madinah Airport (AMAA) Taxi Transfers",
   description:
-    "Private taxi from Prince Mohammad Bin Abdulaziz Airport (AMAA) to your Madinah hotel, plus intercity transfers to Makkah. 24/7, flight tracking, fixed price. Book on WhatsApp +966 59 894 7503.",
+    "Private taxi from Madinah Airport (AMAA) to your hotel, plus transfers to Makkah. 24/7, flight tracking, fixed price. Book on WhatsApp +966 59 894 7503.",
+  path: "/services/airport-transfer/madinah/",
   keywords: [
     "madinah airport taxi",
     "AMAA taxi",
@@ -16,13 +18,7 @@ export const metadata: Metadata = {
     "madinah airport to hotel taxi",
     "madinah airport to makkah taxi",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/airport-transfer/madinah/" },
-  openGraph: {
-    title: "Madinah Airport (AMAA) Taxi — Saudia Cabs",
-    description: "Private transfers from Madinah Airport to your hotel, and on to Makkah. 24/7, flight tracking, fixed price.",
-    url: "https://saudiacabs.com/services/airport-transfer/madinah/",
-  },
-};
+});
 
 const routes = [
   { from: "Madinah Airport (AMAA)", to: "Madinah Al-Munawwarah", time: "30 – 45 minutes", note: "Prince Mohammad Bin Abdulaziz Airport → Madinah hotels" },
@@ -34,7 +30,7 @@ const faqs = [
   { q: "Do you pick up from Madinah Airport (AMAA)?", a: "Yes. We offer transfers from Prince Mohammad Bin Abdulaziz Airport (AMAA) directly to your hotel in Madinah city. Journey time is approximately 30–45 minutes." },
   { q: "Can I go straight from Madinah Airport to Makkah?", a: "Yes. We can take you directly from Madinah Airport to Makkah — around a 4.5 hour drive via the Haramain Expressway — without stopping at a Madinah hotel first, if that suits your itinerary." },
   { q: "What happens if my flight is delayed?", a: "We track all flights. If your flight is delayed, your driver waits — no extra charge." },
-  { q: "Do you offer meet and greet at Madinah Airport?", a: "Yes. Your driver waits at arrivals with a name sign and helps with your luggage." },
+  { q: "Do you offer meet and greet at Madinah Airport?", a: "Yes. Your driver waits at arrivals and helps with your luggage." },
   { q: "How do I book a Madinah Airport transfer?", a: "WhatsApp us at +966 59 894 7503 with your flight number, arrival date, number of passengers and destination — we confirm within minutes." },
 ];
 
@@ -119,7 +115,7 @@ export default function MadinahAirportTransferPage() {
             <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
               {[
                 { title: "Flight Tracking", desc: "We monitor your flight in real time. If it is delayed, your driver waits — no extra charge." },
-                { title: "Meet & Greet", desc: "Your driver will be at arrivals with a name sign and assist with your luggage." },
+                { title: "Meet & Greet", desc: "Your driver will be waiting at arrivals and assist with your luggage." },
                 { title: "24/7 Availability", desc: "Early morning, late night, any time — we are always available for your airport transfer." },
                 { title: "All Vehicle Sizes", desc: "From a solo traveller to a group of 17 — we have the right vehicle for you." },
                 { title: "Direct Route", desc: "No unnecessary stops or detours. We take you directly to your destination." },

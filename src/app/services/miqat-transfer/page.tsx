@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Compass, CheckCircle, MessageCircle, ArrowRight } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Miqat Transfer Service — Private Taxi to the Miqat | Saudia Cabs",
+export const metadata: Metadata = buildMetadata({
+  title: "Miqat Transfer — Private Taxi to the Miqat",
   description:
-    "Private transfer to the Miqat boundary point before entering Ihram for Umrah. Your driver waits while you change and prepares to continue directly to Makkah. Book on WhatsApp +966 59 894 7503.",
+    "Private transfer to your Miqat before Ihram, then straight on to Makkah. Your driver waits while you change. Book on WhatsApp +966 59 894 7503.",
+  path: "/services/miqat-transfer/",
   keywords: [
     "miqat transfer",
     "miqat taxi",
@@ -19,13 +21,7 @@ export const metadata: Metadata = {
     "ihram transfer saudi arabia",
     "miqat to makkah taxi",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/miqat-transfer/" },
-  openGraph: {
-    title: "Miqat Transfer Service — Saudia Cabs",
-    description: "Private transfer to your Miqat boundary point, then directly on to Makkah. Book on WhatsApp.",
-    url: "https://saudiacabs.com/services/miqat-transfer/",
-  },
-};
+});
 
 const miqatPoints = [
   { name: "Dhul Hulaifah (Abyar Ali)", desc: "Miqat for pilgrims coming from Madinah." },

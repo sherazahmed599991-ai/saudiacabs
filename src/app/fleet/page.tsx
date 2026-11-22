@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -6,10 +7,11 @@ import Image from "next/image";
 import { Users, Wind, Sparkles, MessageCircle, ArrowRight } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Umrah Vehicle Fleet — Toyota Camry, Hiace, Coaster, GMC & Staria",
+export const metadata: Metadata = buildMetadata({
+  title: "Umrah Vehicle Fleet — Camry to Coaster",
   description:
-    "Choose from our clean AC fleet: Toyota Camry (4 seats), Hyundai Staria (7 seats), GMC Yukon (7 seats), Toyota Hiace (11 seats), Toyota Coaster (17 seats). Book on WhatsApp.",
+    "Clean AC vehicles for Umrah: Toyota Camry (4 seats), Hyundai Staria and GMC Yukon (7), Toyota Hiace (11), Toyota Coaster (17). Get a quote on WhatsApp.",
+  path: "/fleet/",
   keywords: [
     "umrah car rental makkah",
     "umrah vehicle fleet saudi arabia",
@@ -21,13 +23,7 @@ export const metadata: Metadata = {
     "11 seater makkah transport",
     "17 seater group umrah vehicle",
   ],
-  alternates: { canonical: "https://saudiacabs.com/fleet/" },
-  openGraph: {
-    title: "Umrah Vehicle Fleet — Saudia Cabs",
-    description: "Toyota Camry, Staria, GMC, Hiace & Coaster — 4 to 17 seats, clean AC vehicles for Umrah pilgrims.",
-    url: "https://saudiacabs.com/fleet/",
-  },
-};
+});
 
 const fleet = [
   { src: "/camry.webp", name: "Toyota Camry", seats: "4 Seater", tag: "Economy", h2: "Book 4-seater Camry for Umrah Taxi Service in Saudi Arabia", desc: "Perfect for individuals or couples. Comfortable, fuel-efficient, and easy to navigate through the holy city." },

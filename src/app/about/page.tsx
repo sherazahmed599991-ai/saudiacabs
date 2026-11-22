@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { CheckCircle, Star, Car, Shield, Clock, ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "About Us — Saudia Cabs",
-  description: "Learn about Saudia Cabs — trusted Umrah transportation since 2016.",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "About Us — Private Umrah Transport",
+  description:
+    "Saudia Cabs provides private Umrah taxi and transport in Makkah, Madinah and Jeddah, with drivers across Saudi Arabia. Learn about our team and fleet.",
+  path: "/about/",
+});
 
 const whyPoints = [
   { Icon: Shield, title: "Licensed & Experienced", desc: "All our drivers are licensed and trained for Umrah pilgrim transportation." },

@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/admin/", "/api/"],
     },
     sitemap: "https://saudiacabs.com/sitemap.xml",
     host: "https://saudiacabs.com",

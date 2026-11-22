@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Plane, MapPin, ArrowLeftRight, Clock, Users, BadgeDollarSign, ArrowRight, Compass } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Umrah Transportation Services — Airport Transfer, Ziyarat Tours & More",
+export const metadata: Metadata = buildMetadata({
+  title: "Umrah Transport Services",
   description:
-    "Complete Umrah transport services: airport transfers from Jeddah KAIA & Madinah AMAA, Ziyarat tours in Makkah & Madinah, Makkah–Madinah intercity transfers, and group packages. Book 24/7.",
+    "Airport transfers, Ziyarat tours, Makkah–Madinah transfers and group packages in Saudi Arabia. Private cars, fixed quotes, 24/7 on WhatsApp.",
+  path: "/services/",
   keywords: [
     "umrah transportation services",
     "airport transfer makkah",
@@ -19,13 +21,7 @@ export const metadata: Metadata = {
     "umrah taxi saudi arabia",
     "pilgrims transport service",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/" },
-  openGraph: {
-    title: "Umrah Transportation Services — Saudia Cabs",
-    description: "Airport transfers, Ziyarat tours, intercity transfers & group packages in Makkah, Madinah & Jeddah.",
-    url: "https://saudiacabs.com/services/",
-  },
-};
+});
 
 const services = [
   {

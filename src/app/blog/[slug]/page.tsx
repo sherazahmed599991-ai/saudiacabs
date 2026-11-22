@@ -7,6 +7,7 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { blogPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog-data";
 import RichText from "@/components/blog/RichText";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/JsonLd";
+import { buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -17,17 +18,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPostBySlug(slug);
   if (!post) return {};
 
-  return {
-    title: `${post.title} — Saudia Cabs`,
+  // The layout template adds " | Saudia Cabs" (14 chars). Titles that would
+  // run past ~60 characters with it keep their own title and skip the suffix.
+  const fitsWithBrand = post.title.length <= 46;
+
+  const meta = buildMetadata({
+    title: post.title,
+    absoluteTitle: fitsWithBrand ? undefined : post.title,
     description: post.metaDescription,
     keywords: post.keywords,
-    alternates: { canonical: `https://saudiacabs.com/blog/${post.slug}/` },
-    openGraph: {
-      title: post.title,
-      description: post.metaDescription,
-      url: `https://saudiacabs.com/blog/${post.slug}/`,
-      type: "article",
-    },
+    path: `/blog/${post.slug}/`,
+    type: "article",
+  });
+
+  return {
+    ...meta,
+    openGraph: { ...meta.openGraph, type: "article", publishedTime: post.publishDate },
   };
 }
 

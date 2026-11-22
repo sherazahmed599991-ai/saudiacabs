@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { MapPin, MessageCircle, CheckCircle, ArrowRight } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Ziyarat Tours in Makkah & Madinah — Holy Sites Visit | Saudia Cabs",
+export const metadata: Metadata = buildMetadata({
+  title: "Ziyarat Tours in Makkah & Madinah",
   description:
-    "Guided Ziyarat tours to all major holy sites in Makkah and Madinah. Visit Jabal Uhud, Quba Mosque, Masjid al-Qiblatayn, Jabal Noor, Jabal Thawr, and more. Book on WhatsApp +966 59 894 7503.",
+    "Private Ziyarat tours to holy sites in Makkah and Madinah: Jabal Uhud, Quba Mosque, Jabal Noor and more. Book on WhatsApp +966 59 894 7503.",
+  path: "/services/ziyarat-tours/",
   keywords: [
     "ziyarat tour makkah",
     "ziyarat tour madinah",
@@ -21,13 +23,7 @@ export const metadata: Metadata = {
     "makkah holy sites transport",
     "madinah holy sites transport",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/ziyarat-tours/" },
-  openGraph: {
-    title: "Ziyarat Tours Makkah & Madinah — Saudia Cabs",
-    description: "Visit all major holy sites in Makkah & Madinah — Jabal Uhud, Quba, Jabal Noor, Ghaar-e-Hira and more. Book on WhatsApp.",
-    url: "https://saudiacabs.com/services/ziyarat-tours/",
-  },
-};
+});
 
 const makkahSites = [
   { name: "Masjid al-Haram", desc: "The Grand Mosque surrounding the Holy Kaaba." },

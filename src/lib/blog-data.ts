@@ -38,7 +38,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "How far is Jeddah Airport from Makkah?" },
       { type: "p", text: "The drive from KAIA to central Makkah is roughly 80-95 km depending on your hotel's location near the Haram, and takes about 60-90 minutes by road in normal traffic. During Ramadan or the Hajj season this can stretch longer, so it's worth building in extra time rather than cutting it close." },
       { type: "h2", text: "What happens after you land" },
-      { type: "p", text: "After immigration and baggage claim, most pilgrims head to the dedicated Umrah pilgrim terminal area if travelling on an Umrah visa. If you've arranged a private transfer, your driver will typically wait in the arrivals hall with a name board — no need to queue for a taxi rank or negotiate a fare on the spot." },
+      { type: "p", text: "After immigration and baggage claim, most pilgrims head to the dedicated Umrah pilgrim terminal area if travelling on an Umrah visa. If you've arranged a private transfer, your driver will typically wait in the arrivals hall — no need to queue for a taxi rank or negotiate a fare on the spot." },
       { type: "h2", text: "Immigration during peak season" },
       { type: "p", text: "KAIA's Hajj and Umrah terminals are built for large volumes of pilgrims, but queues at immigration can still stretch to an hour or more during Ramadan and the weeks around Hajj. Keep your visa documents, vaccination records and hotel confirmation easily accessible in your hand luggage rather than packed away, since you may be asked for them more than once between the gate and the arrivals hall." },
       { type: "h2", text: "Choosing the right vehicle" },

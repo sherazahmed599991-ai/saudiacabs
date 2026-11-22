@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Plane, CheckCircle, Clock, MessageCircle, ArrowRight, MapPin } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Jeddah Airport (KAIA) Taxi — Transfers to Makkah & Madinah",
+export const metadata: Metadata = buildMetadata({
+  title: "Jeddah Airport (KAIA) Taxi to Makkah",
   description:
-    "Private taxi from Jeddah King Abdulaziz International Airport (KAIA) to Makkah and Madinah. 24/7 service, flight tracking, meet & greet. Book on WhatsApp +966 59 894 7503.",
+    "Private taxi from Jeddah Airport (KAIA) to Makkah and Madinah. 24/7 service, flight tracking, meet & greet. Book on WhatsApp +966 59 894 7503.",
+  path: "/services/airport-transfer/jeddah/",
   keywords: [
     "jeddah airport taxi",
     "KAIA taxi",
@@ -17,13 +19,7 @@ export const metadata: Metadata = {
     "king abdulaziz airport transfer",
     "jeddah airport pickup umrah",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/airport-transfer/jeddah/" },
-  openGraph: {
-    title: "Jeddah Airport (KAIA) Taxi — Saudia Cabs",
-    description: "Private transfers from Jeddah Airport to Makkah and Madinah. 24/7, flight tracking, fixed price.",
-    url: "https://saudiacabs.com/services/airport-transfer/jeddah/",
-  },
-};
+});
 
 const routes = [
   { from: "Jeddah Airport (KAIA)", to: "Makkah Al-Mukarramah", time: "1 – 1.5 hours", note: "Direct route via Makkah First Ring Rd / Route 40" },
@@ -36,7 +32,7 @@ const faqs = [
   { q: "Do you provide a taxi from Jeddah Airport to Madinah?", a: "Yes. We provide private transfers directly from King Abdulaziz International Airport (KAIA) in Jeddah to Madinah — around a 4 hour drive via the Haramain Expressway. WhatsApp us your flight details for a fixed quote." },
   { q: "How much does a taxi from Jeddah Airport to Makkah cost?", a: "The fare depends on your vehicle choice and group size. We offer fixed, all-inclusive rates with no hidden charges — WhatsApp us for an instant quote." },
   { q: "What happens if my flight is delayed?", a: "We track all flights. If your flight is delayed, your driver waits at no extra charge." },
-  { q: "Do you offer meet and greet at Jeddah Airport?", a: "Yes. Your driver waits at the arrivals area holding a sign with your name and assists with your luggage." },
+  { q: "Do you offer meet and greet at Jeddah Airport?", a: "Yes. Your driver waits at the arrivals area and assists with your luggage." },
   { q: "How do I book a Jeddah Airport transfer?", a: "WhatsApp us at +966 59 894 7503 with your flight number, arrival date, number of passengers and destination — we confirm within minutes." },
 ];
 
@@ -121,7 +117,7 @@ export default function JeddahAirportTransferPage() {
             <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
               {[
                 { title: "Flight Tracking", desc: "We monitor your flight in real time. If it is delayed, your driver waits — no extra charge." },
-                { title: "Meet & Greet", desc: "Your driver will be at arrivals with a name sign and assist with your luggage." },
+                { title: "Meet & Greet", desc: "Your driver will be waiting at arrivals and assist with your luggage." },
                 { title: "24/7 Availability", desc: "Early morning, late night, any time — we are always available for your airport transfer." },
                 { title: "All Vehicle Sizes", desc: "From a solo traveller to a group of 17 — we have the right vehicle for you." },
                 { title: "Direct Route", desc: "No unnecessary stops or detours. We take you directly to your hotel." },

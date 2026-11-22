@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Plane, CheckCircle, MessageCircle, ArrowRight, MapPin, Landmark, Mountain } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Airport Transfers in Saudi Arabia — Jeddah, Madinah, Riyadh & More",
+export const metadata: Metadata = buildMetadata({
+  title: "Airport Transfers in Saudi Arabia",
   description:
-    "Private airport transfers across Saudi Arabia — Jeddah KAIA, Madinah AMAA, Riyadh, AlUla and Taif. 24/7 service, flight tracking, meet & greet. Book on WhatsApp +966 59 894 7503.",
+    "Private airport transfers: Jeddah KAIA, Madinah AMAA, Riyadh, AlUla and Taif. 24/7, flight tracking, meet & greet. Book on WhatsApp +966 59 894 7503.",
+  path: "/services/airport-transfer/",
   keywords: [
     "airport transfer saudi arabia",
     "jeddah airport to makkah transfer",
@@ -19,13 +21,7 @@ export const metadata: Metadata = {
     "umrah airport pickup",
     "umrah arrival transfer",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/airport-transfer/" },
-  openGraph: {
-    title: "Airport Transfers in Saudi Arabia — Saudia Cabs",
-    description: "24/7 airport pickup from Jeddah KAIA, Madinah AMAA, Riyadh, AlUla and Taif. Flight tracking, meet & greet, all vehicle sizes. Book on WhatsApp.",
-    url: "https://saudiacabs.com/services/airport-transfer/",
-  },
-};
+});
 
 const airports = [
   { Icon: Plane, name: "Jeddah Airport (KAIA)", desc: "Transfers to Makkah and Madinah", href: "/services/airport-transfer/jeddah/" },
@@ -41,7 +37,7 @@ const faqs = [
   { q: "Do you pick up from Madinah Airport (AMAA)?", a: "Yes. We offer transfers from Prince Mohammad Bin Abdulaziz Airport (AMAA) in Madinah directly to your hotel in Madinah city. Journey time is approximately 30–45 minutes." },
   { q: "What happens if my flight is delayed?", a: "We track all flights. If your flight is delayed, your driver will wait. You will not be charged extra for flight delays." },
   { q: "How do I book an airport transfer?", a: "Simply WhatsApp us at +966 59 894 7503 with your flight number, arrival date, number of passengers, and hotel name. We will confirm your booking within minutes." },
-  { q: "Do you offer meet and greet service at the airport?", a: "Yes. Your driver will be waiting at the arrivals area holding a sign with your name. We also assist with luggage." },
+  { q: "Do you offer meet and greet service at the airport?", a: "Yes. Your driver will be waiting at the arrivals area. We also assist with luggage." },
 ];
 
 export default function AirportTransferPage() {
@@ -122,7 +118,7 @@ export default function AirportTransferPage() {
             <div className="rg-3" style={{ display: "grid", gap: "24px" }}>
               {[
                 { title: "Flight Tracking", desc: "We monitor your flight in real time. If it is delayed, your driver waits — no extra charge." },
-                { title: "Meet & Greet", desc: "Your driver will be at arrivals with a name sign and assist with your luggage." },
+                { title: "Meet & Greet", desc: "Your driver will be waiting at arrivals and assist with your luggage." },
                 { title: "24/7 Availability", desc: "Early morning, late night, any time — we are always available for your airport transfer." },
                 { title: "All Vehicle Sizes", desc: "From a solo traveller to a group of 17 — we have the right vehicle for you." },
                 { title: "Direct Route", desc: "No unnecessary stops or detours. We take you directly to your hotel." },

@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import BookingForm from "@/components/BookingForm";
 import { LocalBusinessSchema, BreadcrumbSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Book Online — Saudia Cabs Umrah Transportation",
+export const metadata: Metadata = buildMetadata({
+  title: "Book Umrah Taxi Online",
   description:
-    "Book your Umrah transportation online. Airport transfers, Ziyarat tours and Makkah–Madinah transfers — submit your trip details and we confirm on WhatsApp within minutes.",
+    "Book your Umrah taxi online: airport transfers, Ziyarat tours and Makkah–Madinah rides. Send your trip details and we confirm on WhatsApp in minutes.",
+  path: "/book-online/",
   keywords: [
     "book umrah ride online",
     "umrah transport booking",
@@ -16,13 +18,7 @@ export const metadata: Metadata = {
     "online booking umrah taxi",
     "book airport transfer saudi",
   ],
-  alternates: { canonical: "https://saudiacabs.com/book-online/" },
-  openGraph: {
-    title: "Book Your Umrah Ride Online — Saudia Cabs",
-    description: "Submit your trip details online and we confirm on WhatsApp within minutes.",
-    url: "https://saudiacabs.com/book-online/",
-  },
-};
+});
 
 export default function BookOnlinePage() {
   return (

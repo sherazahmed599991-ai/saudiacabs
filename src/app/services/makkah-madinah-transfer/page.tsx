@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowLeftRight, MessageCircle, CheckCircle, ArrowRight, Clock } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Makkah to Madinah Transfer — Intercity Umrah Transport | Saudia Cabs",
+export const metadata: Metadata = buildMetadata({
+  title: "Makkah to Madinah Private Transfer",
   description:
-    "Safe and direct intercity transfer between Makkah and Madinah. 4–5 hour journey with AC vehicles, no unnecessary stops. Private transfers for 1 to 17 passengers. Book on WhatsApp +966 59 894 7503.",
+    "Direct private transfer between Makkah and Madinah: 4–5 hours in AC vehicles for 1 to 17 passengers. Book on WhatsApp +966 59 894 7503.",
+  path: "/services/makkah-madinah-transfer/",
   keywords: [
     "makkah to madinah transfer",
     "madinah to makkah transfer",
@@ -19,13 +21,7 @@ export const metadata: Metadata = {
     "makkah madinah bus alternative",
     "private transfer makkah madinah",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/makkah-madinah-transfer/" },
-  openGraph: {
-    title: "Makkah ↔ Madinah Transfer — Saudia Cabs",
-    description: "Private intercity transfer between Makkah and Madinah. Direct route, AC vehicles, 1–17 passengers. Book on WhatsApp.",
-    url: "https://saudiacabs.com/services/makkah-madinah-transfer/",
-  },
-};
+});
 
 const faqs = [
   { q: "How long does it take to travel from Makkah to Madinah?", a: "The journey from Makkah to Madinah takes approximately 4–5 hours by road depending on traffic. We take the most direct route with no unnecessary stops." },

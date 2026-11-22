@@ -1,27 +1,23 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import GeneralInquiryForm from "@/components/GeneralInquiryForm";
 import { LocalBusinessSchema, BreadcrumbSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Contact Saudia Cabs — Questions & Support",
+export const metadata: Metadata = buildMetadata({
+  title: "Contact Us — Umrah Transport Support",
   description:
-    "Have a question about our Umrah transportation? Reach Saudia Cabs on WhatsApp, phone, or send us a message. Looking to book a ride? Visit our Book Online page.",
+    "Questions about Umrah transport? Reach Saudia Cabs on WhatsApp +966 59 894 7503, by phone, or send us a message. Support is available 24/7.",
+  path: "/contact/",
   keywords: [
     "contact saudia cabs",
     "umrah transport support",
     "whatsapp umrah taxi contact",
     "saudia cabs phone number",
   ],
-  alternates: { canonical: "https://saudiacabs.com/contact/" },
-  openGraph: {
-    title: "Contact Saudia Cabs",
-    description: "Questions about our Umrah transportation services? Reach us on WhatsApp, phone, or by message.",
-    url: "https://saudiacabs.com/contact/",
-  },
-};
+});
 
 export default function ContactPage() {
   return (

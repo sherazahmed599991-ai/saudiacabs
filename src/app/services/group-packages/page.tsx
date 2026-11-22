@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Users, MessageCircle, CheckCircle, ArrowRight } from "lucide-react";
 import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Group Umrah Transport Packages — Families & Large Groups | Saudia Cabs",
+export const metadata: Metadata = buildMetadata({
+  title: "Group Umrah Transport Packages",
   description:
-    "Group Umrah transportation packages for families and large groups in Makkah & Madinah. Toyota Hiace (11 seats) and Toyota Coaster (17 seats) with dedicated coordinator. Book on WhatsApp +966 59 894 7503.",
+    "Umrah transport for families and large groups in Makkah & Madinah. Toyota Hiace (11 seats) and Coaster (17 seats). Book on WhatsApp +966 59 894 7503.",
+  path: "/services/group-packages/",
   keywords: [
     "group umrah transport",
     "umrah group package makkah",
@@ -20,13 +22,7 @@ export const metadata: Metadata = {
     "umrah family package transport",
     "group transport makkah madinah",
   ],
-  alternates: { canonical: "https://saudiacabs.com/services/group-packages/" },
-  openGraph: {
-    title: "Group Umrah Transport Packages — Saudia Cabs",
-    description: "Toyota Hiace & Coaster for groups of 8–17+ passengers. Airport transfers, Ziyarat tours & intercity travel for families.",
-    url: "https://saudiacabs.com/services/group-packages/",
-  },
-};
+});
 
 const vehicles = [
   { name: "Toyota Hiace", seats: "11 Seater", best: "Medium groups & families", icon: "🚐" },
