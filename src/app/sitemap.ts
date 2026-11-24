@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-data";
 import { locations } from "@/lib/locations";
 import { routes } from "@/lib/routes";
+import { fleet } from "@/lib/fleet";
 
 const BASE_URL = "https://saudiacabs.com";
 
@@ -13,6 +14,20 @@ const SITE_LAST_UPDATED = new Date("2026-11-21");
 export default function sitemap(): MetadataRoute.Sitemap {
 
 
+
+  const extraEntries: MetadataRoute.Sitemap = [
+    ...fleet.map((v) => ({
+      url: `${BASE_URL}/fleet/${v.slug}/`,
+      lastModified: SITE_LAST_UPDATED,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    { url: `${BASE_URL}/faq/`, lastModified: SITE_LAST_UPDATED, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/partners/`, lastModified: SITE_LAST_UPDATED, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/partners/driver-registration/`, lastModified: SITE_LAST_UPDATED, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE_URL}/terms-conditions/`, lastModified: SITE_LAST_UPDATED, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/privacy-policy/`, lastModified: SITE_LAST_UPDATED, changeFrequency: "yearly", priority: 0.3 },
+  ];
 
   const placeEntries: MetadataRoute.Sitemap = [
     { url: `${BASE_URL}/locations/`, lastModified: SITE_LAST_UPDATED, changeFrequency: "monthly", priority: 0.85 },
@@ -49,6 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...blogEntries,
     ...placeEntries,
+    ...extraEntries,
     {
       url: `${BASE_URL}/`,
       lastModified: SITE_LAST_UPDATED,

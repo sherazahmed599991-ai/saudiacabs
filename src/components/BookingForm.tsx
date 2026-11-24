@@ -1,6 +1,8 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
+import { getVehicleByName } from "@/lib/fleet";
 import { useFormStatus } from "react-dom";
 import { MessageCircle, Send } from "lucide-react";
 import { submitBookingRequest } from "@/app/actions";
@@ -39,6 +41,8 @@ function SubmitButton() {
 }
 
 export default function BookingForm() {
+  // /book-online/?vehicle=Toyota%20Hiace pre-fills the message (name is checked against the fleet list).
+  const vehicle = getVehicleByName(useSearchParams().get("vehicle") ?? "")?.name;
   const [state, formAction] = useActionState(submitBookingRequest, initialBookingState);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -104,7 +108,8 @@ export default function BookingForm() {
           </div>
           <div>
             <label htmlFor="message" style={labelStyle}>Message (optional)</label>
-            <textarea id="message" name="message" rows={4} placeholder="Pickup location, flight number, special requests..." style={{ ...inputStyle, resize: "vertical", fontFamily: "inherit" }} />
+            <textarea id="message" name="message" rows={4} defaultValue={vehicle ? `Preferred vehicle: ${vehicle}
+` : undefined} placeholder="Pickup location, flight number, special requests..." style={{ ...inputStyle, resize: "vertical", fontFamily: "inherit" }} />
           </div>
 
           {state.status !== "idle" && (
@@ -125,6 +130,9 @@ export default function BookingForm() {
           )}
 
           <SubmitButton />
+            <p style={{ fontSize: "12.5px", color: "#5C6B5A", textAlign: "center" }}>
+              By sending this form you agree to our <a href="/privacy-policy/" style={{ color: "#8F6F25", textDecoration: "underline" }}>Privacy Policy</a> and <a href="/terms-conditions/" style={{ color: "#8F6F25", textDecoration: "underline" }}>Terms</a>.
+            </p>
         </form>
 
         <a

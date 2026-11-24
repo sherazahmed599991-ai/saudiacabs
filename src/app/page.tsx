@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -464,7 +465,9 @@ export default function Home() {
 
         {/* Booking Request Form */}
         <div id="book" style={{ backgroundColor: "#ffffff" }}>
+          <Suspense fallback={null}>
           <BookingForm />
+        </Suspense>
         </div>
 
       </main>

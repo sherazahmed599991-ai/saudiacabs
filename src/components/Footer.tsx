@@ -9,8 +9,12 @@ const quickLinks = [
   { label: "Fleet", href: "/fleet/" },
   { label: "About Us", href: "/about/" },
   { label: "Blog", href: "/blog/" },
+  { label: "Locations", href: "/locations/" },
+  { label: "Routes", href: "/routes/" },
+  { label: "FAQ", href: "/faq/" },
   { label: "Book Online", href: "/book-online/" },
   { label: "Contact", href: "/contact/" },
+  { label: "Partners", href: "/partners/" },
 ];
 const services = [
   { label: "Airport Transfer", href: "/services/airport-transfer/" },
@@ -174,6 +178,10 @@ export default function Footer() {
           <p style={{ fontSize: "13px", color: "#A9B7A5" }}>
             © {new Date().getFullYear()} Saudia Cabs. All rights reserved.
           </p>
+          <nav aria-label="Legal" style={{ display: "flex", gap: "18px", fontSize: "13px" }}>
+            <a href="/terms-conditions/" style={{ color: "#A9B7A5" }}>Terms &amp; Conditions</a>
+            <a href="/privacy-policy/" style={{ color: "#A9B7A5" }}>Privacy Policy</a>
+          </nav>
           <p style={{ fontSize: "13px", color: "#A9B7A5", display: "flex", alignItems: "center", gap: "4px" }}>
             Made with <Heart size={13} color="#e8453c" fill="#e8453c" /> for Umrah pilgrims
           </p>

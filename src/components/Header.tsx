@@ -38,6 +38,8 @@ const menus: NavMenu[] = [
     items: [
       { label: "About Us", href: "/about/" },
       { label: "Blog", href: "/blog/" },
+      { label: "FAQ", href: "/faq/" },
+      { label: "Partners", href: "/partners/" },
       { label: "Contact", href: "/contact/" },
     ],
     viewAll: { label: "Book Online", href: "/book-online/" },

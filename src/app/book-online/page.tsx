@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { buildMetadata } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -40,7 +41,9 @@ export default function BookOnlinePage() {
             </p>
           </div>
         </section>
-        <BookingForm />
+        <Suspense fallback={null}>
+          <BookingForm />
+        </Suspense>
       </main>
       <Footer />
     </>

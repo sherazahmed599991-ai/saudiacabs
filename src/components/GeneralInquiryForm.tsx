@@ -48,7 +48,17 @@ function SubmitButton() {
 // General questions, not a trip booking — same booking_requests pipeline
 // (so it still shows up in /admin/leads) but with a fixed service type and
 // none of the trip-specific fields (passengers, travel date).
-export default function GeneralInquiryForm() {
+export default function GeneralInquiryForm({
+  serviceType = "General Inquiry",
+  heading = "Send Us a Message",
+  messageLabel = "Message",
+  messagePlaceholder = "How can we help?",
+}: {
+  serviceType?: string;
+  heading?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+}) {
   const [state, formAction] = useActionState(submitBookingRequest, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -63,9 +73,13 @@ export default function GeneralInquiryForm() {
       <div className="container rg-2" style={{ display: "grid", gap: "60px", alignItems: "start" }}>
         {/* Form */}
         <div>
-          <h2 style={{ marginBottom: "28px", fontSize: "28px" }}>Send Us a Message</h2>
+          <h2 style={{ marginBottom: "28px", fontSize: "28px" }}>{heading}</h2>
           <form ref={formRef} action={formAction} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <input type="hidden" name="serviceType" value="General Inquiry" />
+            <input type="hidden" name="serviceType" value={serviceType} />
+            <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+              <label htmlFor="website">Leave this field empty</label>
+              <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
             <div>
               <label htmlFor="fullName" style={labelStyle}>Full Name</label>
               <input id="fullName" name="fullName" type="text" autoComplete="name" required placeholder="Your full name" style={inputStyle} />
@@ -75,8 +89,8 @@ export default function GeneralInquiryForm() {
               <input id="phone" name="phone" type="tel" autoComplete="tel" required placeholder="+966 xxx xxx xxx" style={inputStyle} />
             </div>
             <div>
-              <label htmlFor="message" style={labelStyle}>Message</label>
-              <textarea id="message" name="message" rows={5} required placeholder="How can we help?" style={{ ...inputStyle, resize: "vertical", fontFamily: "inherit" }} />
+              <label htmlFor="message" style={labelStyle}>{messageLabel}</label>
+              <textarea id="message" name="message" rows={5} required placeholder={messagePlaceholder} style={{ ...inputStyle, resize: "vertical", fontFamily: "inherit" }} />
             </div>
 
             {state.status !== "idle" && (
@@ -97,6 +111,9 @@ export default function GeneralInquiryForm() {
             )}
 
             <SubmitButton />
+            <p style={{ fontSize: "12.5px", color: "#5C6B5A", textAlign: "center" }}>
+              By sending this form you agree to our <a href="/privacy-policy/" style={{ color: "#8F6F25", textDecoration: "underline" }}>Privacy Policy</a> and <a href="/terms-conditions/" style={{ color: "#8F6F25", textDecoration: "underline" }}>Terms</a>.
+            </p>
           </form>
         </div>
 
